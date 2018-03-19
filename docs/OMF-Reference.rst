@@ -118,6 +118,68 @@ Property Types and Formats
   The following keywords are used to define a Type Property: 
 
 
++----------------+-------------+---------------+------------------------------------------------------------+
+| Property       | Type        | Optionality   | Details                                                    |
++================+=============+===============+============================================================+
+| type           | String      | Required      | Required type of the Type Property which must match one of |
+|                |             |               | those listed in the table below.                           |
++----------------+-------------+---------------+------------------------------------------------------------+
+| format         | String      | Optional      | Optional format of the Type Propety type that, if          |
+|                |             |               | specified, must be from the table below.                   |
++----------------+-------------+---------------+------------------------------------------------------------+
+| isindex        | Boolean     | Required      | One Property must be designated as the index by supplying  |
+|                |             |               | the isindex keyword with a value of true. The designated   |
+|                |             |               | isindex property is used to uniquely identify discrete     |
+|                |             |               | Data objects so that they can be updated or deleted after  |
+|                |             |               | their initial creation.                                    |
++----------------+-------------+---------------+------------------------------------------------------------+
+| isname         | Boolean     | Optional      | One Property may be optionally designated as the name by   |
+|                |             |               | supplying the isname keyword with a value of true. Because |
+|                |             |               | the index must be unique across all Data objects, the      |
+|                |             |               | isname keyword allows for multiple distinct Data objects   |
+|                |             |               | to share a common name.                                    |
++----------------+-------------+---------------+------------------------------------------------------------+
+| name           | String      | Optional      | Optional friendly name for the Property.                   |
++----------------+-------------+---------------+------------------------------------------------------------+
+| description    | String      | Optional      | Optional description for the Property.                     |
++----------------+-------------+---------------+------------------------------------------------------------+
+
+OMF supports setting the format keyword to specify how particular JSON type should be interpreted in the PI System. 
+
+
+
++----------------+-------------+---------------+-------------------+
+| Type           | Format      | PI AF Type    | PI DA Type        |
++================+=============+===============+===================+
+| array          |             | Array         |                   |
++----------------+-------------+---------------+-------------------+
+| boolean        |             | Boolean       |                   |
++----------------+-------------+---------------+-------------------+
+| integer        | int64       | Int64         | Float64           |
++----------------+-------------+---------------+-------------------+
+| integer        | int32       | Int32         | Int32             |
++----------------+-------------+---------------+-------------------+
+| integer        | int16       | Int16         | Int16             |
++----------------+-------------+---------------+-------------------+
+| integer        | uint64      | Uint64        | Float64           |
++----------------+-------------+---------------+-------------------+
+| integer        | uint32      | Uint32        | Float64           |
++----------------+-------------+---------------+-------------------+
+| number         | uint16      | Uint16        | Float64           |
++----------------+-------------+---------------+-------------------+
+| number         | float64     | Double        | Float64           |
++----------------+-------------+---------------+-------------------+
+|umber           | float32     | Single        | Float32           |
++----------------+-------------+---------------+-------------------+
+| number         | float16     | Single        |Float16            |
++----------------+-------------+---------------+-------------------+
+| object         | dictionary  |               |                   |
++----------------+-------------+---------------+-------------------+
+| string         |             | String        | String            |
++----------------+-------------+---------------+-------------------+
+| string         | date-time   | DateTime      | Timestamp         |
++----------------+-------------+---------------+-------------------+
+
 
 
 
