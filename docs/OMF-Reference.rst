@@ -1,3 +1,4 @@
+
 OMF reference information
 =========================
 
@@ -55,6 +56,30 @@ OMF message types fall into three categories: Type, Container, and Data, which a
 Type Message 
   In a PI System, types are interpreted as either asset types or container types depending on type classification. 
   The keywords in the type definition are interpreted as follows: 
+
+
++----------------+-------------+---------------+------------------------------------------------------------+
+| Property       | Type        | Optionality   | Details                                                    |
++================+=============+===============+============================================================+
+| Id             | String      | Required      | Unique identifier of the type. See below for details.      |
++----------------+-------------+---------------+------------------------------------------------------------+
+| classification | String      | Required      | Specifies whether the type is static or dynamic. See       |
+|                |             |               | below sections for details.                                |
++----------------+-------------+---------------+------------------------------------------------------------+
+| type           | String      | Required      | Inherited from JSON Schema. Must be set to object.         |
++----------------+-------------+---------------+------------------------------------------------------------+
+| properties     | Object      | Required      | Key-value pairs representing properties of the type.       |
++----------------+-------------+---------------+------------------------------------------------------------+
+| Name           | String      | Optional      | Friendly name of the type.                                 |
++----------------+-------------+---------------+------------------------------------------------------------+
+| description    | String      | Optional      | Description of the type.                                   |
++----------------+-------------+---------------+------------------------------------------------------------+
+| version        | String      | Optional      | Version of the type. If omitted version 1.0.0.0 is assumed.|
++----------------+-------------+---------------+------------------------------------------------------------+
+| tags           | Array       | Optional      | Not supported.                                             |
++----------------+-------------+---------------+------------------------------------------------------------+
+| metadata       | Object      | Optional      | Not supported.                                             |
++----------------+-------------+---------------+------------------------------------------------------------+
 
 
 
