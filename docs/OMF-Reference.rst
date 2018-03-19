@@ -343,12 +343,76 @@ Parent/Child Asset Links
 |                |             |             |               | assumed.                                     |
 +----------------+-------------+-------------+---------------+----------------------------------------------+
 
+Note that only asset objects of type static can be used in both source and target properties. 
+
+Asset/Container Links 
+  Asset/Container relationship between assets and container properties presented in PI System as children 
+  AF Attributes configured with PI point references under the asset AF Element parent. For this type of link, 
+  source and target properties have the following keywords: 
 
 
++----------------+-------------+-------------+---------------+----------------------------------------------+
+| Property       | Keyword     | Type        | Optionality   | Details                                      |
++================+=============+=============+===============+==============================================+
+source  typeid  String  Required  ID of the static type definition used by the asset, which will become a parent of the target asset. 
++----------------+-------------+-------------+---------------+----------------------------------------------+
+source  index  String  Required  Asset name value as provided during its creation to isindex property. 
++----------------+-------------+-------------+---------------+----------------------------------------------+
+source  typeversion  String  Optional  Optional version of the type to be linked to or from. If omitted version 1.0.0.0 is assumed. 
++----------------+-------------+-------------+---------------+----------------------------------------------+
+target  containerid  String  Required  ID of the container created from dynamic type definition. 
++----------------+-------------+-------------+---------------+----------------------------------------------+
+target  typeversion  String  Optional  Optional version of the type to be linked to or from. 
++----------------+-------------+-------------+---------------+----------------------------------------------+
+
+Note that only asset objects of static type can be used in the source property. In addition, only container 
+objects of dynamic types can be used in the target property. 
 
 
+Feeding data to PI points 
+  In PI System, container values are presented as timeseries snapshot values sent to PI points. The properties 
+  in the container objects are interpreted as follows: 
+ 
 
++----------------+-------------+---------------+------------------------------------------------------------+
+| Property       | Type        | Optionality   | Details                                                    |
++================+=============+===============+============================================================+
+containerid  String  Required  ID of the container created from  dynamic type. 
++----------------+-------------+---------------+------------------------------------------------------------+
+typeversion  String  Optional  Version of the dynamic type used by the Container. If omitted, version 1.0.0.0 is used. 
++----------------+-------------+---------------+------------------------------------------------------------+
+values  Array  Required  Array of timeseries data value objects. Each object contains a key-value pairs representing property names and their values of the dynamic type used by the Container. 
++----------------+-------------+---------------+------------------------------------------------------------+
 
+Notes:
+  All type definitions, containers, and assets, and the linkage should be sent to the Relay ingress endpoint 
+  only one time: when the OMF application instance is started for the first time. Under normal circumstances, 
+  it should not be re-transmitted every time the producer is restarted. The Relay will have all necessary 
+  information in its cache to successfully receive only container data values. 
 
+  Dynamic type of the container may have more than one property (except of isindex, which always serves as a timestamp). 
+  Remember that each property is presented as PI point in PI System. Values for every property of the container, 
+  specified in its type definition, must be provided to the container values. All of these values will be sent 
+  to PI Data Archive with the same timestamp. If you omit one of the values, you will end up with its default 
+  in the Archive. For example, if you omit a value to a number property, PI point will receive a value of zero, 
+  which might be undesirable. 
+ 
+HTTP Response and Error Codes 
+-----------------------------
 
+The following status codes are returned by PI Connector Relay accepting OMF messages over HTTP. 
+ 
 
++----------------+-------------+---------------+------------------------------------------------------------+
+| Status code    | Type        | Optionality   | Details                                                    |
++================+=============+===============+============================================================+
+
+ Status code  Description 
+204 No Content  OMF message was successfully processed. Response message does not have any content. 
+400 Bad request  The OMF message was malformed or not understood. The client should not retry sending the message without modifications. 
+401 Unauthorized  Authentication failed. Provided Producer Token was not recognized. Your OMF application instance is not registered with PI Data Collection Manager. 
+403 Forbidden  Authentication succeeded, but not authorized. Indicates one of the following: 1 – Producer Token Expiration Date has been reached, or 2 – Producer Token has been revoked. 
+413 Payload Too Large  Payload size exceeds OMF body size limit. Maximum size of either compressed or uncompressed data should not exceed 192Kb. 
+500 Internal Server Error  The server encountered an unexpected condition. Errors can be found in the Windows Event Viewer on the machine running PI Connector Relay. 
+
+ 
