@@ -248,6 +248,31 @@ Creating Assets
 |                |             |               | static type used by the Asset.                             |
 +----------------+-------------+---------------+------------------------------------------------------------+  
   
-  
-  
+Note that in values array, properties of each asset designated with the ``isindex`` keyword must be unique. 
+The scope of uniqueness is the producer.   
+
+Creating Links 
+  Array of Links is a pre-defined type with the typeid ``__Link``. It has the following properties: 
+
++----------------+-------------+---------------+------------------------------------------------------------+
+| Property       | Type        | Optionality   | Details                                                    |
++================+=============+===============+============================================================+
+| typeid         | String      | Required      | Value must be __Link                                       |
++----------------+-------------+---------------+------------------------------------------------------------+
+| values         | Array       | Required      | Array of link objects.                                     |
++----------------+-------------+---------------+------------------------------------------------------------+
+
+
+Each link object has the following properties: 
+
++----------------+-------------+---------------+------------------------------------------------------------+
+| Property       | Type        | Optionality   | Details                                                    |
++================+=============+===============+============================================================+
+| source         | String      | Required      | An object representing the source of the link or its       |
+|                |             |               | parent.                                                    |
++----------------+-------------+---------------+------------------------------------------------------------+
+| target         | String      | Required      | An object representing the target of the link or its child.|
++----------------+-------------+---------------+------------------------------------------------------------+
+
+
 
