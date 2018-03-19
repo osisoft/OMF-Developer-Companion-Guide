@@ -180,8 +180,74 @@ OMF supports setting the format keyword to specify how particular JSON type shou
 | string         | date-time   | DateTime      | Timestamp         |
 +----------------+-------------+---------------+-------------------+
 
+Notes:
+  The property type object, and the array of item type object are not supported by the PI System. 
+  Properties with ``isindex`` keyword must be of type String. 
+  Poperties of a dynamic type with the ``isindex`` keyword must also include a format that has been set to date-time. 
+  Properties with the ``isname`` keyword must be of type String. 
+  
+  Container Message 
+    In the PI System, containers are interpreted as instances of data streams. The keywords in the container 
+    objects are interpreted as follows: 
+
++----------------+-------------+---------------+------------------------------------------------------------+
+| Property       | Type        | Optionality   | Details                                                    |
++================+=============+===============+============================================================+
+| id             | String      | Required      | Unique identifier of the Container.                        |
++----------------+-------------+---------------+------------------------------------------------------------+
+| typeid         | String      | Required      | ID of the dynamic type used by the Container.              |
++----------------+-------------+---------------+------------------------------------------------------------+
+| typeversion    | String      | Optional      | Version of the dynamic type used by the Container. If      |
+|                |             |               | omitted, version 1.0.0.0 is used.                          |
++----------------+-------------+---------------+------------------------------------------------------------+
+| name           | String      | Optional      | Not supported.                                             |
++----------------+-------------+---------------+------------------------------------------------------------+
+| description    | String      | Optional      | Not supported.                                             |
++----------------+-------------+---------------+------------------------------------------------------------+
+| tags           | String      | Optional      | Not supported.                                             |
++----------------+-------------+---------------+------------------------------------------------------------+
+| metadata       | String      | Optional      | Not supported.                                             |
++----------------+-------------+---------------+------------------------------------------------------------+
 
 
+The Id value and its association with the typeid value must be unique for all producers (OMF application instances) 
+of a given type (which you specify during producer registration). This means that in advanced scenarios, you 
+may send container object declarations only once for all registered producers of this OMF application type; 
+all of them will reuse the same declarations cached in the Relay, located in the following folder:
+
+::
+
+  C:\ProgramData\OSIsoft\Tau\Relay.ConnectorHost folder. 
+
+Data Message 
+------------
+
+In a PI System, a data message serves three different purposes: 
+
+  1: Creating concrete assets from a static type definition, 
+  
+  2: Linking assets and containers together and forming AF Element/Attribute structure
+  
+  3: Feeding container data values into PI Data Archive PI points. 
 
 
+Creating Assets 
+  In a PI System, an asset is interpreted as an AF Element. The properties in the asset objects are interpreted as follows: 
+  
+
++----------------+-------------+---------------+------------------------------------------------------------+
+| Property       | Type        | Optionality   | Details                                                    |
++================+=============+===============+============================================================+
+| typeid         | String      | Required      | ID of the static type used by the Assets.                  |
++----------------+-------------+---------------+------------------------------------------------------------+
+| typeversion    | String      | Optional      | Version of the static type used by the Assets. If omitted, |
+|                |             |               | version 1.0.0.0 is used.                                   |
++----------------+-------------+---------------+------------------------------------------------------------+
+| values         | Array       | Required      | Array of Asset objects. Each object contains a key-value   |
+|                |             |               | pairs representing property names and their values of the  |
+|                |             |               | static type used by the Asset.                             |
++----------------+-------------+---------------+------------------------------------------------------------+  
+  
+  
+  
 
