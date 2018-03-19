@@ -82,6 +82,41 @@ Type Message
 +----------------+-------------+---------------+------------------------------------------------------------+
 
 
+The ID value must be unique for all producers (OMF application instances) of a given type, which you specify 
+during producer registration. This means that in advanced scenarios, you may send type definitions only once 
+for all registered producers of this OMF application type – all of them will reuse the same definition cached 
+in the Relay, in the following folder:
+
+::
+
+  C:\ProgramData\OSIsoft\Tau\Relay.ConnectorHost folder. 
+ 
+Types with classification Static 
+  A type with classification ``static`` represents metadata describing an asset type as AF Element Template 
+  in the PI System. 
+
+  The Id property of the static type is used to create and link concrete assets, to create AF Elements and 
+  their structure in the PI System. 
+  
+  If the optional name property is omitted from the definition, the Id value is used to name the AF Element 
+  Template; otherwise the name value is used. The template name is assembled from the following parts: 
+  
+::
+
+  OMF.{producer type as provided during its registration} Connector.{id|name} 
+  
+  Each property of the type, except those that are marked with keywords ``isindex`` or ``isname``, represent 
+  Configuration AF Attributes (not referencing any data) in the AF Template. 
+ 
+Types with classification Dynamic 
+  Type with classification dynamic represents a data stream type (set of observed or calculated values) 
+  presented in PI System as PI points. 
+  Each property of this type, except the property with the keyword ``isindex``, represent PI point referenced 
+  AF Attribute in the AF Template, after you link this type under a static type. 
+ 
+Property Types and Formats 
+  The following keywords are used to define a Type Property: 
+
 
 
 
