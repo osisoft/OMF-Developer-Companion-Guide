@@ -274,5 +274,81 @@ Each link object has the following properties:
 | target         | String      | Required      | An object representing the target of the link or its child.|
 +----------------+-------------+---------------+------------------------------------------------------------+
 
+Three types of link objects are supported by the PI System: 
+
+1. Root asset links, which create top level AF elements
+
+2. Parent/child asset links, which create parent/child tree structure between AF elements, 
+
+3. Asset/container links, which attach all container properties as PI point referenced AF attributes to the AF element. 
+
+Root Asset Links 
+  Root asset is presented in PI System as a top-level AF element in the AF structure tree, which is a child 
+  of a parent AF Element created for your OMF application instance (producer). For this type of the link, 
+  the source and target properties have the following keywords: 
+
+
++----------------+-------------+-------------+---------------+----------------------------------------------+
+| Property       | Keyword     | Type        | Optionality   | Details                                      |
++================+=============+=============+===============+==============================================+
+| source         | typeid      | String      | Required      | ID of the static type definition used by the |
+|                |             |             |               | asset.                                       |
++----------------+-------------+-------------+---------------+----------------------------------------------+
+| source         | index       | String      | Required      | Value must be set to __ROOT.                 |
++----------------+-------------+-------------+---------------+----------------------------------------------+
+| target         | typeid      | String      | Required      | ID of the static type definition used by the |
+|                |             |             |               | asset.                                       |
++----------------+-------------+-------------+---------------+----------------------------------------------+
+| target         | index       | String      | Required      | Asset name value as provided during its      |
+|                |             |             |               | creation to isindex property.                |
++----------------+-------------+-------------+---------------+----------------------------------------------+
+| target         | typeversion | String      | Optional      | Optional version of the type to be linked to |
+|                |             |             |               | or from. If omitted version 1.0.0.0 is       |
+|                |             |             |               | assumed.                                     |
++----------------+-------------+-------------+---------------+----------------------------------------------+
+
+Notes:
+  Only asset objects of type static can be used in the target property. 
+  Static type ID specified in the target typeid must be put into the source typeid. 
+
+Parent/Child Asset Links 
+  Parent/Child relationship between assets presented in PI System as child AF element attached to a 
+  top level or any other sub-tree AF element parent. For this type of the link, source and target 
+  properties have the following keywords: 
+
+
++----------------+-------------+-------------+---------------+----------------------------------------------+
+| Property       | Keyword     | Type        | Optionality   | Details                                      |
++================+=============+=============+===============+==============================================+
+| source         | typeid      | String      | Required      | ID of the static type definition used by the |
+|                |             |             |               | asset, which will become a parent of the     |
+|                |             |             |               | target asset.                                |
++----------------+-------------+-------------+---------------+----------------------------------------------+
+| source         | index       | String      | Required      | Asset name value as provided during its      |
+|                |             |             |               | creation to isindex property.                |
++----------------+-------------+-------------+---------------+----------------------------------------------+
+| source         | typeversion | String      | Optional      | Optional version of the type to be linked to |
+|                |             |             |               | or from. If omitted version 1.0.0.0 is       |
+|                |             |             |               | assumed.                                     |
++----------------+-------------+-------------+---------------+----------------------------------------------+
+| target         | typeid      | String      | Required      | ID of the static type definition used by the |
+|                |             |             |               | asset, which will become a child of the      |
+|                |             |             |               | source asset.                                |
++----------------+-------------+-------------+---------------+----------------------------------------------+
+| target         | index       | String      | Required      | Asset name value as provided during its      |
+|                |             |             |               | creation to isindex property.                |
++----------------+-------------+-------------+---------------+----------------------------------------------+
+| target         | typeversion | String      | Optional      | Optional version of the type to be linked to |
+|                |             |             |               | or from. If omitted version 1.0.0.0 is       |
+|                |             |             |               | assumed.                                     |
++----------------+-------------+-------------+---------------+----------------------------------------------+
+
+
+
+
+
+
+
+
 
 
