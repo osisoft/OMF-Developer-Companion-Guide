@@ -1,12 +1,13 @@
 OMF Quick Start 
 ===============
 
-This section provides a brief introduction to all of the steps necessary to begin the development process. Using the OMF 1.0 
-specification and the steps in this section, it is possible to develop a minimal data ingress OMF application. More 
-advanced applications ones can be found in the OMF samples. 
- 
+This section provides a brief introduction to the steps necessary to begin the development of an OMF application to send
+data to a PI system. Using the OMF 1.0 
+specification and the steps in this section, you can create a minimal data ingress OMF application. More 
+advanced applications can be found in the OMF samples. 
+
 To speed the development process, it is recommended that all of the following products be 
-installed on your computer the machine(s) in the same Windows Domain, and that you have sufficient access rights. 
+installed on your computer and the compters in the same Windows Domain. Also ensure you have sufficient access rights. 
 
 Note that this topic demonstrates the basic OMF application development process, and not the administrative aspects 
 of configuring and securing the entire solution you build using OSIsoft PI System. 
@@ -16,45 +17,45 @@ Development Environment
 
 Before you begin, the following products should be installed and configured:
 
-* PI Data collection Manager 
+* PI Data collection Manager (DCM)
 
-  As a developer, you must have administrative access to the DCM. You will need to be able to create PI Server, 
-  Relay, and OMF application nodes, establish connections between them, and retrieve the necessary registration 
-  information, which you will use in your OMF application in authentication and authorization process. For 
+  As a developer, you must have administrative access to the DCM. You must have sufficient access to create a PI Server, 
+  PI Connector Relay, OMF application nodes. You must also be able to establish connections between them, and retrieve the 
+  necessary registration 
+  information, which you will use in your OMF application for the authentication and authorization process. For 
   more information, see *PI Data Collection Manager* user manual. 
   
 * PI Connector Relay
 
-  It is highly recommended that you install and configure your own development instance of the Relay. During 
-  development process, you will need to stop and re-start Relay process, manually delete cache files, and 
-  perform other actions, which may distract other data sources from sending data to the PI System. For more 
-  information, see PI Connector Relay user manual. 
+  You should install and configure your own development instance of the PI Connector Relay. During the
+  development process, you will need to stop and re-start the PI Connector Relay process, manually delete cache files, and 
+  perform other actions which may prevent other data sources from sending data to the PI System. For more 
+  information, see *PI Connector Relay* user manual. 
 
 * PI System 
 
-  As a developer, you need an administrative access to PI AF Server and PI Data Archive. While developing 
-  your OMF application, you will need to delete an intermediate AF templates, elements, and PI points. For 
-  more information, see PI System Explorer user manual and PI System Management Tools user manual. 
+  You must have administrative access to the PI AF Server and PI Data Archive. While developing 
+  your OMF application, you will need to delete intermediate AF templates, elements, and PI points. For 
+  more information, see the *PI System Explorer* user manual and the *PI System Management Tools* user manual. 
 
 Programming Language and Running Platform
 -----------------------------------------
 
-The OMF 1.0 specification is written in the language- and platform-agnostic way. All that you need to start 
-ingress data into PI System, HTTP client and JSON libraries. OSIsoft provides several code samples for your 
-convenience, written in Python 3.X, NodeJS and Microsoft C# languages. Note, that you may use them only as 
-a reference material, they are not intended to be used in production systems, nor OSIsoft has any 
-responsibilities... 
-For more information about licensing, see sample code file headers. 
+The OMF 1.0 specification is written to be language and platform-agnostic. To start sending data to an OSIsoft PI
+system, all that you need is an HTTP client and JSON libraries. For your convenience, OSIsoft provides several 
+code samples  written in Python 3.X, NodeJS and Microsoft C#. Note, that you may use the samples only as 
+reference material; the samples are not intended to be used in production systems.
 
-First Minimal OMF Application
------------------------------
+For more information about licensing, see the sample code file headers. 
 
-This section shows very simple OMF application, which feeds data into the PI Data Archive, without sending 
-any meta-data using PI Asset Framework and PI AF Server. 
+Creating a minimal OMF application
+----------------------------------
+
+This section illustrates a very simple OMF application. Using PI Asset Framework and PI AF Server, the application 
+feeds data into the PI Data Archive without sending any meta-data. 
  
-Before you begin, you need to register the application your develop with PI Data Collection Manager (DCM), 
-and get Producer Token, and Relay Ingress URL from it, to be used in your application. See DCM user manual 
-on how to do this. 
+Before you begin, you must register your application with the PI Data Collection Manager (DCM), 
+obtain a Producer Token and Relay Ingress URL. See *DCM* user manual for more information. 
 
 Step 1 – OMF message headers
 ----------------------------
