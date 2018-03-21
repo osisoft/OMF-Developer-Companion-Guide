@@ -7,8 +7,8 @@ in these topics represent a companion to the OMF specification that describes ho
 
 .. toctree::
 
-   OMF_Quick_Start 
    OMF-Dev-Intro 
+   OMF_Quick_Start 
    OMF-Reference 
 
    
