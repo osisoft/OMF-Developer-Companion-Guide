@@ -2,7 +2,8 @@
 OMF reference information
 =========================
 
-The OMF specification (located here) is generic in that it does not specify a particular back-end system. 
+The OMF specification (located `here <http://omf-docs.osisoft.com/en/v1.0/>`_) is generic in that it does not specify a particular back-end system. 
+
 This topic is a companion to the OMF specification which describes how OMF is interpreted by PI System back-end system. 
 
 Size Limits and Special Characters 
