@@ -43,8 +43,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'OSIsoft Qi'
-copyright = '2017, OSIsoft LLC'
+project = 'OMF Developer Companion'
+copyright = '2018, OSIsoft LLC'
 author = 'OSIsoft'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -119,7 +119,7 @@ else:
     feed_num_items = 15
     feed_skip_regex = '(.)*index'
     feed_base_url = 'http://qi-docs.osisoft.com/en/latest/'
-    feed_description = 'Qi Documentation'
+    feed_description = 'OMF Developer Companion'
     feed_author = 'OSIsoft'
 
 def setup(app):
