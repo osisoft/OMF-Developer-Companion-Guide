@@ -425,8 +425,8 @@ The following status codes are returned by PI Connector Relay accepting OMF mess
 | 401 Unauthorized    | Authentication failed. Provided Producer Token was not recognized. Your OMF application instance is    |
 |                     | not registered with PI Data Collection Manager.                                                        |
 +---------------------+--------------------------------------------------------------------------------------------------------+
-| 403 Forbidden       | Authentication succeeded, but not authorized. Indicates one of the following:                          |
-|                     | 2 – Producer Token Expiration Date has been reached, or 3 – Producer Token has been revoked.           |
+| 403 Forbidden       | Authentication succeeded, but not authorized. Indicates that either the Producer Token expiration date |
+|                     | has been reached (error code 2) or that the Producer Token has been revoked (error code 3).            |
 +---------------------+--------------------------------------------------------------------------------------------------------+
 | 413 Payload Too     | Payload size exceeds OMF body size limit. Maximum size of either compressed or uncompressed data       |
 | large               | should not exceed 192Kb.                                                                               |
