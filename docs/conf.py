@@ -255,7 +255,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'Qi', 'OMF Developer's Companion Guide',
+    ('index', 'Qi', 'OMF Developer Guide',
      ['OSIsoft'], 1)
 ]
 
@@ -269,8 +269,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'qi', 'OMF Developer's Companion Guide',
-   'OSIsoft', 'Qi', 'OMF Developer's Companion Guide',
+  ('index', 'qi', 'OMF Developer Guide',
+   'OSIsoft', 'Qi', 'OMF Developer Guide',
    'Qi Development'),
 ]
 
