@@ -39,7 +39,16 @@ Therefore, you must calculate character lengths for both OMF application type, a
 
 As a rule of thumb, keep the sizes of all names and identifies to 50 – 60 characters at most (although even these sizes 
 might result in your application being difficult to read and understand.)
- 
+
+Note: PI Data Archive does not support Unicode. Therefore, all data that gets created in PI Data Archive must 
+be formatted as ASCII in addition to the requirement that it contain no control character. For example, if a 
+tag is named as follows, both ``producertoken`` and ``measurement`` must be formatted in ASCII; Unicode is not 
+accepted (that is, no Japanese, Chinese, and so on):
+
+``{producertoken}.{measurement name}``
+
+
+
 Message Headers
 ---------------
 
@@ -90,7 +99,7 @@ in the Relay, in the following folder:
 
 ::
 
-  C:\ProgramData\OSIsoft\Tau\Relay.ConnectorHost folder. 
+  %ProgramData%\OSIsoft\Tau\Relay.ConnectorHost 
  
 Types with classification Static 
   A type with classification ``static`` represents metadata describing an asset type as AF Element Template 
@@ -218,7 +227,7 @@ all of them will reuse the same declarations cached in the Relay, located in the
 
 ::
 
-  C:\ProgramData\OSIsoft\Tau\Relay.ConnectorHost folder. 
+  %ProgramData%\OSIsoft\Tau\Relay.ConnectorHost
 
 Data Message 
 ------------
