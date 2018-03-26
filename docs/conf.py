@@ -225,7 +225,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  ('index', 'qidocs.tex', 'OMF Developer's Companion Guide',
+  ('index', 'qidocs.tex', 'OMF Companion Guide',
    'OSIsoft', 'manual'),
 ]
 
