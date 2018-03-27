@@ -1,0 +1,111 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600);
+
+body, h1, h2, .rst-content .toctree-wrapper p.caption, h3, h4, h5, h6, legend {
+    font-family: "Open Sans"!important;
+}
+
+body, p, .wy-menu-vertical a {
+       font-size: 14px!important;
+}
+
+textarea:focus, 
+input:focus, 
+button:focus,
+a:focus,
+.btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+*:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.btn, .btn-neutral {
+    background: #2980b9!important;
+    color:white!important;
+    font-size: 14px;
+    border: 1px solid #2c3e50;
+    cursor: pointer;
+    height: 40px;
+    padding: 10px 10px 2px 10px;
+    border-radius: 3px;
+    box-shadow: none;
+}
+
+.btn:hover, .btn-neutral:hover {
+    background: #3498db!important;
+    border: 1px solid #2c3e50;
+}
+
+.wy-nav-content-wrap{Background:none!important;}
+ .rst-content tt.literal, .rst-content tt.literal, .rst-content code.literal {
+    color: #000;
+}
+hr.docutils {
+    background-color: #000;
+    border: 0 none;
+    color: #000;
+    height: 2px;
+}
+.fa-github {
+ display: none !important;
+}
+.wy-side-nav-search input[type=text]{
+	height: 40px;
+	border: none!important;
+	border-radius: 0!important;
+}
+.icon-home{
+	display: none!important;
+}
+.wy-side-nav-search > div.version{
+	display: none!important;
+}
+.wy-nav-side {
+	background: #2c3e50!important;
+}
+.wy-menu-vertical a:hover {
+    color:white!important;
+}
+.rst-versions{	
+     	background: #2c3e50!important;
+     	border-top: solid 4px #e67e22!important;
+}
+.rst-versions .rst-current-version{
+     	color:#3498db!important;
+	background-color: #2c3e50!important;
+}
+.wy-table-responsive table td, .wy-table-responsive table th {
+    white-space: normal;
+}
+
+/** Scrollbar CSS - Webkit **/
+::-webkit-scrollbar {
+    width: 15px;
+}
+ 
+::-webkit-scrollbar-track {
+    border-radius: 0;
+    background: #19242D;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    border:1px solid #34495e;
+    background: #2c3e50;
+    border-top:1px solid #7f8c8d;
+    border-left: 1px solid #7f8c8d;    
+}
+
+/** Scrollbar CSS - MS **/
+body, div  {
+    scrollbar-face-color: #2c3e50;
+    scrollbar-highlight-color: #7f8c8d;
+    scrollbar-3dlight-color: #7f8c8d;
+    scrollbar-darkshadow-color: #34495e;
+    scrollbar-shadow-color: #34495e;
+    scrollbar-arrow-color: #2c3e50;
+    scrollbar-track-color: #19242D;
+}
