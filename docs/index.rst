@@ -24,12 +24,14 @@ describes how OMF is interpreted by the PI Server back end.
 
 .. toctree::
 
-   OMF-Dev-Intro 
-   OMF_Quick_Start 
-   OMF-Reference 
+   OMF-Dev-Intro
+   OMF_Quick_Start
 
-   
-   
+.. toctree::
+
+   OMF-Reference
+   OMF_Msg_Types
+
    
    
 
