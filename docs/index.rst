@@ -29,8 +29,9 @@ describes how OMF is interpreted by the PI Server back end.
 
 .. toctree::
 
-   OMF-Reference
    OMF_Msg_Types
+   OMF-Reference
+
 
    
    
