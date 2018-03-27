@@ -1,6 +1,6 @@
 
-OMF reference information
-=========================
+OMF restrictions, limits, and error codes
+=========================================
 
 The OMF specification (located `here <http://omf-docs.osisoft.com/en/v1.0/>`_) is generic in that it does not specify a particular back-end system. 
 
@@ -40,10 +40,9 @@ Therefore, you must calculate character lengths for both OMF application type, a
 As a rule of thumb, keep the sizes of all names and identifies to 50 – 60 characters at most (although even these sizes 
 might result in your application being difficult to read and understand.)
 
-Note: PI Data Archive does not support Unicode. Therefore, all data that gets created in PI Data Archive must 
-be formatted as ASCII in addition to the requirement that it contain no control character. For example, if a 
-tag is named as follows, both ``producertoken`` and ``measurement`` must be formatted in ASCII; Unicode is not 
-accepted (that is, no Japanese, Chinese, and so on):
+Note: PI Data Archive does not support Unicode. Therefore, all data sent to PI Data Archive must 
+be formatted as JSON using UTF-8 character encoding, in addition to the requirement that it contain no control 
+characters. For example, in the tag shown below, both ``producertoken`` and ``measurement`` must use UTF-8 character encoding:
 
 ``{producertoken}.{measurement name}``
 
@@ -76,8 +75,8 @@ The following status codes are returned by PI Connector Relay accepting OMF mess
 | 401 Unauthorized    | Authentication failed. Provided Producer Token was not recognized. Your OMF application instance is    |
 |                     | not registered with PI Data Collection Manager.                                                        |
 +---------------------+--------------------------------------------------------------------------------------------------------+
-| 403 Forbidden       | Authentication succeeded, but not authorized. Indicates that either the Producer Token expiration date |
-|                     | has been reached (error code 2) or that the Producer Token has been revoked (error code 3).            |
+| 403 Forbidden       | Authentication succeeded, but not authorized. Indicates either that the Producer Token expiration date |
+|                     | has been reached, or the Producer Token has been revoked. See Error Codes (below) for details.         |
 +---------------------+--------------------------------------------------------------------------------------------------------+
 | 413 Payload Too     | Payload size exceeds OMF body size limit. Maximum size of either compressed or uncompressed data       |
 | large               | should not exceed 192Kb.                                                                               |
@@ -86,3 +85,6 @@ The following status codes are returned by PI Connector Relay accepting OMF mess
 | error               | machine running PI Connector Relay.                                                                    |
 +---------------------+--------------------------------------------------------------------------------------------------------+
  
+Error code table here
+
+
