@@ -4,7 +4,7 @@ OMF reference information
 
 The OMF specification (located `here <http://omf-docs.osisoft.com/en/v1.0/>`_) is generic in that it does not specify a particular back-end system. 
 
-This topic is a companion to the OMF specification which describes how OMF is interpreted by PI System back-end system. 
+This topic is a companion to the OMF specification which describes how OMF is interpreted by PI Server back-end system. 
 
 Size Limits and Special Characters 
 ----------------------------------
@@ -28,7 +28,7 @@ from the following list:
   *'?;{}[]|`"\ 
 
 Note that it is not possible to specify the maximum length of several names or identities at once (similar to the PI 
-System back-end which are presented as concatenations of each other). For example, if a PI AF Element Template name 
+Server back-end which are presented as concatenations of each other). For example, if a PI AF Element Template name 
 consists of the following parts: 
 
 OMF.{*OMF application type*} 
@@ -52,7 +52,7 @@ accepted (that is, no Japanese, Chinese, and so on):
 Message Headers
 ---------------
 
-A description of each of the headers can be found in the *OMF specification*. When sending messages to a PI System, the value 
+A description of each of the headers can be found in the *OMF specification*. When sending messages to PI Server, the value 
 of the ``producertoken`` header must be set to a Producer Token that is obtained from the PI Data Collection Manager. 
 
 The Producer Token is used to authenticate the sender and to authorize the sender to feed data to PI Connector 
@@ -64,7 +64,7 @@ Message Types
 OMF message types fall into three categories: Type, Container, and Data, which are described below. 
 
 Type Message 
-  In a PI System, types are interpreted as either asset types or container types depending on type classification. 
+  In the PI Server, types are interpreted as either asset types or container types depending on type classification. 
   The keywords in the type definition are interpreted as follows: 
 
 
@@ -103,10 +103,10 @@ in the Relay, in the following folder:
  
 Types with classification Static 
   A type with classification ``static`` represents metadata describing an asset type as AF Element Template 
-  in the PI System. 
+  in PI Server. 
 
   The Id property of the static type is used to create and link concrete assets, to create AF Elements and 
-  their structure in the PI System. 
+  their structure in PI Server. 
   
   If the optional name property is omitted from the definition, the Id value is used to name the AF Element 
   Template; otherwise the name value is used. The template name is assembled from the following parts: 
@@ -120,7 +120,7 @@ Types with classification Static
  
 Types with classification Dynamic 
   Type with classification dynamic represents a data stream type (set of observed or calculated values) 
-  presented in PI System as PI points. 
+  presented in PI Server as PI points. 
   Each property of this type, except the property with the keyword ``isindex``, represent PI point referenced 
   AF Attribute in the AF Template, after you link this type under a static type. 
  
@@ -154,7 +154,7 @@ Property Types and Formats
 | description    | String      | Optional      | Optional description for the Property.                     |
 +----------------+-------------+---------------+------------------------------------------------------------+
 
-OMF supports setting the format keyword to specify how particular JSON type should be interpreted in the PI System. 
+OMF supports setting the format keyword to specify how particular JSON type should be interpreted in PI Server. 
 
 
 
@@ -191,13 +191,13 @@ OMF supports setting the format keyword to specify how particular JSON type shou
 +----------------+-------------+---------------+-------------------+
 
 Notes:
-  The property type object, and the array of item type object are not supported by the PI System. 
+  The property type object, and the array of item type object are not supported by PI Server. 
   Properties with ``isindex`` keyword must be of type String. 
   Poperties of a dynamic type with the ``isindex`` keyword must also include a format that has been set to date-time. 
   Properties with the ``isname`` keyword must be of type String. 
   
   Container Message 
-    In the PI System, containers are interpreted as instances of data streams. The keywords in the container 
+    In PI Server, containers are interpreted as instances of data streams. The keywords in the container 
     objects are interpreted as follows: 
 
 +----------------+-------------+---------------+------------------------------------------------------------+
@@ -232,7 +232,7 @@ all of them will reuse the same declarations cached in the Relay, located in the
 Data Message 
 ------------
 
-In a PI System, a data message serves three different purposes: 
+In PI Server, a data message serves three different purposes: 
 
   1: Creating concrete assets from a static type definition, 
   
@@ -242,7 +242,7 @@ In a PI System, a data message serves three different purposes:
 
 
 Creating Assets 
-  In a PI System, an asset is interpreted as an AF Element. The properties in the asset objects are interpreted as follows: 
+  In a PI Server, an asset is interpreted as an AF Element. The properties in the asset objects are interpreted as follows: 
   
 
 +----------------+-------------+---------------+------------------------------------------------------------+
@@ -284,7 +284,7 @@ Each link object has the following properties:
 | target         | String      | Required      | An object representing the target of the link or its child.|
 +----------------+-------------+---------------+------------------------------------------------------------+
 
-Three types of link objects are supported by the PI System: 
+Three types of link objects are supported by PI Server: 
 
 1. Root asset links, which create top level AF elements
 
@@ -293,7 +293,7 @@ Three types of link objects are supported by the PI System:
 3. Asset/container links, which attach all container properties as PI point referenced AF attributes to the AF element. 
 
 Root Asset Links 
-  Root asset is presented in PI System as a top-level AF element in the AF structure tree, which is a child 
+  Root asset is presented in PI Server as a top-level AF element in the AF structure tree, which is a child 
   of a parent AF Element created for your OMF application instance (producer). For this type of the link, 
   the source and target properties have the following keywords: 
 
@@ -322,7 +322,7 @@ Notes:
   Static type ID specified in the target typeid must be put into the source typeid. 
 
 Parent/Child Asset Links 
-  Parent/Child relationship between assets presented in PI System as child AF element attached to a 
+  Parent/Child relationship between assets presented in PI Server as child AF element attached to a 
   top level or any other sub-tree AF element parent. For this type of the link, source and target 
   properties have the following keywords: 
 
@@ -356,7 +356,7 @@ Parent/Child Asset Links
 Note that only asset objects of type static can be used in both source and target properties. 
 
 Asset/Container Links 
-  Asset/Container relationship between assets and container properties presented in PI System as children 
+  Asset/Container relationship between assets and container properties presented in PI Server as children 
   AF Attributes configured with PI point references under the asset AF Element parent. For this type of link, 
   source and target properties have the following keywords: 
 
@@ -387,7 +387,7 @@ objects of dynamic types can be used in the target property.
 
 
 Feeding data to PI points 
-  In PI System, container values are presented as timeseries snapshot values sent to PI points. The properties 
+  In PI Server, container values are presented as timeseries snapshot values sent to PI points. The properties 
   in the container objects are interpreted as follows: 
  
 
@@ -411,7 +411,7 @@ Notes:
   information in its cache to successfully receive only container data values. 
 
   Dynamic type of the container may have more than one property (except of isindex, which always serves as a timestamp). 
-  Remember that each property is presented as PI point in PI System. Values for every property of the container, 
+  Remember that each property is presented as PI point in PI Server. Values for every property of the container, 
   specified in its type definition, must be provided to the container values. All of these values will be sent 
   to PI Data Archive with the same timestamp. If you omit one of the values, you will end up with its default 
   in the Archive. For example, if you omit a value to a number property, PI point will receive a value of zero, 
