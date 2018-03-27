@@ -2,7 +2,7 @@ OMF Quick Start
 ===============
 
 This section provides a brief introduction to the steps necessary to begin the development of an OMF application to send
-data to a PI system. Using the OMF 1.0 
+data to a PI Server. Using the OMF 1.0 
 specification and the steps in this section, you can create a minimal data ingress OMF application. More 
 advanced applications can be found in the OMF samples. 
 
@@ -29,10 +29,10 @@ Before you begin, the following products should be installed and configured:
 
   You should install and configure your own development instance of the PI Connector Relay. During the
   development process, you will need to stop and re-start the PI Connector Relay process, manually delete cache files, and 
-  perform other actions which may prevent other data sources from sending data to the PI System. For more 
+  perform other actions which may prevent other data sources from sending data to PI Server. For more 
   information, see *PI Connector Relay* user manual. 
 
-* PI System 
+* PI Server 
 
   You must have administrative access to the PI AF Server and PI Data Archive. While developing 
   your OMF application, you will need to delete intermediate AF templates, elements, and PI points. For 
@@ -41,8 +41,8 @@ Before you begin, the following products should be installed and configured:
 Programming Language and Running Platform
 -----------------------------------------
 
-The OMF 1.0 specification is written to be language and platform-agnostic. To start sending data to an OSIsoft PI
-system, all that you need is an HTTP client and JSON libraries. For your convenience, OSIsoft provides several 
+The OMF 1.0 specification is written to be language and platform-agnostic. To start sending data to OSIsoft PI
+Server, all that you need is an HTTP client and JSON libraries. For your convenience, OSIsoft provides several 
 code samples  written in Python 3.X, NodeJS and Microsoft C#. Note, that you may use the samples only as 
 reference material; the samples are not intended to be used in production systems.
 
@@ -126,7 +126,7 @@ Set "messagetype" header to the value "container". This message should be sent a
 Step 4 – provide data values to the container and send them in OMF Data message 
 -------------------------------------------------------------------------------
 
-Finally, you need to assemble data values for the created container, and send it to the PI System. 
+Finally, you need to assemble data values for the created container, and send it to PI Server. 
 
 ::
 
@@ -144,7 +144,7 @@ Step 5 – validate your data
 ---------------------------
 
 Before you can call your development process "done", you need to validate whether everything was created in 
-PI System, and your data successfully arrived into PI Data Archive. This simple example creates one PI point 
+PI Server, and your data successfully arrived into PI Data Archive. This simple example creates one PI point 
 and stores one value in it. 
 
 To validate, open PI System Management Tools, navigate to Points/Point Builder, and search for your PI point. 
@@ -152,8 +152,8 @@ Its name should be as follows:
 
 ``name of OMF application that you registered with DCM.container1`` 
 
-Hover the mouse over the name and validate the PI point value and timestamp. For more information, see PI System 
-*Management Tools user manual*. 
+Hover the mouse over the name and validate the PI point value and timestamp. For more information, see *PI System 
+Management Tools user manual*. 
 
 Step 6 – cleanup
 ----------------
