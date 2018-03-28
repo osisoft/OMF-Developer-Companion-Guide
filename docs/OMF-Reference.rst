@@ -44,9 +44,14 @@ Note: PI Data Archive does not support Unicode. Therefore, all data sent to PI D
 be formatted as JSON using UTF-8 character encoding, in addition to the requirement that it contain no control 
 characters. For example, in the tag shown below, both ``producertoken`` and ``measurement`` must use UTF-8 character encoding:
 
-``{producertoken}.{measurement name}``
+``{omf application name}.{measurement name}``
 
+Note: PI Data Historian does not support ``Boolean`` data types. To overcome this limitation, you can use enumeration sets, 
+specifying a set of two values. For example: 
 
+“type”: “string”, “enum”: [“False”, “True”]. 
+
+The PI point data type for enumeration sets is ``digital``.
 
 Message Headers
 ---------------
