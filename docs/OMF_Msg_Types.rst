@@ -100,7 +100,7 @@ Property Types and Formats
 | description    | String      | Optional      | Optional description for the Property.                        |
 +----------------+-------------+---------------+---------------------------------------------------------------+
 
-Note: PI Data Archive does not support ``Boolean`` data types. To overcome the limitation, you can use enumeration 
+Note: PI Data Archive does not support ``Boolean`` data types. To overcome this limitation, you can use enumeration 
 sets, specifying a set of two values. For example: 
 
 ``“type”: “string”, “enum”: [“False”, “True”].``
