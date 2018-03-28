@@ -69,31 +69,43 @@ Property Types and Formats
   The following keywords are used to define a Type Property: 
 
 
-+----------------+-------------+---------------+------------------------------------------------------------+
-| Property       | Type        | Optionality   | Details                                                    |
-+================+=============+===============+============================================================+
-| type           | String      | Required      | Required type of the Type Property which must match one of |
-|                |             |               | those listed in the table below.                           |
-+----------------+-------------+---------------+------------------------------------------------------------+
-| format         | String      | Optional      | Optional format of the Type Propety type that, if          |
-|                |             |               | specified, must be from the table below.                   |
-+----------------+-------------+---------------+------------------------------------------------------------+
-| isindex        | Boolean     | Required      | One Property must be designated as the index by supplying  |
-|                |             |               | the isindex keyword with a value of true. The designated   |
-|                |             |               | isindex property is used to uniquely identify discrete     |
-|                |             |               | Data objects so that they can be updated or deleted after  |
-|                |             |               | their initial creation.                                    |
-+----------------+-------------+---------------+------------------------------------------------------------+
-| isname         | Boolean     | Optional      | One Property may be optionally designated as the name by   |
-|                |             |               | supplying the isname keyword with a value of true. Because |
-|                |             |               | the index must be unique across all Data objects, the      |
-|                |             |               | isname keyword allows for multiple distinct Data objects   |
-|                |             |               | to share a common name.                                    |
-+----------------+-------------+---------------+------------------------------------------------------------+
-| name           | String      | Optional      | Optional friendly name for the Property.                   |
-+----------------+-------------+---------------+------------------------------------------------------------+
-| description    | String      | Optional      | Optional description for the Property.                     |
-+----------------+-------------+---------------+------------------------------------------------------------+
++----------------+-------------+---------------+---------------------------------------------------------------+
+| Property       | Type        | Optionality   | Details                                                       |
++================+=============+===============+===============================================================+
+| type           | String      | Required      | Required type of the Type Property which must match one of    |
+|                |             |               | those listed in the table below.                              |
++----------------+-------------+---------------+---------------------------------------------------------------+
+| format         | String      | Optional      | Optional format of the Type Propety type that, if             |
+|                |             |               | specified, must be from the table below.                      |
++----------------+-------------+---------------+---------------------------------------------------------------+
+| isindex        | Boolean     | Required      | One Property must be designated as the index by supplying     |
+|                |             |               | the isindex keyword with a value of true. The designated      |
+|                |             |               | isindex property is used to uniquely identify discrete        |
+|                |             |               | Data objects so that they can be updated or deleted after     |
+|                |             |               | their initial creation.                                       |
++----------------+-------------+---------------+---------------------------------------------------------------+
+| isname         | Boolean     | Optional      | One Property may be optionally designated as the name by      |
+|                |             |               | supplying the isname keyword with a value of true. Because    |
+|                |             |               | the index must be unique across all Data objects, the         |
+|                |             |               | isname keyword allows for multiple distinct Data objects      |
+|                |             |               | to share a common name.                                       |
++----------------+-------------+---------------+---------------------------------------------------------------+
+| enum           | Array       | Optional      | Optional enumeration declaration. Contains an array of values |
+|                |             |               | for the enumeration set. The type of value is specified       |
+|                |             |               | by the keyword “type,” and can be set to ``integer``,         |
+|                |             |               | ``number``, or ``string``.                                    |
++----------------+-------------+---------------+---------------------------------------------------------------+
+| name           | String      | Optional      | Optional friendly name for the Property.                      |
++----------------+-------------+---------------+---------------------------------------------------------------+
+| description    | String      | Optional      | Optional description for the Property.                        |
++----------------+-------------+---------------+---------------------------------------------------------------+
+
+Note: PI Data Archive does not support ``Boolean`` data types. To overcome the limitation, you can use enumeration 
+sets, specifying a set of two values. For example: 
+
+``“type”: “string”, “enum”: [“False”, “True”].``
+
+PI point type for enumeration sets is “digital”.
 
 OMF supports setting the format keyword to specify how particular JSON type should be interpreted in PI Server. 
 
