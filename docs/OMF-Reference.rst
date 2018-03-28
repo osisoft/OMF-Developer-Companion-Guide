@@ -46,12 +46,13 @@ characters. For example, in the tag shown below, both ``producertoken`` and ``me
 
 ``{omf application name}.{measurement name}``
 
-Note: PI Data Historian does not support ``Boolean`` data types. To overcome this limitation, you can use enumeration sets, 
-specifying a set of two values. For example: 
+Note: PI Data Archive does not support ``Boolean`` data types. To overcome this limitation, you can use enumeration 
+sets, specifying a set of two values. For example: 
 
-“type”: “string”, “enum”: [“False”, “True”]. 
+``“type”: “string”, “enum”: [“False”, “True”].``
 
 The PI point data type for enumeration sets is ``digital``.
+
 
 Message Headers
 ---------------
