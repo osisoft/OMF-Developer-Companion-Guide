@@ -105,7 +105,7 @@ sets, specifying a set of two values. For example:
 
 ``“type”: “string”, “enum”: [“False”, “True”].``
 
-PI point type for enumeration sets is “digital”.
+The PI point data type for enumeration sets is ``digital``.
 
 OMF supports setting the format keyword to specify how particular JSON type should be interpreted in PI Server. 
 
