@@ -133,7 +133,7 @@ As a rule of thumb, you need to perform a cleanup:
 
 1. Relay's temporary cache location. 
    Stop the Relay process. By default, if not chosen during Relay setup, temporary data will be stored in
-   C:\ProgramData\OSIsoft\Tau\Relay.ConnectorHost. Delete this folder. 
+   %ProgramData%\OSIsoft\Tau\Relay.ConnectorHost. Delete this folder. 
    Deleting this folder will remove all cache for all producers. 
    
 2. PI Server AF Database that you use to create your AF asset structure.
