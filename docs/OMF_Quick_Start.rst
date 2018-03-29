@@ -51,9 +51,9 @@ For more information about licensing, see the sample code file headers.
 Creating a minimal OMF application
 ----------------------------------
 
-This section illustrates a very simple OMF application. Using PI Asset Framework and PI AF Server, the application 
-feeds data into the PI Data Archive without sending any meta-data. 
- 
+This section illustrates a very simple OMF application that feeds data into the PI Data Archive without 
+sending any data to the AF server. 
+
 Before you begin, you must register your application with the PI Data Collection Manager (DCM), 
 obtain a Producer Token and Relay Ingress URL. See *DCM* user manual for more information. 
 
