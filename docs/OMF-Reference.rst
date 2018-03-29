@@ -91,7 +91,7 @@ The following status codes are returned by PI Connector Relay accepting OMF mess
 | error               | machine running PI Connector Relay.                                                                    |
 +---------------------+--------------------------------------------------------------------------------------------------------+
  
-Error code table here
+**Error codes**
 
 +-------------+--------------------------------+-----------------------------------------------------------------------+
 | Error code  | HTTP Status Code               | Description                                                           |
