@@ -41,8 +41,7 @@ As a rule of thumb, keep the sizes of all names and identifies to 50 – 60 char
 might result in your application being difficult to read and understand.)
 
 Note: PI Data Archive does not support Unicode. Therefore, all data sent to PI Data Archive must 
-be formatted as JSON using UTF-8 character encoding, in addition to the requirement that it contain no control 
-characters. For example, in the tag shown below, both ``producertoken`` and ``measurement`` must use UTF-8 character encoding:
+be formatted as JSON using UTF-8 character encoding. For example, in the tag shown below, both ``omf application name`` and ``measurement name`` must use UTF-8 character encoding:
 
 ``{omf application name}.{measurement name}``
 
