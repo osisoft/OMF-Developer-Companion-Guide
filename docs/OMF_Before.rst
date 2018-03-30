@@ -45,7 +45,7 @@ Identify the reference model for your PI Server
 
 A reference model can be thought of as the physical or real-world representation of your system. The reference model 
 should be understandable from a technical perspective; it is not necessary for your entire organization to understand 
-it. Be aware of the tools provided with your PI System, such as AF Schema Mapper (or what's its name???), which allows 
+it. Be aware of the tools provided with your PI System, such as AF Transformer, which allows 
 you to build different representations of your reference model for different business units. 
 
 For more information about AF, see PI AF Explorer, PI AF SDK user manuals. 
