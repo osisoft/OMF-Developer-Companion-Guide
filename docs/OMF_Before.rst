@@ -4,9 +4,9 @@ Before you begin
 Development of OMF applications generally adheres to the following sequence:
 
 Understand your data
-  You must understand how the data you intend to send to PI Server will be organized in the PI Server back-end. 
-  Your OMF messages must be written so that appropriate AF templates, element trees (with all required attributes 
-  and associated PI points) are created in PI AF and PI Data Historian, and updated with your timeseries data. 
+  You must understand how the data you intend to send to PI System will be organized. 
+  Your OMF messages must be written so that appropriate AF templates and element trees (with all required attributes 
+  and associated PI points) are created in PI AF and PI Data Historian, and updated with your time series data. 
 
 Write OMF messages to create your reference model and start feeding data into PI Server 
   After creating your development environment, you should register your development application instance 
@@ -22,44 +22,32 @@ The sections below describe each of these points.
 Understand your data 
 --------------------
 
-Identify your assets. 
+Identify your assets 
 
-   *  Physical – representing plants, sites, equipment, I/O devices, etc. These assets can have static attributes, 
-      which will stay immutable, or which value changes will not be recorded in the data historian. Example: serial 
-      number of I/O device. 
-   *  Logical – data streams, representing collections of values, which should be sent to Relay ingress as one 
-      transaction. I.e. all values of a given stream should be sent in one update, no one separate value can be 
-      skipped. Data for each of these points in the stream will be recorded into the data historian with an appropriate timestamp. 
+   *  Physical assets, such as plants, sites, equipment, I/O devices, and so on. Physical assets can have static attributes, 
+      which will stay immutable, or can have values whose changes will not be recorded in the data historian; for example, a serial 
+      number of an I/O device. 
+   *  Logical assets, such as data streams (representing collections of values), which should be sent to Relay ingress as one 
+      transaction; that is, all values of a given stream should be sent in one update, and no single value can be 
+      skipped. Data for each of these points in the stream is recorded by the data historian with an appropriate timestamp. 
 
-Identify hierarchical relationships between your assets and data streams. 
+Identify hierarchical relationships between your assets and data streams 
 
-   *  Physical assets structure - top-most asset, which has a collection of equipment, each of which has 
-      collection of I/O devices. For example: vehicle top-level asset with attached child asset engine, 
-      and attached children assets wheels. 
-   *  Data stream assets, which can be attached to any of your physical assets. For example: stream of two 
-      values – longitude and latitude, which can be attached to your vehicle asset, and stream of two 
-      values – RPM and pressure of your vehicle's engine asset. 
+   *  Physical assets structure - The top-most asset, which might consist of a collection of equipment, each of which has 
+      a collection of I/O devices. For example: consider a vehicle top-level asset with an engine child asset, 
+      and wheels as children assets. 
+   *  Data stream assets, which can be attached to any of your physical assets. For example: consider a stream of two 
+      values – longitude and latitude, which can be attached to your vehicle asset, and a stream of two 
+      values: RPM and engine pressure. 
 
 
 Identify the reference model for your PI Server 
 
-A *reference model* deals with the physical or real-world aspects of your system. The reference model
-should be understandable from a technical perspective. It is not necessary for your entire organization to 
-understand the reference model. If you are adopting or adapting 
-OSIsoft PI Server, know the tools that we are providing. One of them is AF Schema Mapper 
-(or what's its name???), which allows you to build different representations of your reference model for 
-different business units of your company. 
+A reference model can be thought of as the physical or real-world representation of your system. The reference model 
+should be understandable from a technical perspective; it is not necessary for your entire organization to understand 
+it. Be aware of the tools provided with your PI System, such as AF Schema Mapper (or what's its name???), which allows 
+you to build different representations of your reference model for different business units. 
 
-
-Note: why do we call it "reference model". This model should concentrate on a physical/real-world aspects 
-of your system. It should model you system from the deep technical, engineering perspective, which is 
-"understandable" by technical people. You do not want to pursue the goal of making this AF model/structure 
-understandable for each and every person in your company, including engineering, accounting, management, 
-executive, etc. - this is a recipe for your project failure! Keep it simple! If you are adopted/adapting 
-OSIsoft PI Server, know the tools that we are providing. One of them is AF Schema Mapper 
-(or what's its name???), which allows you to build different representations of your reference model for 
-different business units of your company. 
- 
 For more information about AF, see PI AF Explorer, PI AF SDK user manuals. 
  
 a. Map your data's physical assets to AF elements. 
@@ -98,34 +86,34 @@ Development Environment Cleanup
 
 In OMF applications, type definitions and their representations in PI Server are immutable; that is, you cannot 
 change the properties of a type after is has been sent to the Relay's ingress endpoint. 
-The same is true for instances of these types (assets and containers), and linkage between them. Once you 
-create concrete instances of these types and link them together by sending container and data messages to 
+The same is true for instances of these types (assets and containers), and linkage between them. After you 
+create instances of these types and link them together by sending container and data messages to 
 the Relay's ingress endpoint, you cannot redefine them. 
 
-After the OMF application has been developed and deployed, the only changed data that are expected by ingress 
-is the values of your timeseries data – values sent to the container(s) in data messages. 
+After the OMF application has been developed and deployed, the only modified data that is expected to be ingested 
+is the values of your timeseries data; that is, values that are sent to the container(s) in data messages. 
 
-Only in error situations, when Relay loses its cache, type, asset and container, and their linkage information 
-should be resent to the Relay. To recover from this, you can send this meta information every time your 
-application restarts, having that NO changes were made to these definitions and instantiations. 
+Only when an error occurs, such as when the Relay loses its cache, type, asset and container, or their linkage information, 
+should data be resent to the Relay. To recover from errors, send metadata information every time your 
+application restarts, making sure that no changes were made to the definitions and instantiations. 
  
-As a developer, you will have to deal with changes in the types, structures of your assets in AF, etc. 
-To be able to perform such changes, you need to understand how to properly cleanup your development 
-environment, and when cleanups are required. 
+As a developer, you will have to deal with changes in the types and structures of your assets in AF and elsewhere. 
+To manage such changes, you must understand how to properly clean up your development 
+environment, and when cleanup is required. 
  
-As a rule of thumb, you need to perform a cleanup: 
+As a rule of thumb, you should perform a cleanup: 
 
-* Change was made to a type (basically – any change): 
+* When changes were made to a type (basically – any change): 
 
   * You modified a name or description of the type or one of its properties 
   * You added, removed, renamed a property 
   * You changed a type of a property (i.e. from number to string, etc.) 
   
-* Change was made to a container 
+* When changes were made to a container 
 
   * You redefined container typeid to another dynamic type 
   
-* Change was made to a data (except of data values that you send to containerids): 
+* When changes were made to a data (except that of data values that you send to containerids): 
 
   * You redefined asset typeid to another static type 
   * You changed anything that you previously sent in the "__LINK" object 
