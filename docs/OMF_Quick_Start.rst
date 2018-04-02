@@ -62,10 +62,12 @@ Step 1 – OMF message headers
 ----------------------------
 
 As with any OMF application, it is necessary to send three OMF Messages to the Relay ingress endpoint. All three messages 
-reuse the same set of HTTP request headers, changing a value of one of the headers according to the message type. 
+reuse the same set of HTTP request headers, changing the “messagetype” value in the header to match the message type. 
+The first message sent must be a “type” message, which defines the type of the data stream. The second must be a 
+“container” message, which creates the container of the previously defined type of the data stream. The third, and 
+all consecutive messages, must be “data” messages, which send time series data to the PI System using the container 
+that was created.
 
-Before sending any other messages, send an OMF message with the "messagetype" header set to "type." Set the "messagetype" 
-header to the value "container". This message should be sent after the type message specifying "typeid" property. 
 
 The following is the list of required headers and values: 
 
@@ -187,7 +189,7 @@ in PI Data Archive. This simple example creates one PI point and stores one valu
 To validate, open PI System Management Tools, navigate to Points/Point Builder, and search for your PI point. 
 The name of the PI point is as follows:
 
-``{name of OMF application that you registered with DCM.container1}`` 
+``{name of OMF application that you registered with DCM}.container1`` 
 
 Hover the mouse over the name and verify that it contains the PI point value and timestamp. For more information, 
 see *PI System Management Tools user manual*. 
