@@ -85,7 +85,19 @@ GZIP compression. For clarity, this example does not use compression.
 For this application, to define a data stream class, you must define an OMF type with "classification" set 
 to "dynamic". Note, that all OMF identifies are case sensitive.  
 
- ::
+**Headers**
+
+::
+
+	producertoken = b7CNvN36cq
+	omfversion = 1.0
+	messagetype = type
+	action = create
+	messageformat = json
+
+**Body**
+
+::
 
   [{ 
     "id": "DataType", 
@@ -113,6 +125,20 @@ Step 3 – create a container and send it in OMF Container message
 The next step is to create a container of the specified dynamic type. Note that containers should be 
 created only for dynamic types. 
 
+**Headers**
+
+::
+
+	producertoken = b7CNvN36cq
+	omfversion = 1.0
+	messagetype = container
+	action = create
+	messageformat = json
+
+**Body**
+
+::
+
 ::
 
   [{ 
@@ -128,6 +154,18 @@ Step 4 – provide data values to the container and send them in OMF Data messag
 -------------------------------------------------------------------------------
 
 Finally, you assemble data values for the created container and send it to PI Server. 
+
+**Headers**
+
+::
+
+	producertoken = b7CNvN36cq
+	omfversion = 1.0
+	messagetype = data
+	action = create
+	messageformat = json
+
+**Body**
 
 ::
 
