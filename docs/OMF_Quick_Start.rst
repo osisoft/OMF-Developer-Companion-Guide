@@ -6,11 +6,6 @@ data to a PI Server. Using the OMF 1.0
 specification and the steps in this section, you can create a minimal data ingress OMF application. More 
 advanced example applications can be found in the OMF samples. 
 
-To speed the development process, it is recommended that all of the following products be 
-installed on your computer and on the computers in the same Windows Domain. Also, ensure you have sufficient access rights. 
-
-Note that this topic demonstrates the basic OMF application development process, and not the administrative aspects 
-of configuring and securing the entire solution you build using OSIsoft PI System. 
 
 Development Environment 
 -----------------------
@@ -37,6 +32,12 @@ Before you begin, the following products should be installed and configured:
   You must have administrative access to the PI AF Server and PI Data Archive. While developing 
   your OMF application, it will be necessary to delete intermediate AF templates, elements, and PI points. For 
   more information, see the *PI System Explorer* user manual and the *PI System Management Tools* user manual. 
+  
+To speed the development process, it is recommended that all of the above products be 
+installed on your computer and on the computers in the same Windows domain. Also, ensure you have sufficient access rights. 
+Note that this topic demonstrates the basic OMF application development process, and not the administrative aspects 
+of configuring and securing the entire solution you build using OSIsoft PI System. 
+
 
 Programming Language and Running Platform
 -----------------------------------------
@@ -62,6 +63,9 @@ Step 1 – OMF message headers
 
 As with any OMF application, it is necessary to send three OMF Messages to the Relay ingress endpoint. All three messages 
 reuse the same set of HTTP request headers, changing a value of one of the headers according to the message type. 
+
+Before sending any other messages, send an OMF message with the "messagetype" header set to "type." Set the "messagetype" 
+header to the value "container". This message should be sent after the type message specifying "typeid" property. 
 
 The following is the list of required headers and values: 
 
@@ -116,8 +120,6 @@ to "dynamic". Note, that all OMF identifies are case sensitive.
   }] 
 
 
-Before sending any other messages, send an OMF message with the contents shown above, and with "messagetype" header 
-set to "type."
 
 Step 3 – create a container and send it in OMF Container message 
 ----------------------------------------------------------------
@@ -139,16 +141,13 @@ created only for dynamic types.
 
 ::
 
-::
-
   [{ 
     "id": "container1", 
     "typeid": "DataType" 
   }] 
 
 
-Set the "messagetype" header to the value "container". This message should be sent after the type message 
-specifying "typeid" property. 
+
 
 Step 4 – provide data values to the container and send them in OMF Data message 
 -------------------------------------------------------------------------------
@@ -188,7 +187,7 @@ in PI Data Archive. This simple example creates one PI point and stores one valu
 To validate, open PI System Management Tools, navigate to Points/Point Builder, and search for your PI point. 
 The name of the PI point is as follows:
 
-``name of OMF application that you registered with DCM.container1`` 
+``{name of OMF application that you registered with DCM.container1}`` 
 
 Hover the mouse over the name and verify that it contains the PI point value and timestamp. For more information, 
 see *PI System Management Tools user manual*. 
