@@ -65,7 +65,7 @@ Write OMF messages to create your AF reference model and feed data into PI Serve
 For more information see OMF 1.0 specification. 
  
 a. Create OMF type definitions, which will represent your physical and logical real-world assets. 
-   These will be sent to Relay ingress in OMF Type messages. 
+   These type definitions will be sent to Relay ingress in OMF Type messages. 
    
    i.  Physical assets will be presented by OMF types with "classification": "static".
    ii. Logical assets will be presented by OMF types with "classification": "dynamic". 
@@ -73,7 +73,7 @@ a. Create OMF type definitions, which will represent your physical and logical r
 b. Create OMF containers from dynamic type definitions, which will represent instances of your logical real-world assets, 
    These will be sent to the Relay ingress in OMF Container messages. 
    
-c. Create OMF assets from static static type definitions, which will represent instances of your physical real-world assets.
+c. Create OMF assets from static type definitions, which will represent instances of your physical real-world assets.
    These will be sent to Relay ingress in OMF Data messages. 
    
 d. Create links between: 
@@ -82,7 +82,7 @@ d. Create links between:
    ii.  OMF assets created frorm statici type definitions (parent/child). 
    iii. OMF assets created from static OMF type definitions and OMF containers created from dynamic type definitions. 
    
-e. Send series values to the containers. These will be sent to Relay Ingress 
+e. Send time-series values to the containers. These will be sent to Relay Ingress 
    in OMF Data messages, and stored in PI Data Server. 
 
 
