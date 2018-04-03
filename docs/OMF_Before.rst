@@ -43,11 +43,12 @@ Identify hierarchical relationships between your assets and data streams
 
 Identify the reference model for your PI Server 
 
-A reference model can be thought of as the physical or real-world representation of your system. The reference model 
-should be understandable from a technical perspective; it is not necessary for your entire organization to understand 
-it. Be aware of the tools provided with your PI System, such as AF Transformer, which allows 
-you to build different representations of your reference model for different business units. For more information about 
-AF Transformer, see this PI Developers Club article: `AF Transformer <https://pisquare.osisoft.com/community/developers-club/blog/2018/02/15/welcome-to-our-newest-utility-af-transformer>`_. 
+   *  A reference model can be thought of as the physical or real-world representation of your system. The reference model 
+      should be understandable from a technical perspective; it is not necessary for your entire organization to understand 
+      it. Be aware of the tools provided with your PI System, such as AF Transformer, which allows 
+      you to build different representations of your reference model for different business units. For more information about 
+      AF Transformer, see this PI Developers Club article: `AF Transformer
+      <https://pisquare.osisoft.com/community/developers-club/blog/2018/02/15/welcome-to-our-newest-utility-af-transformer>`_. 
 
 
 For more information about AF, see PI AF Explorer, PI AF SDK user manuals. 
@@ -87,7 +88,7 @@ Development Environment Cleanup
 -------------------------------
 
 In OMF applications, type definitions and their representations in PI Server are immutable; that is, you cannot 
-change the properties of a type after is has been sent to the Relay's ingress endpoint. 
+change the properties of a type after it has been sent to the Relay's ingress endpoint. 
 The same is true for instances of these types (assets and containers), and linkage between them. After you 
 create instances of these types and link them together by sending container and data messages to 
 the Relay's ingress endpoint, you cannot redefine them. 
@@ -137,8 +138,6 @@ As a rule of thumb, you should perform a cleanup:
    In PI System Management Tool, open Points/Point Builder. Search for PI tags that has names starting with 
    your OMF application instance registration. Delete all of them. 
  
-Operation #1 is required always. 
-
-Operation #2 is required if your application defines and links static types. 
-
-Operation #3 is required if you previously sent data values to containers. 
+  * Operation #1 is required always. 
+  * Operation #2 is required if your application defines and links static types. 
+  * Operation #3 is required if you previously sent data values to containers. 
