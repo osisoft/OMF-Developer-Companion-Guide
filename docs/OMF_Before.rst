@@ -5,17 +5,18 @@ Development of OMF applications generally adheres to the following sequence:
 
 Understand your data
   You must understand how the data you intend to send to PI System will be organized. 
-  Your OMF messages must be written so that appropriate AF templates and element trees (with all required attributes 
-  and associated PI points) are created in PI AF and PI Data Historian, and updated with your time series data. 
+  Your OMF messages must be written so that appropriate AF templates, enumerations, and element trees (with all required attributes 
+  and associated PI points) are created in PI AF and PI Data Servers, and updated with your time series data. 
 
-Write OMF messages to create your reference model and start feeding data into PI Server 
+Write OMF messages to create your reference model and start feeding data into PI System 
   After creating your development environment, you should register your development application instance 
-  with the DCM/Relay to get appropriate authorization to feed data into PI Server, and write and send OMF messages to 
+  with the DCM/Relay to get appropriate authorization to feed data into the PI System, and write and send OMF messages to 
   the Relay's Ingress HTTP(S) REST endpoint. 
     
 Perform cleanup steps
   You should know how to make development changes to your OMF types, instances, and links. You should also 
-  know what needs to be manually cleaned up, and how to troubleshoot your code. 
+  know what needs to be manually cleaned up, and how to troubleshoot your code. Note that OMF ingress supports only 
+  the creation of data in the PI System and does not support deleting of objects from the PI System. 
 
 The sections below describe each of these points.
 
@@ -31,19 +32,19 @@ Identify your assets
       transaction; that is, all values of a given stream should be sent in one update, and no single value can be 
       skipped. Data for each of these points in the stream is recorded by the data historian with an appropriate timestamp. 
 
-Identify hierarchical relationships between your assets and data streams 
+Identify hierarchical relationships between your physical and logical assets 
 
    *  Physical assets structure - The top-most asset, which might consist of a collection of equipment, each of which has 
       a collection of I/O devices. For example: consider a vehicle top-level asset with an engine child asset, 
       and wheels as children assets. 
-   *  Data stream assets, which can be attached to any of your physical assets. For example: consider a stream of two 
-      values – longitude and latitude, which can be attached to your vehicle asset, and a stream of two 
-      values: RPM and engine pressure. 
+   *  Logical assets, which can be attached to any of your physical assets. For example: consider a stream of two 
+      values – longitude and latitude, which can be attached to your vehicle asset, and a stream of one
+      value: RPM of the engine.
 
 
-Identify the reference model for your PI Server 
+Identify the reference model for your data in AF Server 
 
-   *  A reference model can be thought of as the physical or real-world representation of your system. The reference model 
+   *  A reference model can be thought of as a logical representation of your physical real-world data. The reference model 
       should be understandable from a technical perspective; it is not necessary for your entire organization to understand 
       it. Be aware of the tools provided with your PI System, such as AF Transformer, which allows 
       you to build different representations of your reference model for different business units. For more information about 
@@ -51,53 +52,55 @@ Identify the reference model for your PI Server
       <https://pisquare.osisoft.com/community/developers-club/blog/2018/02/15/welcome-to-our-newest-utility-af-transformer>`_. 
 
 
-For more information about AF, see PI AF Explorer, PI AF SDK user manuals. 
+For more information about AF, see the PI System Explorer and PI AF SDK user manuals. 
  
-a. Map your data's physical assets to AF elements. 
-b. Link your data's physical assets together to create appropriate AF tree structure. 
-c. Link your stream assets to appropriate AF elements to create dynamic element attributes, 
-   which store their values in PI Data Historian. 
+a. Map your physical assets to AF elements. 
+b. Link your physical assets together to create appropriate AF tree structure. 
+c. Link your logical assets to appropriate AF elements to create dynamic element attributes, 
+   which store their values as time-series data in PI Server. 
 
-Write OMF messages to create your reference model and start feeding data into PI Server 
+Write OMF messages to create your AF reference model and feed data into PI Server 
 ---------------------------------------------------------------------------------------
 
 For more information see OMF 1.0 specification. 
  
-a. Create OMF type definitions, which will represent your physical and data stream assets. 
+a. Create OMF type definitions, which will represent your physical and logical real-world assets. 
    These will be sent to Relay ingress in OMF Type messages. 
    
    i.  Physical assets will be presented by OMF types with "classification": "static".
-   ii. Data Stream assets will be presented by OMF types with "classification": "dynamic". 
+   ii. Logical assets will be presented by OMF types with "classification": "dynamic". 
    
-b. Create OMF containers, which will represent instances of your data stream assets, which you will 
-   later link to instances of your physical assets. These will be sent to Relay ingress in OMF Container messages. 
+b. Create OMF containers from dynamic type definitions, which will represent instances of your logical real-world assets, 
+   These will be sent to the Relay ingress in OMF Container messages. 
    
-c. Create OMF physical (static) type instances. Later you will link them to each other and data stream 
-   (dynamic) type instances (containers). These will be sent to Relay ingress in OMF Data messages. 
+c. Create OMF assets from static static type definitions, which will represent instances of your physical real-world assets.
+   These will be sent to Relay ingress in OMF Data messages. 
+   
 d. Create links between: 
 
-   i.  Root node and static (physical) type instances. 
-   ii. Static to static (parent/child) type instances. 
-   iii. Static to dynamic (data stream) (parent/end leaf child) type instances. 
+   i.   Root node and OMF assets created from static type definitions. 
+   ii.  OMF assets created frorm statici type definitions (parent/child). 
+   iii. OMF assets created from static OMF type definitions and OMF containers created from dynamic type definitions. 
    
-e. Update data stream (container) instances with time series values. These will be sent to Relay Ingress 
-   in OMF Data messages, and update AF attributes with PI point references. 
+e. Send series values to the containers. These will be sent to Relay Ingress 
+   in OMF Data messages, and stored in PI Data Server. 
 
 
 Development Environment Cleanup 
 -------------------------------
 
-In OMF applications, type definitions and their representations in PI Server are immutable; that is, you cannot 
+In OMF applications, type and container definitions and their representations in PI System are immutable; that is, you cannot 
 change the properties of a type after it has been sent to the Relay's ingress endpoint. 
 The same is true for instances of these types (assets and containers), and linkage between them. After you 
 create instances of these types and link them together by sending container and data messages to 
 the Relay's ingress endpoint, you cannot redefine them. 
 
 After the OMF application has been developed and deployed, the only modified data that is expected to be ingested 
-is the values of your timeseries data; that is, values that are sent to the container(s) in data messages. 
+is your timeseries data; that is, values that are sent to the container(s) in OMF data messages. 
 
 Only when an error occurs, such as when the Relay loses its cache, type, asset and container, or their linkage information, 
-should data be resent to the Relay. To recover from errors, send metadata information every time your 
+should this metadata be resent to the Relay. To recover from errors, either handle appropriate error codes returned with 
+HTTP 400 responses, or send metadata information every time your 
 application restarts, making sure that no changes were made to the definitions and instantiations. 
  
 As a developer, you will have to deal with changes in the types and structures of your assets in AF and elsewhere. 
