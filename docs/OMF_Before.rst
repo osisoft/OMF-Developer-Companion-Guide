@@ -96,10 +96,10 @@ create instances of these types and link them together by sending container and 
 the Relay's ingress endpoint, you cannot redefine them. 
 
 After the OMF application has been developed and deployed, the only modified data that is expected to be ingested 
-is your timeseries data; that is, values that are sent to the container(s) in OMF data messages. 
+is your time-series data; that is, values that are sent to the container(s) in OMF data messages. 
 
 Only when an error occurs, such as when the Relay loses its cache, type, asset and container, or their linkage information, 
-should this metadata be resent to the Relay. To recover from errors, either handle appropriate error codes returned with 
+should this metadata be re-sent to the Relay. To recover from errors, either handle appropriate error codes returned with 
 HTTP 400 responses, or send metadata information every time your 
 application restarts, making sure that no changes were made to the definitions and instantiations. 
  
@@ -112,35 +112,37 @@ As a rule of thumb, you should perform a cleanup:
 * When changes were made to a type (basically – any change): 
 
   * You modified a name or description of the type or one of its properties 
-  * You added, removed, renamed a property 
-  * You changed a type of a property (i.e. from number to string, etc.) 
+  * You added, removed, or renamed a property 
+  * You changed a type of a property (that is, from number to string, and so on) 
   
 * When changes were made to a container 
 
-  * You redefined container typeid to another dynamic type 
+  * You redefined container typeid to another dynamic type definition 
   
 * When changes were made to a data (except that of data values that you send to containerids): 
 
-  * You redefined asset typeid to another static type 
+  * You redefined asset typeid to another static type definition
   * You changed anything that you previously sent in the "__LINK" object 
 
+**What to clean up**
 
 1. Relay's temporary cache location. 
    Stop the Relay process. By default, if not chosen during Relay setup, temporary data will be stored in
-   \%ProgramData\%\\OSIsoft\\Tau\\Relay.ConnectorHost. Delete this folder. 
-   Deleting this folder will remove all cache for all producers. 
+   ``\%ProgramData\%\\OSIsoft\\Tau\\Relay.ConnectorHost``. Delete this folder. 
+   Deleting this folder removes all cache entires for all producers. 
    
-2. PI Server AF Database that you use to create your AF asset structure.
-   In PI System Explorer, open Library, expand Templates/Element Templates. Delete all templates with 
-   names starting with "OMF". 
-   In PI System Explorer, open Elements, expand Elements root node. Delete all elements and their 
-   children elements that has names of you OMF application instances registrations. 
-   In PI System Explorer, check-in all your deletion changes. 
+2. PI Server AF Database that you use to create your AF asset structure. Using PI System Explorer, perform the following:
+
+*   Open Library, expand Templates/Element Templates. Delete all templates with names starting with "OMF". 
+*   Open Library, expand Templates/Enumeration Sets. Delete all enumerations with names starting with "OMF". 
+*   Open Elements, expand Elements root node. Delete all elements and their 
+    children elements that have names of your OMF application instances registrations. 
+*   Check in your changes. 
    
-3. PI Data Archive PI points that were created once you sent container data values. 
-   In PI System Management Tool, open Points/Point Builder. Search for PI tags that has names starting with 
-   your OMF application instance registration. Delete all of them. 
+3. PI Data Archive PI points that were created after the container data values were sent. 
+   In the PI System Management Tool, open Points/Point Builder. Search for and delete all PI tags that have names starting with 
+   your OMF application instance registration name. 
  
-  * Operation #1 is required always. 
+  * Operation #1 is always required. 
   * Operation #2 is required if your application defines and links static types. 
-  * Operation #3 is required if you previously sent data values to containers. 
+  * Operation #3 is required if you had previously sent data values to containers. 
