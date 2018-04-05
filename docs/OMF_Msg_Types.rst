@@ -1,3 +1,5 @@
+.. _OMF_Msg_Types_topic:
+
 Message Types 
 =============
 
