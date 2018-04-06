@@ -10,8 +10,8 @@ Understand your data
 
 Write OMF messages to create your reference model and start feeding data into PI System 
   After creating your development environment, you should register your development application instance 
-  with the DCM/Relay to get appropriate authorization to feed data into the PI System, and write and send OMF messages to 
-  the Relay's Ingress HTTP(S) REST endpoint. 
+  with the  PI Data Collection Manager to obtain appropriate authorization to feed data into the PI System, 
+  and write and send OMF messages to the Relay Ingress HTTP(S) REST endpoint. 
     
 Perform cleanup steps
   After making development changes to your OMF types, instances, and links, you should clean up your environment
@@ -72,8 +72,8 @@ For more information see OMF 1.0 specification.
 a. Create OMF type definitions, which will represent your physical and logical real-world assets. 
    These type definitions will be sent to Relay ingress in OMF Type messages. 
    
-   i.  Physical assets will be presented by OMF types with "classification": "static".
-   ii. Logical assets will be presented by OMF types with "classification": "dynamic". 
+   i.  Physical assets will be presented by OMF types with ``classification: static``.
+   ii. Logical assets will be presented by OMF types with ``classification: dynamic``. 
    
 b. Create OMF containers from dynamic type definitions, which will represent instances of your logical real-world assets, 
    These will be sent to the Relay ingress in OMF Container messages. 
