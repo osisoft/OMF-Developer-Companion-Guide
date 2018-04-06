@@ -1,5 +1,5 @@
-Before you begin
-================
+Introduction
+============
 
 Development of OMF applications generally adheres to the following sequence:
 
@@ -14,9 +14,13 @@ Write OMF messages to create your reference model and start feeding data into PI
   the Relay's Ingress HTTP(S) REST endpoint. 
     
 Perform cleanup steps
-  You should know how to make development changes to your OMF types, instances, and links. You should also 
-  know what needs to be manually cleaned up, and how to troubleshoot your code. Note that OMF ingress supports only 
-  the creation of data in the PI System and does not support deleting of objects from the PI System. 
+  After making development changes to your OMF types, instances, and links, you should clean up your environment
+  by deleting tests and older versions. There are also some items that require manual cleanup. Note that OMF 
+  ingress supports only 
+  the creation of data in the PI System and does not support deleting of objects from the PI System. Also, it is a 
+  good practice to create a seperate test or quality assurance system and database before testing or
+  attempting to write code on a production system. Having a test or QA system makes it easier to remove old 
+  code and data and to recover from errors. 
 
 The sections below describe each of these points.
 
@@ -52,7 +56,8 @@ Identify the reference model for your data in AF Server
       <https://pisquare.osisoft.com/community/developers-club/blog/2018/02/15/welcome-to-our-newest-utility-af-transformer>`_. 
 
 
-For more information about AF, see the PI System Explorer and PI AF SDK user manuals. 
+For more information about AF, see the 
+`PI Server documentation: <https://livelibrary.osisoft.com/LiveLibrary/web/ui.xql?action=html&resource=publist_home.html&pub_category=PI-Server>`_. 
  
 a. Map your physical assets to AF elements. 
 b. Link your physical assets together to create appropriate AF tree structure. 
@@ -143,6 +148,8 @@ As a rule of thumb, you should perform a cleanup:
    In the PI System Management Tool, open Points/Point Builder. Search for and delete all PI tags that have names starting with 
    your OMF application instance registration name. 
  
+ **When to clean up**
+ 
   * Operation #1 is always required. 
-  * Operation #2 is required if your application defines and links static types. 
-  * Operation #3 is required if you had previously sent data values to containers. 
+  * Operation #2 is required if your application defines assets and links from OMF static type definitions. 
+  * Operation #3 is required if you had previously sent timeseeries data values to containers. 
