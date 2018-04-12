@@ -4,11 +4,9 @@ Data Message
 
 In PI Server, a data message serves three different purposes: 
 
-  1: Creating concrete assets from a static type definition, 
-  
-  2: Linking assets and containers together and forming AF Element/Attribute structure
-  
-  3: Feeding container data values into PI Data Archive PI points. 
+1. Creating concrete assets from a static type definition, 
+2. Linking assets and containers together and forming AF Element/Attribute structure
+3. Feeding container data values into PI Data Archive PI points. 
 
 
 Creating Assets 
@@ -30,8 +28,8 @@ In a PI Server, an asset is interpreted as an AF Element. The properties in the 
 |                |             |               | static type used by the Asset.                             |
 +----------------+-------------+---------------+------------------------------------------------------------+  
   
-Note that in values array, properties of each asset designated with the ``isindex`` keyword must be unique. 
-The scope of uniqueness is the producer.   
+Note that in the values array, properties of each asset designated with the ``isindex`` keyword must be unique. 
+The scope of uniqueness is the OMF application instance.   
 
 Creating Links 
 --------------
@@ -70,7 +68,7 @@ Root Asset Links
 ----------------
 
 Root asset is presented in PI Server as a top-level AF element in the AF structure tree, which is a child 
-of a parent AF Element created for your OMF application instance (producer). For this type of the link, 
+of a parent AF Element created for your OMF application instance. For this type of the link, 
 the source and target properties have the following keywords: 
 
 
@@ -186,17 +184,17 @@ in the container objects are interpreted as follows:
 +----------------+-------------+---------------+------------------------------------------------------------+
 
 Notes:
-  All type definitions, containers, and assets, and the linkage should be sent to the Relay ingress endpoint 
+  All type definitions, containers, and assets, and the linkage, should be sent to the Relay ingress endpoint 
   only one time: when the OMF application instance is started for the first time. Under normal circumstances, 
-  it should not be re-transmitted every time the producer is restarted. The Relay will have all necessary 
+  it should not be re-transmitted every time the OMF application instance is restarted. The Relay will have all necessary 
   information in its cache to successfully receive only container data values. 
 
-  Dynamic type of the container may have more than one property (except of isindex, which always serves as a timestamp). 
-  Remember that each property is presented as PI point in PI Server. Values for every property of the container, 
-  specified in its type definition, must be provided to the container values. All of these values will be sent 
-  to PI Data Archive with the same timestamp. If you omit one of the values, you will end up with its default 
+  Dynamic type of the container may have more than one property (except ``isindex``, which always serves as a timestamp). 
+  Remember that each property is presented as a PI point in PI Server. Values for every property of the container 
+  (specified in its type definition0, must be provided to the container values. All of the values are sent 
+  to PI Data Archive with the same timestamp. Omitting one of the values results in the default being stored
   in the Archive. For example, if you omit a value to a number property, PI point will receive a value of zero, 
-  which might be undesirable. 
+  which might not be what was intended. 
   
   
   
