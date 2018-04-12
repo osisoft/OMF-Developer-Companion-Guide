@@ -120,6 +120,39 @@ Note the following:
 * The OMF link definition is not currently immutable. After the OMF link definition is created, it can be redefined; 
   however, care must be taken. For more information see “link definition considerations”.
 
+OMF type version considerations
+-------------------------------
+
+The OMF type version allows you to modify OMF type definitions in a limited way. Note that using versioning of an existing 
+OMF static type does not create additional AF Element Templates, and only shows newly added type properties as template 
+Attributes. In the AF Element structure, removed attributes have a value of Excluded. Note that as with all other OMF 
+definitions, currently OMF supports only create actions, which means that you can create new versions, but you cannot 
+change or delete existing ones.
+
+The following modifications to OMF type definitions are allowed:
+
+-	Adding new properties to the type
+-	Removing properties from the type
+
+The following modifications are not allowed:
+
+-	Changing the classification of the type
+-	Changing the type of the existing property
+
+The following rules apply when using the “typeversion” keyword with container, asset, and link definitions:
+
+* To use a new version of a dynamic type, new container definitions must be created. Existing container definition 
+  cannot be redefined with the new version of the dynamic type. To specify the new container, you must use the ``typeversion``
+  keyword, with the value set to the new version of the dynamic type.
+* To use a new version of a static type, new asset definitions must be created. To specify the new asset that does not use 
+  the default type version, you must specify the ``typeversion`` keyword, with the value set to the new version of the 
+  static type. The asset redefinition rule is not strict, and you may redefine an existing asset to use another version 
+  of the static type.
+* To link a new version of a static type, you must use the ``typeversion`` keyword, with the value set to the new version 
+  of the static type used to define the asset. Note that containers do not require ``typeversion`` during linkage, as 
+  they have this information since definition.
+
+
 OMF link definition considerations
 ----------------------------------
 
@@ -130,8 +163,6 @@ application instance sends events to the defined containers.
 
 Links between root, assets and containers are not currently immutable, so special care should be taken to not redefine 
 them unintentionally. 
-
-
 
 
 Development Environment Cleanup 
@@ -193,6 +224,6 @@ As a rule of thumb, you should perform a cleanup:
  
  **When to clean up**
  
-  * Operation #1 is always required. 
-  * Operation #2 is required if your application defines assets and links from OMF static type definitions. 
-  * Operation #3 is required if you had previously sent timeseeries data values to containers. 
+* Operation #1 is always required. 
+* Operation #2 is required if your application defines assets and links from OMF static type definitions. 
+* Operation #3 is required if you had previously sent timeseeries data values to containers. 
