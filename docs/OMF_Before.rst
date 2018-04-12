@@ -27,7 +27,7 @@ The sections below describe each of these points.
 Understand your data 
 --------------------
 
-Identify your assets 
+* Identify your assets 
 
    *  Physical assets, such as plants, sites, equipment, I/O devices, and so on. Physical assets can have static attributes, 
       which will stay immutable, or can have values whose changes will not be recorded in the data historian; for example, a serial 
@@ -36,7 +36,7 @@ Identify your assets
       transaction; that is, all values of a given stream should be sent in one update, and no single value can be 
       skipped. Data for each of these points in the stream is recorded by the data historian with an appropriate timestamp. 
 
-Identify hierarchical relationships between your physical and logical assets 
+* Identify hierarchical relationships between your physical and logical assets 
 
    *  Physical assets structure - The top-most asset, which might consist of a collection of equipment, each of which has 
       a collection of I/O devices. For example: consider a vehicle top-level asset with an engine child asset, 
@@ -46,7 +46,7 @@ Identify hierarchical relationships between your physical and logical assets
       value: RPM of the engine.
 
 
-Identify the reference model for your data in AF Server 
+* Identify the reference model for your data in AF Server 
 
    *  A reference model can be thought of as a logical representation of your physical real-world data. The reference model 
       should be understandable from a technical perspective; it is not necessary for your entire organization to understand 
@@ -89,6 +89,49 @@ d. Create links between:
    
 e. Send time-series values to the containers. These will be sent to Relay Ingress 
    in OMF Data messages, and stored in PI Data Server. 
+
+
+OMF application considerations
+------------------------------
+
+You specify the OMF application type when the OMF application instance is registered with PI Data Collection Manager. 
+The application type serves to classify a set of OMF applications that send the same metadata and time-series data to the PI System. 
+
+For example, you might have multiple OMF applications running on equipment with the same make, model, and I/O configuration. 
+All of these OMF applications generate the same reference models for each device, and send events of the same set of device 
+measurements to the PI System. In this case, the type and container definitions for each of the OMF applications are identical. 
+Note the following:
+
+* You create a single OMF type definition with a unique ID that is used by each OMF application. All other instances should 
+  use the same definition without any type changes. If a producer attempts to redefine an existing OMF type, an HTTP 
+  response status code of 400 (Bad Request) is returned with error code 9 (Type redefinition).
+* You create a single OMF container definition with a unique CONTAINERID that is used by each. All other instances should 
+  use the same definition without any OMF container changes. If an OMF application attempts to redefine an existing OMF 
+  container, an HTTP response status code 400 (Bad Request) is returned, with error code 11 (Container redefinition).
+* At any time, any instance of a given OMF application type may define and send a new OMF type or container definition. 
+  This definition then becomes available to all producers of the given OMF application type.
+* The OMF application type does not share OMF asset and link definitions between different producers of the same type. Therefore:
+* If the OMF application instance is the first application of the given OMF application type, it must send OMF type and 
+  container definitions followed by OMF asset and link definitions the first time it is run. 
+* If the instance is not the first OMF application of the given OMF application type, it must send OMF asset and link 
+  definitions the first time it is run; OMF types and containers are optional.
+* The OMF asset identifier (which is the value assigned to the OMF static type property with the ``isindex`` designation), 
+  is not required to be unique, but is case-sensitive in link definitions.
+* The OMF link definition is not currently immutable. After the OMF link definition is created, it can be redefined; 
+  however, care must be taken. For more information see “link definition considerations”.
+
+OMF link definition considerations
+----------------------------------
+
+OMF link definition creates AF Templates, Enumeration Sets, Attribute Templates, and finally instantiates AF Elements and 
+Attributes from the templates, and builds AF tree structure. In other words, link definitions creates everything related 
+to AF and metadata storage. It does not participate in PI Server modifications – PI point creation happens when OMF 
+application instance sends events to the defined containers.
+
+Links between root, assets and containers are not currently immutable, so special care should be taken to not redefine 
+them unintentionally. 
+
+
 
 
 Development Environment Cleanup 
@@ -138,11 +181,11 @@ As a rule of thumb, you should perform a cleanup:
    
 2. PI Server AF Database that you use to create your AF asset structure. Using PI System Explorer, perform the following:
 
-*   Open Library, expand Templates/Element Templates. Delete all templates with names starting with "OMF". 
-*   Open Library, expand Templates/Enumeration Sets. Delete all enumerations with names starting with "OMF". 
-*   Open Elements, expand Elements root node. Delete all elements and their 
-    children elements that have names of your OMF application instances registrations. 
-*   Check in your changes. 
+   a.  Open Library, expand Templates/Element Templates. Delete all templates with names starting with "OMF". 
+   b.  Open Library, expand Templates/Enumeration Sets. Delete all enumerations with names starting with "OMF". 
+   c.  Open Elements, expand Elements root node. Delete all elements and their 
+       children elements that have names of your OMF application instances registrations. 
+   d.  Check in your changes. 
    
 3. PI Data Archive PI points that were created after the container data values were sent. 
    In the PI System Management Tool, open Points/Point Builder. Search for and delete all PI tags that have names starting with 
