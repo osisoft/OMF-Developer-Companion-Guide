@@ -15,22 +15,24 @@ measurements to the PI System. In this case, the type and container definitions 
 Note the following:
 
 * You create a single OMF type definition with a unique ID that is used by each OMF application. All other instances should 
-  use the same definition without any type changes. If a producer attempts to redefine an existing OMF type, an HTTP 
+  use the same definition without any type changes. If an OMF application instance attempts to redefine an existing OMF type, an HTTP 
   response status code of 400 (Bad Request) is returned with error code 9 (Type redefinition).
-* You create a single OMF container definition with a unique CONTAINERID that is used by each. All other instances should 
+* You create a single OMF container definition with a unique ``CONTAINERID`` that is used by each. All other instances should 
   use the same definition without any OMF container changes. If an OMF application attempts to redefine an existing OMF 
   container, an HTTP response status code 400 (Bad Request) is returned, with error code 11 (Container redefinition).
 * At any time, any instance of a given OMF application type may define and send a new OMF type or container definition. 
-  This definition then becomes available to all producers of the given OMF application type.
-* The OMF application type does not share OMF asset and link definitions between different producers of the same type. Therefore:
-* If the OMF application instance is the first application of the given OMF application type, it must send OMF type and 
-  container definitions followed by OMF asset and link definitions the first time it is run. 
-* If the instance is not the first OMF application of the given OMF application type, it must send OMF asset and link 
-  definitions the first time it is run; OMF types and containers are optional.
-* The OMF asset identifier (which is the value assigned to the OMF static type property with the ``isindex`` designation), 
-  is not required to be unique, but is case-sensitive in link definitions.
-* The OMF link definition is not currently immutable. After the OMF link definition is created, it can be redefined; 
-  however, care must be taken. For more information see `OMF link definition considerations`_.
+  This definition then becomes available to all OMF application instances of the given OMF application type.
+* The OMF application type does not share OMF asset and link definitions between different OMF application instances of 
+  the same type. Therefore:
+  
+  * If the OMF application instance is the first application of the given OMF application type, it must send OMF type and 
+    container definitions followed by OMF asset and link definitions the first time it is run. 
+  * If the instance is not the first OMF application of the given OMF application type, it must send OMF asset and link 
+    definitions the first time it is run; OMF types and containers are optional.
+  * The OMF asset identifier (which is the value assigned to the OMF static type property with the ``isindex`` designation), 
+    is not required to be unique, but is case-sensitive in link definitions.
+  * The OMF link definition is not currently immutable. After the OMF link definition is created, it can be redefined; 
+    however, care must be taken. For more information see `OMF link definition considerations`_.
 
 OMF type version considerations
 -------------------------------
