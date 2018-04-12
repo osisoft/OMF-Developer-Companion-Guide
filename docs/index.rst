@@ -23,11 +23,13 @@ describes how OMF is interpreted by the PI Server back end.
 
 
 .. toctree::
+   :caption: OMF Documentation
 
    OMF-Dev-Intro
    OMF_Quick_Start
 
 .. toctree::
+   :caption: OMF Messages
 
    OMF_Msg_Types
    OMF-Reference
