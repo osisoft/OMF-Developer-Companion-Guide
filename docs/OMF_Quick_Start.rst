@@ -1,3 +1,5 @@
+.. _OMF_Quick_Start_topic:
+
 OMF Quick Start 
 ===============
 
