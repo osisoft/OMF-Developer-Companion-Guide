@@ -19,7 +19,8 @@ Before you begin, the following products should be installed and configured:
   connections between them, and retrieve the necessary registration 
   information, which you will use in your OMF application for authentication and authorization. For 
   more information, see *PI Data Collection Manager* user manual. 
-  
+
+
 * PI Connector Relay
 
   You should install and configure your own development instance of the PI Connector Relay. During the
@@ -39,8 +40,8 @@ Note that this topic demonstrates the basic OMF application development process,
 of configuring and securing the entire solution you build using OSIsoft PI System. 
 
 
-Programming Language and Running Platform
------------------------------------------
+Programming language and run platform
+-------------------------------------
 
 The OMF 1.0 specification is written to be language and platform-agnostic. To start sending data to an OSIsoft PI
 System, all that you need is an HTTP client and JSON libraries. For your convenience, OSIsoft provides several 
@@ -62,11 +63,15 @@ Step 1 – OMF message headers
 ----------------------------
 
 As with any OMF application, it is necessary to send three OMF Messages to the Relay ingress endpoint. All three messages 
-reuse the same set of HTTP request headers, changing the “messagetype” value in the header to match the message type. 
-The first message sent must be a “type” message, which defines the type of the data stream. The second must be a 
-“container” message, which creates the container of the previously defined type of the data stream. The third, and 
-all consecutive messages, must be “data” messages, which send time series data to the PI System using the container 
+reuse the same set of HTTP request headers, changing the ``messagetype`` value in the header to match the message type. 
+The first message sent must be a ``type`` message, which defines the type of the data stream. The second must be a 
+``container`` message, which creates the container of the previously defined type of the data stream. The third, and 
+all consecutive messages, must be ``data`` messages, which send time series data to the PI System using the container 
 that was created.
+
+Currently, only the create action is supported by the OMF specification. Therefore, you cannot use OMF messages to 
+update or delete OMF definitions sent to the PI Connector Relay. You must use other PI tools to make changes or 
+make the changes manually.
 
 
 The following is the list of required headers and values: 
@@ -75,7 +80,7 @@ The following is the list of required headers and values:
   Set the value of this header to the Producer Token that you retrieved from the DCM when your 
   application instance was registered. 
 ``messagetype``
-  This header may contain one of the three values: "type", "container" or "data". The first message that is 
+  This header may contain one of the three values: ``type``, ``container`` or ``data``. The first message that is 
   sent to the ingress endpoint should always be of type ``type``.  
 ``messageformat``
   Set the value of this header to ``json``. The header is required, but currently accepts only this value. 
@@ -88,8 +93,8 @@ Step 2 – define OMF type and send it in OMF Type message
 All OMF message content are formatted as a JSON array of objects. You can optionally compress messages using 
 GZIP compression. For clarity, this example does not use compression. 
 
-For this application, to define a data stream class, you must define an OMF type with "classification" set 
-to "dynamic". Note, that all OMF identifies are case sensitive.  
+For this application, to define a data stream class, you must define an OMF type with ``classification`` set 
+to ``dynamic``. Note, that all OMF identifies are case sensitive.  
 
 **Headers**
 
@@ -177,7 +182,7 @@ Finally, you assemble data values for the created container and send it to PI Se
       "value": 3.14 
   }] 
  
-Note, that "values" property is a JSON array, which can hold multiple values (with different timestamps) 
+Note, that the ``values`` property is a JSON array, which can hold multiple values (with different timestamps) 
 to be sent to the ingress endpoint in one message. 
 
 Step 5 – validate your data 
@@ -200,7 +205,8 @@ Step 6 – cleanup
 It is highly recommended that you clean up development environment when finished coding. 
 Perform the following two actions for this simple example:
 
-1. Stop the relay process by navigating to \%ProgramData\%\\OSIsoft\\Tau\\ folder, and deleting the "Relay.ConnectorHost" folder. 
+1. Stop the relay process by navigating to the ``\%ProgramData\%\\OSIsoft\\Tau\\`` folder, and deleting the 
+   ``Relay.ConnectorHost`` folder. 
 2. Delete your PI point from the PI Data Archive. You can use Point Builder to perform this task. 
 
 
