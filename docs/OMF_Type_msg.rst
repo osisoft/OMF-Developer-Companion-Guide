@@ -28,10 +28,10 @@ The keywords in the type definition are interpreted as follows:
 +----------------+-------------+---------------+------------------------------------------------------------+
 
 
-The ID value must be unique for all producers (OMF application instances) of a given type, which you specify 
-during producer registration. This means that in advanced scenarios, you may send type definitions only once 
-for all registered producers of this OMF application type – all of them will reuse the same definition cached 
-in the Relay, in the following folder:
+The ID value must be unique for all OMF application instances of a given type, which you specify 
+during application registration. This means that in advanced scenarios, you may send type definitions only once 
+for all registered applications of the specified OMF application type; all of the applications will reuse the 
+same definition that is cached in the Relay, in the following folder:
 
 ::
 
@@ -51,7 +51,7 @@ Template; otherwise the name value is used. The template name is assembled from 
   
 ::
 
-  OMF.{producer type as provided during its registration} Connector.{id|name} 
+  OMF.{application type as provided during its registration} Connector.{id|name} 
   
   Each property of the type, except those that are marked with keywords ``isindex`` or ``isname``, represent 
   Configuration AF Attributes (not referencing any data) in the AF Template. 
