@@ -28,16 +28,15 @@ Understand your data
 --------------------
 
 * Identify your assets 
-
    *  Physical assets, such as plants, sites, equipment, I/O devices, and so on. Physical assets can have static attributes, 
       which will stay immutable, or can have values whose changes will not be recorded in the data historian; for example, a serial 
       number of an I/O device. 
+      
    *  Logical assets, such as data streams (representing collections of values), which should be sent to Relay ingress as one 
       transaction; that is, all values of a given stream should be sent in one update, and no single value can be 
       skipped. Data for each of these points in the stream is recorded by the data historian with an appropriate timestamp. 
 
 * Identify hierarchical relationships between your physical and logical assets 
-
    *  Physical assets structure - The top-most asset, which might consist of a collection of equipment, each of which has 
       a collection of I/O devices. For example: consider a vehicle top-level asset with an engine child asset, 
       and wheels as children assets. 
@@ -47,7 +46,6 @@ Understand your data
 
 
 * Identify the reference model for your data in AF Server 
-
    *  A reference model can be thought of as a logical representation of your physical real-world data. The reference model 
       should be understandable from a technical perspective; it is not necessary for your entire organization to understand 
       it. Be aware of the tools provided with your PI System, such as AF Transformer, which allows 
@@ -67,7 +65,7 @@ c. Link your logical assets to appropriate AF elements to create dynamic element
 Write OMF messages to create your AF reference model and feed data into PI Server 
 ---------------------------------------------------------------------------------------
 
-For more information see OMF 1.0 specification. 
+
  
 a. Create OMF type definitions, which will represent your physical and logical real-world assets. 
    These type definitions will be sent to Relay ingress in OMF Type messages. 
@@ -88,7 +86,9 @@ d. Create links between:
    iii. OMF assets created from static OMF type definitions and OMF containers created from dynamic type definitions. 
    
 e. Send time-series values to the containers. These will be sent to Relay Ingress 
-   in OMF Data messages, and stored in PI Data Server. 
+   in OMF Data messages and stored in PI Data Server. 
+
+For more information see OMF 1.0 specification. 
 
 
 OMF application considerations
