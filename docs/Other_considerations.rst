@@ -1,5 +1,5 @@
-Other Considerations
-====================
+Additional development considerations
+=====================================
 
 This sections contains additional information you should be aware of when developing OMF applications.
 
@@ -30,7 +30,7 @@ Note the following:
 * The OMF asset identifier (which is the value assigned to the OMF static type property with the ``isindex`` designation), 
   is not required to be unique, but is case-sensitive in link definitions.
 * The OMF link definition is not currently immutable. After the OMF link definition is created, it can be redefined; 
-  however, care must be taken. For more information see “link definition considerations”.
+  however, care must be taken. For more information see `OMF link definition considerations`_.
 
 OMF type version considerations
 -------------------------------
