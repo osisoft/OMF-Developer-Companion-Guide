@@ -29,7 +29,7 @@ In a PI Server, an asset is interpreted as an AF Element. The properties in the 
 +----------------+-------------+---------------+------------------------------------------------------------+  
   
 Note that in the values array, properties of each asset designated with the ``isindex`` keyword must be unique. 
-The scope of uniqueness is the OMF application instance.   
+The scope of uniqueness is the OMF application.   
 
 Creating Links 
 --------------
@@ -68,7 +68,7 @@ Root Asset Links
 ----------------
 
 Root asset is presented in PI Server as a top-level AF element in the AF structure tree, which is a child 
-of a parent AF Element created for your OMF application instance. For this type of the link, 
+of a parent AF Element created for your OMF application. For this type of the link, 
 the source and target properties have the following keywords: 
 
 
@@ -185,8 +185,8 @@ in the container objects are interpreted as follows:
 
 Notes:
   All type definitions, containers, and assets, and the linkage, should be sent to the Relay ingress endpoint 
-  only one time: when the OMF application instance is started for the first time. Under normal circumstances, 
-  it should not be re-transmitted every time the OMF application instance is restarted. The Relay will have all necessary 
+  only one time: when the OMF application is started for the first time. Under normal circumstances, 
+  it should not be re-transmitted every time the OMF application is restarted. The Relay will have all necessary 
   information in its cache to successfully receive only container data values. 
 
   Dynamic type of the container may have more than one property (except ``isindex``, which always serves as a timestamp). 
