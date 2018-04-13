@@ -9,7 +9,7 @@ Understand your data
   and associated PI points) are created in PI AF and PI Data Servers, and updated with your time series data. 
 
 Write OMF messages to create your reference model and start feeding data into PI System 
-  After creating your development environment, you should register your development application instance 
+  After creating your development environment, you should register your development application 
   with the  PI Data Collection Manager to obtain appropriate authorization to feed data into the PI System, 
   and write and send OMF messages to the Relay Ingress HTTP(S) REST endpoint. 
     
@@ -140,12 +140,12 @@ As a rule of thumb, you should perform a cleanup:
    a.  Open Library, expand Templates/Element Templates. Delete all templates with names starting with "OMF". 
    b.  Open Library, expand Templates/Enumeration Sets. Delete all enumerations with names starting with "OMF". 
    c.  Open Elements, expand Elements root node. Delete all elements and their 
-       children elements that have names of your OMF application instances registrations. 
+       children elements that have names of your OMF application registrations. 
    d.  Check in your changes. 
    
 3. PI Data Archive PI points that were created after the container data values were sent. 
    In the PI System Management Tool, open Points/Point Builder. Search for and delete all PI tags that have names starting with 
-   your OMF application instance registration name. 
+   your OMF application registration name. 
  
  **When to clean up**
  
