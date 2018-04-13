@@ -3,8 +3,8 @@ Additional development considerations
 
 This sections contains additional information you should be aware of when developing OMF applications.
 
-OMF application considerations
-------------------------------
+OMF application type considerations
+-----------------------------------
 
 You specify the OMF application type when the OMF application instance is registered with PI Data Collection Manager. 
 The application type serves to classify a set of OMF applications that send the same metadata and time-series data to the PI System. 
@@ -30,7 +30,7 @@ Note the following:
   * If the instance is not the first OMF application of the given OMF application type, it must send OMF asset and link 
     definitions the first time it is run; OMF types and containers are optional.
   * The OMF asset identifier (which is the value assigned to the OMF static type property with the ``isindex`` designation), 
-    is not required to be unique, but is case-sensitive in link definitions.
+    is not required to be unique across all instances, but is case-sensitive in link definitions.
   * The OMF link definition is not currently immutable. After the OMF link definition is created, it can be redefined; 
     however, care must be taken. For more information see `OMF link definition considerations`_.
 
@@ -43,7 +43,7 @@ Attributes. In the AF Element structure, removed attributes have a value of Excl
 definitions, currently OMF supports only create actions, which means that you can create new versions, but you cannot 
 change or delete existing ones.
 
-The following modifications to OMF type definitions are allowed:
+The following modifications to OMF type definitions between different versions are allowed:
 
 -	Adding new properties to the type
 -	Removing properties from the type
