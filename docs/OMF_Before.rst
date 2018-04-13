@@ -3,17 +3,18 @@ Introduction
 
 Development of OMF applications generally adheres to the following sequence:
 
-Understand your data
+`Understand your data`_
   You must understand how the data you intend to send to PI System will be organized. 
   Your OMF messages must be written so that appropriate AF templates, enumerations, and element trees (with all required attributes 
   and associated PI points) are created in PI AF and PI Data Servers, and updated with your time series data. 
 
-Write OMF messages to create your reference model and start feeding data into PI System 
+`Write OMF messages to create your AF reference model and feed data into PI System`_ 
+  Write OMF messages to create your reference model and start feeding data into PI System 
   After creating your development environment, you should register your development application 
   with the  PI Data Collection Manager to obtain appropriate authorization to feed data into the PI System, 
   and write and send OMF messages to the Relay Ingress HTTP(S) REST endpoint. 
     
-Perform cleanup steps
+`Development Environment Cleanup`_
   After making development changes to your OMF types, instances, and links, you should clean up your environment
   by deleting tests and older versions. There are also some items that require manual cleanup. Note that OMF 
   ingress supports only 
@@ -62,8 +63,8 @@ b. Link your physical assets together to create appropriate AF tree structure.
 c. Link your logical assets to appropriate AF elements to create dynamic element attributes, 
    which store their values as time-series data in PI Server. 
 
-Write OMF messages to create your AF reference model and feed data into PI Server 
----------------------------------------------------------------------------------------
+Write OMF messages to create your AF reference model and feed data into PI System 
+----------------------------------------------------------------------------------
 
  
 a. Create OMF type definitions, which will represent your physical and logical real-world assets. 
