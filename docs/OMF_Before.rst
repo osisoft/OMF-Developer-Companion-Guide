@@ -8,11 +8,11 @@ Development of OMF applications generally adheres to the following sequence:
   Your OMF messages must be written so that appropriate AF templates, enumerations, and element trees (with all required attributes 
   and associated PI points) are created in PI AF and PI Data Servers, and updated with your time series data. 
 
-`Write OMF messages to create your AF reference model and feed data into PI System`_ 
+`Write the OMF application`_ 
   Write OMF messages to create your reference model and start feeding data into PI System 
   After creating your development environment, you should register your development application 
   with the  PI Data Collection Manager to obtain appropriate authorization to feed data into the PI System, 
-  and write and send OMF messages to the Relay Ingress HTTP(S) REST endpoint. 
+  and write and send OMF messages to the Relay Ingress HTTPS REST endpoint. 
     
 `Development Environment Cleanup`_
   After making development changes to your OMF types, instances, and links, you should clean up your environment
@@ -63,8 +63,8 @@ b. Link your physical assets together to create appropriate AF tree structure.
 c. Link your logical assets to appropriate AF elements to create dynamic element attributes, 
    which store their values as time-series data in PI Server. 
 
-Write OMF messages to create your AF reference model and feed data into PI System 
-----------------------------------------------------------------------------------
+Write the OMF application
+-------------------------
 
  
 a. Create OMF type definitions, which will represent your physical and logical real-world assets. 
