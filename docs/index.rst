@@ -24,6 +24,7 @@ describes how OMF is interpreted by the PI Server back end.
 
 .. toctree::
 
+   index
    OMF-Dev-Intro
    OMF_Quick_Start
 
