@@ -6,7 +6,7 @@ This sections contains additional information you should be aware of when develo
 OMF application type considerations
 -----------------------------------
 
-You specify the OMF application type when the OMF application instance is registered with PI Data Collection Manager. 
+You specify the OMF application type when the OMF application is registered with PI Data Collection Manager. 
 The application type serves to classify a set of OMF applications that send the same metadata and time-series data to the PI System. 
 
 For example, you might have multiple OMF applications running on equipment with the same make, model, and I/O configuration. 
@@ -15,17 +15,17 @@ measurements to the PI System. In this case, the type and container definitions 
 Note the following:
 
 * You create a single OMF type definition with a unique ID that is used by each OMF application. All other instances should 
-  use the same definition without any type changes. If an OMF application instance attempts to redefine an existing OMF type, an HTTP 
+  use the same definition without any type changes. If an OMF application attempts to redefine an existing OMF type, an HTTP 
   response status code of 400 (Bad Request) is returned with error code 9 (Type redefinition).
 * You create a single OMF container definition with a unique ``CONTAINERID`` that is used by each. All other instances should 
   use the same definition without any OMF container changes. If an OMF application attempts to redefine an existing OMF 
   container, an HTTP response status code 400 (Bad Request) is returned, with error code 11 (Container redefinition).
 * At any time, any instance of a given OMF application type may define and send a new OMF type or container definition. 
-  This definition then becomes available to all OMF application instances of the given OMF application type.
-* The OMF application type does not share OMF asset and link definitions between different OMF application instances of 
+  This definition then becomes available to all OMF applications of the given OMF application type.
+* The OMF application type does not share OMF asset and link definitions between different OMF applications of 
   the same type. Therefore:
   
-  * If the OMF application instance is the first application of the given OMF application type, it must send OMF type and 
+  * If the OMF application is the first application of the given OMF application type, it must send OMF type and 
     container definitions followed by OMF asset and link definitions the first time it is run. 
   * If the instance is not the first OMF application of the given OMF application type, it must send OMF asset and link 
     definitions the first time it is run; OMF types and containers are optional.
@@ -73,7 +73,7 @@ OMF link definition considerations
 OMF link definition creates AF Templates, Enumeration Sets, Attribute Templates, and finally instantiates AF Elements and 
 Attributes from the templates, and builds AF tree structure. In other words, link definitions creates everything related 
 to AF and metadata storage. It does not participate in PI Server modifications – PI point creation happens when OMF 
-application instance sends events to the defined containers.
+application sends events to the defined containers.
 
 Links between root, assets and containers are not currently immutable, so special care should be taken to not redefine 
 them unintentionally. 
