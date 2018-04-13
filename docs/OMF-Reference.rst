@@ -77,7 +77,7 @@ The following status codes are returned by PI Connector Relay accepting OMF mess
 | 400 Bad request     | The OMF message was malformed or not understood. The client should not retry sending the message       |
 |                     | without modifications.                                                                                 |
 +---------------------+--------------------------------------------------------------------------------------------------------+
-| 401 Unauthorized    | Authentication failed. Provided Producer Token was not recognized. Your OMF application instance is    |
+| 401 Unauthorized    | Authentication failed. Provided Producer Token was not recognized. Your OMF application is             |
 |                     | not registered with PI Data Collection Manager.                                                        |
 +---------------------+--------------------------------------------------------------------------------------------------------+
 | 403 Forbidden       | Authentication succeeded, but not authorized. Indicates either that the Producer Token expiration date |
