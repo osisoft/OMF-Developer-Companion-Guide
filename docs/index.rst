@@ -21,7 +21,6 @@ The OMF specification (located `here <http://omf-docs.osisoft.com/en/v1.0/>`_) i
 a particular back-end system. The information in these topics represent a companion to the OMF specification that 
 describes how OMF is interpreted by the PI Server back end. 
 
-This is a test
 
 
 .. toctree::
