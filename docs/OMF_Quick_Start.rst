@@ -212,7 +212,7 @@ Step 6 – cleanup
 It is highly recommended that you clean up development environment when finished coding. 
 Perform the following two actions for this simple example:
 
-1. Stop the relay process by navigating to the ``\%ProgramData\%\\OSIsoft\\Tau\\`` folder, and deleting the 
+1. Stop the relay process by navigating to the ``%ProgramData%\OSIsoft\Tau\`` folder, and deleting the 
    ``Relay.ConnectorHost`` folder. 
 2. Delete your PI point from the PI Data Archive. You can use Point Builder to perform this task. 
 
