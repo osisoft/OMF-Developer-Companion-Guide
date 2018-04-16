@@ -31,7 +31,7 @@ The keywords in the type definition are interpreted as follows:
 The ID value must be unique for all OMF application instances of a given type, which you specify 
 during application registration. This means that in advanced scenarios, you may send type definitions only once 
 for all registered applications of the specified OMF application type; all of the applications will reuse the 
-same definition that is cached in the Relay, in the following folder:
+same definition that is cached in the PI Connector Relay, in the following folder:
 
 ::
 
