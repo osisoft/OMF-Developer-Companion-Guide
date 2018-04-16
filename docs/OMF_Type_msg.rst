@@ -51,18 +51,18 @@ Template; otherwise the name value is used. The template name is assembled from 
   
 ::
 
-  OMF.{application type as provided during its registration} Connector.{id|name} 
+  OMF.{name of OMF application that you registered with DCM} Connector.{id|name} 
   
-  Each property of the type, except those that are marked with keywords ``isindex`` or ``isname``, represent 
-  Configuration AF Attributes (not referencing any data) in the AF Template. 
+Each property of the type, except those that are marked with keywords ``isindex`` or ``isname``, represent 
+Configuration AF Attributes (not referencing any data) in the AF Template. 
  
 Types with classification Dynamic 
 ---------------------------------
 
-Type with classification dynamic represents a data stream type (set of observed or calculated values) 
-presented in PI Server as PI points. 
-Each property of this type, except the property with the keyword ``isindex``, represent PI point referenced 
-AF Attribute in the AF Template, after you link this type under a static type. 
+A type with classification dynamic represents a data stream type (that is, a set of observed or calculated values) 
+presented in the PI Server as PI points. 
+Each property of this type, except the property with the keyword ``isindex``, represents a PI point referenced 
+AF Attribute in the AF Template, after you link this type to a static type. 
  
 Property Types and Formats 
 --------------------------
@@ -70,36 +70,36 @@ Property Types and Formats
 The following keywords are used to define a Type Property: 
 
 
-+----------------+-------------+---------------+---------------------------------------------------------------+
-| Property       | Type        | Optionality   | Details                                                       |
-+================+=============+===============+===============================================================+
-| ``type``       | String      | Required      | Required type of the Type Property which must match one of    |
-|                |             |               | those listed in the table below.                              |
-+----------------+-------------+---------------+---------------------------------------------------------------+
-| ``format``     | String      | Optional      | Optional format of the Type Propety type that, if             |
-|                |             |               | specified, must be from the table below.                      |
-+----------------+-------------+---------------+---------------------------------------------------------------+
-| ``isindex ``   | Boolean     | Required      | One Property must be designated as the index by supplying     |
-|                |             |               | the isindex keyword with a value of true. The designated      |
-|                |             |               | isindex property is used to uniquely identify discrete        |
-|                |             |               | Data objects so that they can be updated or deleted after     |
-|                |             |               | their initial creation.                                       |
-+----------------+-------------+---------------+---------------------------------------------------------------+
-| ``isname``     | Boolean     | Optional      | One Property may be optionally designated as the name by      |
-|                |             |               | supplying the isname keyword with a value of true. Because    |
-|                |             |               | the index must be unique across all Data objects, the         |
-|                |             |               | isname keyword allows for multiple distinct Data objects      |
-|                |             |               | to share a common name.                                       |
-+----------------+-------------+---------------+---------------------------------------------------------------+
-| ``enum``       | Array       | Optional      | Optional enumeration declaration. Contains an array of values |
-|                |             |               | for the enumeration set. The type of value is specified       |
-|                |             |               | by the keyword “type,” and can be set to ``integer``,         |
-|                |             |               | ``number``, or ``string``.                                    |
-+----------------+-------------+---------------+---------------------------------------------------------------+
-| ``name``       | String      | Optional      | Optional friendly name for the Property.                      |
-+----------------+-------------+---------------+---------------------------------------------------------------+
-| ``description``| String      | Optional      | Optional description for the Property.                        |
-+----------------+-------------+---------------+---------------------------------------------------------------+
++----------------+-------------+---------------+-------------------------------------------------------------------+
+| Property       | Type        | Optionality   | Details                                                           |
++================+=============+===============+===================================================================+
+| ``type``       | String      | Required      | Required type of the Type Property which must match one of        |
+|                |             |               | those listed in the table below.                                  |
++----------------+-------------+---------------+-------------------------------------------------------------------+
+| ``format``     | String      | Optional      | Optional format of the Type Propety type that, if                 |
+|                |             |               | specified, must be from the table below.                          |
++----------------+-------------+---------------+-------------------------------------------------------------------+
+| ``isindex ``   | Boolean     | Required      | One Property must be designated as the index by supplying         |
+|                |             |               | the ``isindex`` keyword with a value of ``true``. The designated  |
+|                |             |               | ``isindex`` property is used to uniquely identify discrete        |
+|                |             |               | Data objects so that they can be updated or deleted after         |
+|                |             |               | their initial creation.                                           |
++----------------+-------------+---------------+-------------------------------------------------------------------+
+| ``isname``     | Boolean     | Optional      | One Property may be optionally designated as the name by          |
+|                |             |               | supplying the isname keyword with a value of ``true``. Because    |
+|                |             |               | the index must be unique across all Data objects, the             |
+|                |             |               | ``isname`` keyword allows for multiple distinct Data objects      |
+|                |             |               | to share a common name.                                           |
++----------------+-------------+---------------+-------------------------------------------------------------------+
+| ``enum``       | Array       | Optional      | Optional enumeration declaration. Contains an array of values     |
+|                |             |               | for the enumeration set. The type of value is specified           |
+|                |             |               | by the keyword ``type,`` and can be set to ``integer``,           |
+|                |             |               | ``number``, or ``string``.                                        |
++----------------+-------------+---------------+-------------------------------------------------------------------+
+| ``name``       | String      | Optional      | Optional friendly name for the Property.                          |
++----------------+-------------+---------------+-------------------------------------------------------------------+
+| ``description``| String      | Optional      | Optional description for the Property.                            |
++----------------+-------------+---------------+-------------------------------------------------------------------+
 
 Note: PI Data Archive does not support ``Boolean`` data types. To overcome this limitation, you can use enumeration 
 sets, specifying a set of two values. For example: 
