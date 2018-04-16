@@ -84,7 +84,7 @@ The following is the list of required headers and values:
 
 ``producertoken``
   Set the value of this header to the Producer Token that you retrieved from the DCM when your 
-  application instance was registered. 
+  OMF application was registered. 
 ``messagetype``
   This header may contain one of the three values: ``type``, ``container`` or ``data``. The first message that is 
   sent to the ingress endpoint should always be of type ``type``.  
