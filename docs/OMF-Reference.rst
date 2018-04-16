@@ -4,7 +4,6 @@ OMF restrictions, limits, and error codes
 
 The OMF specification (located `here <http://omf-docs.osisoft.com/en/v1.0/>`_) is generic in that it does not specify a particular back-end system. 
 
-This topic is a companion to the OMF specification which describes how OMF is interpreted by PI Server back-end system. 
 
 Size Limits and Special Characters 
 ----------------------------------
@@ -50,7 +49,7 @@ sets, specifying a set of two values. For example:
 
 ``“type”: “string”, “enum”: [“False”, “True”].``
 
-The PI point data type for enumeration sets is ``digital``.
+The PI point data type for enumeration sets is ``digital``. In the PI Data Archive, 0 represents False 1 represents True.
 
 
 Message Headers
