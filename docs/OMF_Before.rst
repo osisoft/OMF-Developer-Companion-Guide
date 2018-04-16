@@ -30,20 +30,20 @@ Understand your data
 
 * Identify your assets 
    *  Physical assets, such as plants, sites, equipment, I/O devices, and so on. Physical assets can have static attributes, 
-      which will stay immutable, or can have values whose changes will not be recorded in the data historian; for example, a serial 
+      which will stay immutable, or can have values whose changes will not be recorded in PI Data Archive; for example, a serial 
       number of an I/O device. 
       
    *  Logical assets, such as data streams (representing collections of values), which should be sent to PI Connector Relay ingress as one 
       transaction; that is, all values of a given stream should be sent in one update, and no single value can be 
-      skipped. Data for each of these points in the stream is recorded by the data historian with an appropriate timestamp. 
+      skipped. Data for each of these points in the stream is recorded by PI Data Archive with an appropriate timestamp. 
 
 * Identify hierarchical relationships between your physical and logical assets 
    *  Physical assets structure - The top-most asset, which might consist of a collection of equipment, each of which has 
       a collection of I/O devices. For example: consider a vehicle top-level asset with an engine child asset, 
       and wheels as children assets. 
-   *  Logical assets, which can be attached to any of your physical assets. For example: consider a stream of two 
-      values – longitude and latitude, which can be attached to your vehicle asset, and a stream of one
-      value: RPM of the engine.
+   *  Logical assets can be attached to any of your physical assets. For example, consider a stream consisting  
+      longitude and latitude values. These values can be attached to your vehicle asset, together with one stream of 
+      engine RPM values.
 
 
 * Identify the reference model for your data in AF Server 
@@ -54,14 +54,7 @@ Understand your data
       AF Transformer, see this PI Developers Club article: `AF Transformer
       <https://pisquare.osisoft.com/community/developers-club/blog/2018/02/15/welcome-to-our-newest-utility-af-transformer>`_. 
 
-
-For more information about AF, see the 
-`PI Server documentation: <https://livelibrary.osisoft.com/LiveLibrary/web/ui.xql?action=html&resource=publist_home.html&pub_category=PI-Server>`_. 
  
-a. Map your physical assets to AF elements. 
-b. Link your physical assets together to create appropriate AF tree structure. 
-c. Link your logical assets to appropriate AF elements to create dynamic element attributes, 
-   which store their values as time-series data in PI Server. 
 
 Write the OMF application
 -------------------------
@@ -133,15 +126,16 @@ As a rule of thumb, you should perform a cleanup:
 
 1. PI Connector Relay temporary cache location. 
    Stop the PI Connector Relay process. By default, if not chosen during the PI Connector Relay setup, temporary data will be stored in
-   ``\%ProgramData\%\\OSIsoft\\Tau\\Relay.ConnectorHost``. Delete this folder. 
+   ``%ProgramData%\OSIsoft\Tau\Relay.ConnectorHost``. Delete this folder. 
    Deleting this folder removes all cache entires for all producers. 
    
-2. PI Server AF Database that you use to create your AF asset structure. Using PI System Explorer, perform the following:
+2. The AF Database that you use to create your AF asset structure. Using PI System Explorer, perform the following:
 
-   a.  Open Library, expand Templates/Element Templates. Delete all templates with names starting with "OMF". 
-   b.  Open Library, expand Templates/Enumeration Sets. Delete all enumerations with names starting with "OMF". 
-   c.  Open Elements, expand Elements root node. Delete all elements and their 
-       children elements that have names of your OMF application registrations. 
+   a.  In the Navigator pane, open Library, expand Templates/Element Templates, and delete all templates with names starting with "OMF". 
+   b.  In the Navigator pane, open Library, expand Templates/Enumeration Sets, and delete all enumerations with names starting with "OMF". 
+   c.  In the Navigator pane, open Elements, expand the Elements root node, and delete all elements and their 
+       children elements that have names with your OMF application registrations. Ensure you delete only the applications 
+       related to the one you are developing and not all of them.
    d.  Check in your changes. 
    
 3. PI Data Archive PI points that were created after the container data values were sent. 
@@ -152,4 +146,4 @@ As a rule of thumb, you should perform a cleanup:
  
 * Operation #1 is always required. 
 * Operation #2 is required if your application defines assets and links from OMF static type definitions. 
-* Operation #3 is required if you had previously sent timeseeries data values to containers. 
+* Operation #3 is required if you had previously sent time series data values to containers. 
