@@ -4,7 +4,7 @@ OMF Quick Start
 ===============
 
 This section provides a brief introduction to the steps necessary to begin the development of an OMF application to send
-data to a PI Server. Using the OMF 1.0 
+data to PI AF Server and PI Data Archive. Using the OMF 1.0 
 specification and the steps in this section, you can create a minimal data ingress OMF application. More 
 advanced example applications can be found in the `OMF samples 
 <https://github.com/osisoft/OMF-Samples>`_.
@@ -31,7 +31,7 @@ Before you begin, the following products should be installed and configured:
   delete cache files, and perform other actions which may prevent other data sources from sending data to 
   PI System. For more information, see *PI Connector Relay* user manual. 
 
-* PI Server 
+* PI AF Server and PI Data Archive
 
   You must have administrative access to the PI AF Server and PI Data Archive. One way to create such a development 
   environment is by creating a PI Developers Club subscription at `PI Square <https://pisquare.osisoft.com/>`_
