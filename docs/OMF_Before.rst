@@ -33,16 +33,16 @@ Understand your data
       which will stay immutable, or can have values whose changes will not be recorded in PI Data Archive; for example, a serial 
       number of an I/O device. 
       
-   *  Logical assets, such as data streams (representing collections of values), which should be sent to PI Connector Relay ingress as one 
-      transaction; that is, all values of a given stream should be sent in one update, and no single value can be 
-      skipped. Data for each of these points in the stream is recorded by PI Data Archive with an appropriate timestamp. 
+   *  Data stream measurements (representing collections of values), should be sent to PI Connector Relay ingress as one 
+      transaction; that is, all values of a given stream should be sent in one update, and no single value can be skipped. 
+      Data for each of the points in the stream is recorded by the data historian with an appropriate timestamp.
 
 * Identify hierarchical relationships between your physical and logical assets 
    *  Physical assets structure - The top-most asset, which might consist of a collection of equipment, each of which has 
       a collection of I/O devices. For example: consider a vehicle top-level asset with an engine child asset, 
       and wheels as children assets. 
-   *  Logical assets can be attached to any of your physical assets. For example, consider a stream consisting  
-      longitude and latitude values. These values can be attached to your vehicle asset, together with one stream of 
+   *  Data stream measurements can be attached to any of your physical assets. For example, consider a stream consisting  
+      of longitude and latitude values. These values can be attached to your vehicle asset, together with one stream of 
       engine RPM values.
 
 
