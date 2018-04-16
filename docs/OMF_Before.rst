@@ -12,7 +12,7 @@ Development of OMF applications generally adheres to the following sequence:
   Write OMF messages to create your reference model and start feeding data into PI System 
   After creating your development environment, you should register your development application 
   with the  PI Data Collection Manager to obtain appropriate authorization to feed data into the PI System, 
-  and write and send OMF messages to the Relay Ingress HTTPS REST endpoint. 
+  and write and send OMF messages to the PI Connector Relay Ingress HTTPS REST endpoint. 
     
 `Clean up the development environment`_
   After making development changes to your OMF types, instances, and links, you should clean up your environment
@@ -33,7 +33,7 @@ Understand your data
       which will stay immutable, or can have values whose changes will not be recorded in the data historian; for example, a serial 
       number of an I/O device. 
       
-   *  Logical assets, such as data streams (representing collections of values), which should be sent to Relay ingress as one 
+   *  Logical assets, such as data streams (representing collections of values), which should be sent to PI Connector Relay ingress as one 
       transaction; that is, all values of a given stream should be sent in one update, and no single value can be 
       skipped. Data for each of these points in the stream is recorded by the data historian with an appropriate timestamp. 
 
@@ -68,16 +68,16 @@ Write the OMF application
 
  
 a. Create OMF type definitions, which will represent your physical and logical real-world assets. 
-   These type definitions will be sent to Relay ingress in OMF Type messages. 
+   These type definitions will be sent to the PI Connector Relay  ingress in OMF Type messages. 
    
    i.  Physical assets will be presented by OMF types with ``classification: static``.
    ii. Logical assets will be presented by OMF types with ``classification: dynamic``. 
    
 b. Create OMF containers from dynamic type definitions, which will represent instances of your logical real-world assets, 
-   These will be sent to the Relay ingress in OMF Container messages. 
+   These will be sent to the PI Connector Relay ingress in OMF Container messages. 
    
 c. Create OMF assets from static type definitions, which will represent instances of your physical real-world assets.
-   These will be sent to Relay ingress in OMF Data messages. 
+   These will be sent to the PI Connector Relay ingress in OMF Data messages. 
    
 d. Create links between: 
 
@@ -85,7 +85,7 @@ d. Create links between:
    ii.  OMF assets created frorm statici type definitions (parent/child). 
    iii. OMF assets created from static OMF type definitions and OMF containers created from dynamic type definitions. 
    
-e. Send time-series values to the containers. These will be sent to Relay Ingress 
+e. Send time-series values to the containers. These will be sent to the PI Connector Relay ingress 
    in OMF Data messages and stored in PI Data Server. 
 
 For more information see OMF 1.0 specification. 
@@ -95,16 +95,16 @@ Clean up the development environment
 ------------------------------------
 
 In OMF applications, type and container definitions and their representations in PI System are immutable; that is, you cannot 
-change the properties of a type after it has been sent to the Relay's ingress endpoint. 
+change the properties of a type after it has been sent to the PI Connector Relay ingress endpoint. 
 The same is true for instances of these types (assets and containers), and linkage between them. After you 
 create instances of these types and link them together by sending container and data messages to 
-the Relay's ingress endpoint, you cannot redefine them. 
+the PI Connector Relay ingress endpoint, you cannot redefine them. 
 
 After the OMF application has been developed and deployed, the only modified data that is expected to be ingested 
 is your time-series data; that is, values that are sent to the container(s) in OMF data messages. 
 
-Only when an error occurs, such as when the Relay loses its cache, type, asset and container, or their linkage information, 
-should this metadata be re-sent to the Relay. To recover from errors, either handle appropriate error codes returned with 
+Only when an error occurs, such as when the PI Connector Relay loses its cache, type, asset and container, or their linkage information, 
+should this metadata be re-sent to the PI Connector Relay. To recover from errors, either handle appropriate error codes returned with 
 HTTP 400 responses, or send metadata information every time your 
 application restarts, making sure that no changes were made to the definitions and instantiations. 
  
@@ -131,8 +131,8 @@ As a rule of thumb, you should perform a cleanup:
 
 **What to clean up**
 
-1. Relay's temporary cache location. 
-   Stop the Relay process. By default, if not chosen during Relay setup, temporary data will be stored in
+1. PI Connector Relay temporary cache location. 
+   Stop the PI Connector Relay process. By default, if not chosen during the PI Connector Relay setup, temporary data will be stored in
    ``\%ProgramData\%\\OSIsoft\\Tau\\Relay.ConnectorHost``. Delete this folder. 
    Deleting this folder removes all cache entires for all producers. 
    
