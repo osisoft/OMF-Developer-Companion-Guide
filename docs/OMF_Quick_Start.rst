@@ -6,7 +6,8 @@ OMF Quick Start
 This section provides a brief introduction to the steps necessary to begin the development of an OMF application to send
 data to a PI Server. Using the OMF 1.0 
 specification and the steps in this section, you can create a minimal data ingress OMF application. More 
-advanced example applications can be found in the OMF samples. 
+advanced example applications can be found in the `OMF samples 
+<https://github.com/osisoft/Qi-Samples>`_.
 
 
 Development Environment 
@@ -32,7 +33,10 @@ Before you begin, the following products should be installed and configured:
 
 * PI Server 
 
-  You must have administrative access to the PI AF Server and PI Data Archive. While developing 
+  You must have administrative access to the PI AF Server and PI Data Archive. One way to create such a development 
+  environment is by creating a PI Developers Club subscription at `PI Square <https://pisquare.osisoft.com/>`_
+  
+  While developing 
   your OMF application, it will be necessary to delete intermediate AF templates, elements, and PI points. For 
   more information, see the *PI System Explorer* user manual and the *PI System Management Tools* user manual. 
   
@@ -58,7 +62,7 @@ Creating a minimal OMF application
 This section illustrates a very simple OMF application that feeds data into the PI Data Archive without 
 sending any data to the AF server. 
 
-Before you begin, you must register your application with the PI Data Collection Manager (DCM), 
+Before you begin, you must register your application with the DCM, 
 obtain a Producer Token and Relay Ingress URL. See the *DCM* user manual for more information. 
 
 Step 1 – OMF message headers
@@ -96,7 +100,7 @@ All OMF message content are formatted as a JSON array of objects. You can option
 GZIP compression. For clarity, this example does not use compression. 
 
 For this application, to define a data stream class, you must define an OMF type with ``classification`` set 
-to ``dynamic``. Note, that all OMF identifies are case sensitive.  
+to ``dynamic``. 
 
 **Headers**
 
@@ -182,6 +186,7 @@ Finally, you assemble data values for the created container and send it to PI Se
     "values": [{ 
       "timestamp": "2018-04-22T22:24:23.430Z", 
       "value": 3.14 
+      }]
   }] 
  
 Note, that the ``values`` property is a JSON array, which can hold multiple values (with different timestamps) 
