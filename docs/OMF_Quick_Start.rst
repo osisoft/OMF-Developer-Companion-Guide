@@ -7,7 +7,7 @@ This section provides a brief introduction to the steps necessary to begin the d
 data to a PI Server. Using the OMF 1.0 
 specification and the steps in this section, you can create a minimal data ingress OMF application. More 
 advanced example applications can be found in the `OMF samples 
-<https://github.com/osisoft/Qi-Samples>`_.
+<https://github.com/osisoft/OMF-Samples>`_.
 
 
 Development Environment 
