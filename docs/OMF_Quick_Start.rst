@@ -4,7 +4,7 @@ OMF Quick Start
 ===============
 
 This section provides a brief introduction to the steps necessary to begin the development of an OMF application to send
-data to PI AF Server and PI Data Archive. Using the OMF 1.0 
+data to PI System. Using the OMF 1.0 
 specification and the steps in this section, you can create a minimal data ingress OMF application. More 
 advanced example applications can be found in the `OMF samples 
 <https://github.com/osisoft/OMF-Samples>`_.
@@ -31,7 +31,7 @@ Before you begin, the following products should be installed and configured:
   delete cache files, and perform other actions which may prevent other data sources from sending data to 
   PI System. For more information, see *PI Connector Relay* user manual. 
 
-* PI AF Server and PI Data Archive
+* PI System
 
   You must have administrative access to the PI AF Server and PI Data Archive. One way to create such a development 
   environment is by creating a PI Developers Club subscription at `PI Square <https://pisquare.osisoft.com/>`_
@@ -60,7 +60,7 @@ Creating a minimal OMF application
 ----------------------------------
 
 This section illustrates a very simple OMF application that feeds data into the PI Data Archive without 
-sending any data to the AF server. 
+sending any data to the PI System. 
 
 Before you begin, you must register your application with the DCM, 
 obtain a Producer Token and Relay Ingress URL. See the *DCM* user manual for more information. 
@@ -165,7 +165,7 @@ created only for dynamic types.
 Step 4 – provide data values to the container and send them in OMF Data message 
 -------------------------------------------------------------------------------
 
-Finally, you assemble data values for the created container and send it to PI Server. 
+Finally, you assemble data values for the created container and send it to the PI System. 
 
 **Headers**
 
@@ -195,7 +195,7 @@ to be sent to the ingress endpoint in one message.
 Step 5 – validate your data 
 ---------------------------
 
-You should validate that the data was created successfully in PI Server, and that your data was stored successfully
+You should validate that the data was created successfully in PI System, and that your data was stored successfully
 in PI Data Archive. This simple example creates one PI point and stores one value in it. 
 
 To validate, open PI System Management Tools, navigate to Points/Point Builder, and search for your PI point. 
