@@ -14,7 +14,7 @@ All of these OMF applications generate the same reference models for each device
 measurements to the PI System. In this case, the type and container definitions for each of the OMF applications are identical. 
 Note the following:
 
-* You create a single OMF type definition with a unique ID that is used by each OMF application. All other instances should 
+* You create a single OMF type definition with a unique Id that is used by each OMF application. All other instances should 
   use the same definition without any type changes. If an OMF application attempts to redefine an existing OMF type, an HTTP 
   response status code of 400 (Bad Request) is returned with error code 9 (Type redefinition).
 * You create a single OMF container definition with a unique ``CONTAINERID`` that is used by each. All other instances should 
