@@ -108,7 +108,7 @@ sets, specifying a set of two values. For example:
 
 The PI point data type for enumeration sets is ``digital``.
 
-OMF supports setting the format keyword to specify how a particular JSON type should be interpreted in PI AF Server and PI Data Archive. 
+OMF supports setting the format keyword to specify how a particular JSON type should be interpreted in PI System. 
 
 
 +----------------+-------------+---------------+-------------------+
@@ -124,11 +124,11 @@ OMF supports setting the format keyword to specify how a particular JSON type sh
 +----------------+-------------+---------------+-------------------+
 | integer        | int16       | Int16         | Int16             |
 +----------------+-------------+---------------+-------------------+
-| integer        | uint64      | Uint64        | Float64           |
+| integer        | uint64      | Int64         | Float64           |
 +----------------+-------------+---------------+-------------------+
-| integer        | uint32      | Uint32        | Float64           |
+| integer        | uint32      | Int32         | Float64           |
 +----------------+-------------+---------------+-------------------+
-| number         | uint16      | Uint16        | Float64           |
+| number         | uint16      | Int16         | Float64           |
 +----------------+-------------+---------------+-------------------+
 | number         | float64     | Double        | Float64           |
 +----------------+-------------+---------------+-------------------+
