@@ -14,7 +14,7 @@ Development of OMF applications generally adheres to the following sequence:
   with the  PI Data Collection Manager to obtain appropriate authorization to feed data into the PI System, 
   and write and send OMF messages to the Relay Ingress HTTPS REST endpoint. 
     
-`Development Environment Cleanup`_
+`Clean up the development environment`_
   After making development changes to your OMF types, instances, and links, you should clean up your environment
   by deleting tests and older versions. There are also some items that require manual cleanup. Note that OMF 
   ingress supports only 
@@ -91,8 +91,8 @@ e. Send time-series values to the containers. These will be sent to Relay Ingres
 For more information see OMF 1.0 specification. 
 
 
-Development Environment Cleanup 
--------------------------------
+Clean up the development environment 
+------------------------------------
 
 In OMF applications, type and container definitions and their representations in PI System are immutable; that is, you cannot 
 change the properties of a type after it has been sent to the Relay's ingress endpoint. 
