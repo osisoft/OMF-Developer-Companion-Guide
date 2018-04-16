@@ -1,7 +1,7 @@
 Type Message 
 ============
 
-In PI Server, types are interpreted as either asset types or container types depending on type classification. 
+In PI AF Server and PI Data Archive, types are interpreted as either asset types or container types depending on type classification. 
 The keywords in the type definition are interpreted as follows: 
 
 +--------------------+-------------+---------------+------------------------------------------------------------+
@@ -41,10 +41,10 @@ Types with classification Static
 --------------------------------
 
 A type with classification ``static`` represents metadata describing an asset type as AF Element Template 
-in PI Server. 
+in PI AF Server. 
 
 The ``Id`` property of the static type is used to create and link concrete assets, to create AF Elements and 
-their structure in PI Server. 
+their structure. 
   
 If the optional name property is omitted from the definition, the ``Id`` value is used to name the AF Element 
 Template; otherwise the name value is used. The template name is assembled from the following parts: 
@@ -60,7 +60,7 @@ Types with classification Dynamic
 ---------------------------------
 
 A type with classification dynamic represents a data stream type (that is, a set of observed or calculated values) 
-presented in the PI Server as PI points. 
+presented in the PI AF Server as PI points. 
 Each property of this type, except the property with the keyword ``isindex``, represents a PI point referenced 
 AF Attribute in the AF Template, after you link this type to a static type. 
  
@@ -108,8 +108,7 @@ sets, specifying a set of two values. For example:
 
 The PI point data type for enumeration sets is ``digital``.
 
-OMF supports setting the format keyword to specify how particular JSON type should be interpreted in PI Server. 
-
+OMF supports setting the format keyword to specify how a particular JSON type should be interpreted in PI AF Server and PI Data Archive. 
 
 
 +----------------+-------------+---------------+-------------------+
@@ -145,7 +144,7 @@ OMF supports setting the format keyword to specify how particular JSON type shou
 +----------------+-------------+---------------+-------------------+
 
 Notes:
-  The property type object, and the array of item type object are not supported by PI Server. 
+  The property type object, and the array of item type object are not supported by PI AF Server. 
   Properties with ``isindex`` keyword must be of type String. 
   Poperties of a dynamic type with the ``isindex`` keyword must also include a format that has been set to date-time. 
   Properties with the ``isname`` keyword must be of type String. 
