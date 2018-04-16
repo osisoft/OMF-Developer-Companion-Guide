@@ -4,31 +4,31 @@ Type Message
 In PI Server, types are interpreted as either asset types or container types depending on type classification. 
 The keywords in the type definition are interpreted as follows: 
 
-+----------------+-------------+---------------+------------------------------------------------------------+
-| Property       | Type        | Optionality   | Details                                                    |
-+================+=============+===============+============================================================+
-| Id             | String      | Required      | Unique identifier of the type. See below for details.      |
-+----------------+-------------+---------------+------------------------------------------------------------+
-| classification | String      | Required      | Specifies whether the type is static or dynamic. See       |
-|                |             |               | below sections for details.                                |
-+----------------+-------------+---------------+------------------------------------------------------------+
-| type           | String      | Required      | Inherited from JSON Schema. Must be set to object.         |
-+----------------+-------------+---------------+------------------------------------------------------------+
-| properties     | Object      | Required      | Key-value pairs representing properties of the type.       |
-+----------------+-------------+---------------+------------------------------------------------------------+
-| Name           | String      | Optional      | Friendly name of the type.                                 |
-+----------------+-------------+---------------+------------------------------------------------------------+
-| description    | String      | Optional      | Description of the type.                                   |
-+----------------+-------------+---------------+------------------------------------------------------------+
-| version        | String      | Optional      | Version of the type. If omitted version 1.0.0.0 is assumed.|
-+----------------+-------------+---------------+------------------------------------------------------------+
-| tags           | Array       | Optional      | Not supported.                                             |
-+----------------+-------------+---------------+------------------------------------------------------------+
-| metadata       | Object      | Optional      | Not supported.                                             |
-+----------------+-------------+---------------+------------------------------------------------------------+
++--------------------+-------------+---------------+------------------------------------------------------------+
+| Property           | Type        | Optionality   | Details                                                    |
++====================+=============+===============+============================================================+
+| ``Id``             | String      | Required      | Unique identifier of the type. See below for details.      |
++--------------------+-------------+---------------+------------------------------------------------------------+
+| ``classification`` | String      | Required      | Specifies whether the type is static or dynamic. See       |
+|                    |             |               | below sections for details.                                |
++--------------------+-------------+---------------+------------------------------------------------------------+
+| ``type``           | String      | Required      | Inherited from JSON Schema. Must be set to object.         |
++--------------------+-------------+---------------+------------------------------------------------------------+
+| ``properties``     | Object      | Required      | Key-value pairs representing properties of the type.       |
++--------------------+-------------+---------------+------------------------------------------------------------+
+| ``Name``           | String      | Optional      | Friendly name of the type.                                 |
++--------------------+-------------+---------------+------------------------------------------------------------+
+| ``description``    | String      | Optional      | Description of the type.                                   |
++--------------------+-------------+---------------+------------------------------------------------------------+
+| ``version``        | String      | Optional      | Version of the type. If omitted version 1.0.0.0 is assumed.|
++--------------------+-------------+---------------+------------------------------------------------------------+
+| ``tags``           | Array       | Optional      | Not supported.                                             |
++--------------------+-------------+---------------+------------------------------------------------------------+
+| ``metadata``       | Object      | Optional      | Not supported.                                             |
++--------------------+-------------+---------------+------------------------------------------------------------+
 
 
-The ID value must be unique for all OMF application instances of a given type, which you specify 
+The ``Id`` value must be unique for all OMF application instances of a given type, which you specify 
 during application registration. This means that in advanced scenarios, you may send type definitions only once 
 for all registered applications of the specified OMF application type; all of the applications will reuse the 
 same definition that is cached in the PI Connector Relay, in the following folder:
@@ -43,10 +43,10 @@ Types with classification Static
 A type with classification ``static`` represents metadata describing an asset type as AF Element Template 
 in PI Server. 
 
-The Id property of the static type is used to create and link concrete assets, to create AF Elements and 
+The ``Id`` property of the static type is used to create and link concrete assets, to create AF Elements and 
 their structure in PI Server. 
   
-If the optional name property is omitted from the definition, the Id value is used to name the AF Element 
+If the optional name property is omitted from the definition, the ``Id`` value is used to name the AF Element 
 Template; otherwise the name value is used. The template name is assembled from the following parts: 
   
 ::
@@ -73,32 +73,32 @@ The following keywords are used to define a Type Property:
 +----------------+-------------+---------------+---------------------------------------------------------------+
 | Property       | Type        | Optionality   | Details                                                       |
 +================+=============+===============+===============================================================+
-| type           | String      | Required      | Required type of the Type Property which must match one of    |
+| ``type``       | String      | Required      | Required type of the Type Property which must match one of    |
 |                |             |               | those listed in the table below.                              |
 +----------------+-------------+---------------+---------------------------------------------------------------+
-| format         | String      | Optional      | Optional format of the Type Propety type that, if             |
+| ``format``     | String      | Optional      | Optional format of the Type Propety type that, if             |
 |                |             |               | specified, must be from the table below.                      |
 +----------------+-------------+---------------+---------------------------------------------------------------+
-| isindex        | Boolean     | Required      | One Property must be designated as the index by supplying     |
+| ``isindex ``   | Boolean     | Required      | One Property must be designated as the index by supplying     |
 |                |             |               | the isindex keyword with a value of true. The designated      |
 |                |             |               | isindex property is used to uniquely identify discrete        |
 |                |             |               | Data objects so that they can be updated or deleted after     |
 |                |             |               | their initial creation.                                       |
 +----------------+-------------+---------------+---------------------------------------------------------------+
-| isname         | Boolean     | Optional      | One Property may be optionally designated as the name by      |
+| ``isname``     | Boolean     | Optional      | One Property may be optionally designated as the name by      |
 |                |             |               | supplying the isname keyword with a value of true. Because    |
 |                |             |               | the index must be unique across all Data objects, the         |
 |                |             |               | isname keyword allows for multiple distinct Data objects      |
 |                |             |               | to share a common name.                                       |
 +----------------+-------------+---------------+---------------------------------------------------------------+
-| enum           | Array       | Optional      | Optional enumeration declaration. Contains an array of values |
+| ``enum``       | Array       | Optional      | Optional enumeration declaration. Contains an array of values |
 |                |             |               | for the enumeration set. The type of value is specified       |
 |                |             |               | by the keyword “type,” and can be set to ``integer``,         |
 |                |             |               | ``number``, or ``string``.                                    |
 +----------------+-------------+---------------+---------------------------------------------------------------+
-| name           | String      | Optional      | Optional friendly name for the Property.                      |
+| ``name``       | String      | Optional      | Optional friendly name for the Property.                      |
 +----------------+-------------+---------------+---------------------------------------------------------------+
-| description    | String      | Optional      | Optional description for the Property.                        |
+| ``description``| String      | Optional      | Optional description for the Property.                        |
 +----------------+-------------+---------------+---------------------------------------------------------------+
 
 Note: PI Data Archive does not support ``Boolean`` data types. To overcome this limitation, you can use enumeration 
