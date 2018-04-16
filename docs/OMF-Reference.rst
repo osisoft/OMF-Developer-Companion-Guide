@@ -49,7 +49,7 @@ sets, specifying a set of two values. For example:
 
 ``“type”: “string”, “enum”: [“False”, “True”].``
 
-The PI point data type for enumeration sets is ``digital``. In the PI Data Archive, 0 represents False 1 represents True.
+The PI point data type for enumeration sets is ``digital``. 
 
 
 Message Headers
