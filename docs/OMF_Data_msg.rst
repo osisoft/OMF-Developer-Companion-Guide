@@ -191,7 +191,7 @@ Notes:
 
   Dynamic type of the container may have more than one property (except ``isindex``, which always serves as a timestamp). 
   Remember that each property is presented as a PI point in PI Server. Values for every property of the container 
-  (specified in its type definition0, must be provided to the container values. All of the values are sent 
+  (specified in its type definition, must be provided to the container values. All of the values are sent 
   to PI Data Archive with the same timestamp. Omitting one of the values results in the default being stored
   in the Archive. For example, if you omit a value to a number property, PI point will receive a value of zero, 
   which might not be what was intended. 
