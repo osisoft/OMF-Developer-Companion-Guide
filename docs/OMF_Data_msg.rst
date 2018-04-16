@@ -184,9 +184,9 @@ in the container objects are interpreted as follows:
 +----------------+-------------+---------------+------------------------------------------------------------+
 
 Notes:
-  All type definitions, containers, and assets, and the linkage, should be sent to the Relay ingress endpoint 
+  All type definitions, containers, and assets, and the linkage, should be sent to the PI Connector Relay ingress endpoint 
   only one time: when the OMF application is started for the first time. Under normal circumstances, 
-  it should not be re-transmitted every time the OMF application is restarted. The Relay will have all necessary 
+  it should not be re-transmitted every time the OMF application is restarted. The PI Connector Relay will have all necessary 
   information in its cache to successfully receive only container data values. 
 
   Dynamic type of the container may have more than one property (except ``isindex``, which always serves as a timestamp). 
