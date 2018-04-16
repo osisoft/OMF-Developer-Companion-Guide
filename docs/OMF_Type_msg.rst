@@ -79,7 +79,7 @@ The following keywords are used to define a Type Property:
 | ``format``     | String      | Optional      | Optional format of the Type Propety type that, if                 |
 |                |             |               | specified, must be from the table below.                          |
 +----------------+-------------+---------------+-------------------------------------------------------------------+
-| ``isindex ``   | Boolean     | Required      | One Property must be designated as the index by supplying         |
+| ``isindex``    | Boolean     | Required      | One Property must be designated as the index by supplying         |
 |                |             |               | the ``isindex`` keyword with a value of ``true``. The designated  |
 |                |             |               | ``isindex`` property is used to uniquely identify discrete        |
 |                |             |               | Data objects so that they can be updated or deleted after         |
