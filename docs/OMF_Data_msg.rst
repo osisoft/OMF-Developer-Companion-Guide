@@ -2,7 +2,7 @@ Data Message
 ============
 
 
-In PI Server, a data message serves three different purposes: 
+In the PI System, a data message serves three different purposes: 
 
 1. Creating concrete assets from a static type definition, 
 2. Linking assets and containers together and forming AF Element/Attribute structure
@@ -12,7 +12,7 @@ In PI Server, a data message serves three different purposes:
 Creating Assets 
 ---------------
 
-In a PI Server, an asset is interpreted as an AF Element. The properties in the asset objects are interpreted as follows: 
+In a PI System, an asset is interpreted as an AF Element. The properties in the asset objects are interpreted as follows: 
   
 
 +----------------+-------------+---------------+------------------------------------------------------------+
@@ -56,7 +56,7 @@ Each link object has the following properties:
 | target         | String      | Required      | An object representing the target of the link or its child.|
 +----------------+-------------+---------------+------------------------------------------------------------+
 
-Three types of link objects are supported by PI Server: 
+Three types of link objects are supported by PI System: 
 
 1. Root asset links, which create top level AF elements
 
@@ -67,7 +67,7 @@ Three types of link objects are supported by PI Server:
 Root Asset Links 
 ----------------
 
-Root asset is presented in PI Server as a top-level AF element in the AF structure tree, which is a child 
+Root asset is presented in PI System as a top-level AF element in the AF structure tree, which is a child 
 of a parent AF Element created for your OMF application. For this type of the link, 
 the source and target properties have the following keywords: 
 
@@ -98,7 +98,7 @@ Notes:
 Parent/Child Asset Links 
 ------------------------
 
-Parent/Child relationship between assets presented in PI Server as child AF element attached to a 
+Parent/Child relationship between assets presented in PI System as child AF element attached to a 
 top level or any other sub-tree AF element parent. For this type of the link, source and target 
 properties have the following keywords: 
 
@@ -134,7 +134,7 @@ Note that only asset objects of type static can be used in both source and targe
 Asset/Container Links 
 ---------------------
 
-Asset/Container relationship between assets and container properties presented in PI Server as children 
+Asset/Container relationship between assets and container properties presented in PI System as children 
 AF Attributes configured with PI point references under the asset AF Element parent. For this type of link, 
 source and target properties have the following keywords: 
 
@@ -167,7 +167,7 @@ objects of dynamic types can be used in the target property.
 Feeding data to PI points 
 -------------------------
 
-In PI Server, container values are presented as timeseries snapshot values sent to PI points. The properties 
+In a PI System, container values are presented as timeseries snapshot values sent to PI points. The properties 
 in the container objects are interpreted as follows: 
  
 +----------------+-------------+---------------+------------------------------------------------------------+
@@ -190,7 +190,7 @@ Notes:
   information in its cache to successfully receive only container data values. 
 
   Dynamic type of the container may have more than one property (except ``isindex``, which always serves as a timestamp). 
-  Remember that each property is presented as a PI point in PI Server. Values for every property of the container 
+  Remember that each property is presented as a PI point in the PI System. Values for every property of the container 
   (specified in its type definition, must be provided to the container values. All of the values are sent 
   to PI Data Archive with the same timestamp. Omitting one of the values results in the default being stored
   in the Archive. For example, if you omit a value to a number property, PI point will receive a value of zero, 
