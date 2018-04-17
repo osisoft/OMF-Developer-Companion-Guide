@@ -36,6 +36,14 @@ same definition that is cached in the PI Connector Relay, in the following folde
 ::
 
   %ProgramData%\OSIsoft\Tau\Relay.ConnectorHost 
+  
+
+The default version for all OMF types is 1.0.0.0. If the default version ia acceptable, it is not necessary to specify 
+the version in the type definition or in the subsequent container, asset, or link definitions.
+
+If you choose to provide version information for the type, you must provide the same version with all container, asset, 
+and link definitions.
+  
  
 Types with classification Static 
 --------------------------------
