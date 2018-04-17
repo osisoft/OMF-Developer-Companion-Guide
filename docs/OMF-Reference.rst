@@ -94,14 +94,16 @@ The following status codes are returned by PI Connector Relay accepting OMF mess
 +-------------+--------------------------------+-----------------------------------------------------------------------+
 | Error code  | HTTP Status Code               | Description                                                           |
 +=============+================================+=======================================================================+
-| 1           | 401                            | Invalid access token. OMF application is not authorized to access     |
+| 1           | 401                            | Access token invalid. OMF application is not authorized to access     |
 |             |                                | relay's OMF ingress endpoint.                                         |
 +-------------+--------------------------------+-----------------------------------------------------------------------+
-| 2           | 403                            | Access token expired. OMF application's authorization to access       |
-|             |                                | relay's OMF ingress endpoint expired.                                 |
+| 2           | 403                            | Access token is expired. OMF application's authorization to access    |
+|             |                                | relay's OMF ingress endpoint has expired.                             |
 +-------------+--------------------------------+-----------------------------------------------------------------------+
-| 3           | 403                            | Access revoked. OMF application's access to relay's OMF ingress       |
+| 3           | 403                            | Access is revoked. OMF application's access to relay's OMF ingress    |
 |             |                                | endpoint was revoked.                                                 |
++-------------+--------------------------------+-----------------------------------------------------------------------+
+| 4           | 404                            |                                                                       |
 +-------------+--------------------------------+-----------------------------------------------------------------------+
 | 4           | 413                            | Payload size exceeds OMF body size limit.                             |
 +-------------+--------------------------------+-----------------------------------------------------------------------+
