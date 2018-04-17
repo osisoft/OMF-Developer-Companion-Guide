@@ -94,50 +94,50 @@ The following status codes are returned by PI Connector Relay accepting OMF mess
 +-------------+--------------------------------+-----------------------------------------------------------------------+
 | Error code  | HTTP Status Code               | Description                                                           |
 +=============+================================+=======================================================================+
-| 1           | 401                            | Access token invalid. OMF application is not authorized to access     |
-|             |                                | relay's OMF ingress endpoint.                                         |
+| 1           | 401                            | Access token invalid. The OMF application is not authorized to access |
+|             |                                | The PI Connector Relay OMF ingress endpoint.                          |
 +-------------+--------------------------------+-----------------------------------------------------------------------+
-| 2           | 403                            | Access token is expired. OMF application's authorization to access    |
-|             |                                | relay's OMF ingress endpoint has expired.                             |
+| 2           | 403                            | Access token expired. The OMF application's authorization to          |
+|             |                                | access the PI Connector relay OMF ingress endpoint has expired.       |
 +-------------+--------------------------------+-----------------------------------------------------------------------+
-| 3           | 403                            | Access is revoked. OMF application's access to relay's OMF ingress    |
-|             |                                | endpoint was revoked.                                                 |
+| 3           | 403                            | Access token revoked. The OMF application's access to the PI          |
+|             |                                | Connector Relay ingress endpoint was revoked.                         |
 +-------------+--------------------------------+-----------------------------------------------------------------------+
-| 4           | 404                            |                                                                       |
+| 4           | 400                            | Invalid message body.                                                 |
 +-------------+--------------------------------+-----------------------------------------------------------------------+
-| 4           | 413                            | Payload size exceeds OMF body size limit.                             |
+| 5           | 413                            | Payload size exceeds OMF body size limit.                             |
 +-------------+--------------------------------+-----------------------------------------------------------------------+
-| 5           | 400                            | Error decompressing GZIP compressed payload.                          |
+| 6           | 400                            | Error decompressing GZIP compressed payload.                          |
 +-------------+--------------------------------+-----------------------------------------------------------------------+
-| 6           | 400                            | Invalid OMF message headers.                                          |
+| 7           | 400                            | Invalid OMF message headers.                                          |
 +-------------+--------------------------------+-----------------------------------------------------------------------+
-| 7           | 400                            | Invalid JSON format.                                                  |
+| 8           | 400                            | Invalid JSON format.                                                  |
 +-------------+--------------------------------+-----------------------------------------------------------------------+
-| 8           | 400                            | Invalid OMF message syntax.                                           |
+| 9           | 400                            | Invalid OMF message syntax.                                           |
 +-------------+--------------------------------+-----------------------------------------------------------------------+
-| 9           | 400                            | Type redefinition.                                                    |
+| 10          | 400                            | Type redefinition.                                                    |
 +-------------+--------------------------------+-----------------------------------------------------------------------+
-| 10          | 400                            | Type is not defined.                                                  |
+| 11          | 400                            | Type is not defined.                                                  |
 +-------------+--------------------------------+-----------------------------------------------------------------------+
-| 11          | 400                            | Container redefinition.                                               |
+| 12          | 400                            | Container redefinition.                                               |
 +-------------+--------------------------------+-----------------------------------------------------------------------+
-| 12          | 400                            | Container is not defined.                                             |
+| 13          | 400                            | Container is not defined.                                             |
 +-------------+--------------------------------+-----------------------------------------------------------------------+
-| 13          | 400                            | Invalid container type classification.                                |
+| 14          | 400                            | Invalid container type classification.                                |
 +-------------+--------------------------------+-----------------------------------------------------------------------+
-| 14          | 400                            | Invalid root node link.                                               |
+| 15          | 400                            | Invalid root node link.                                               |
 +-------------+--------------------------------+-----------------------------------------------------------------------+
-| 15          | 400                            | Invalid source type link.                                             |
+| 16          | 400                            | Invalid source type link.                                             |
 +-------------+--------------------------------+-----------------------------------------------------------------------+
-| 16          | 400                            | Invalid target type link.                                             |
+| 17          | 400                            | Invalid target type link.                                             |
 +-------------+--------------------------------+-----------------------------------------------------------------------+
-| 17          | 400                            | Invalid value type for the property.                                  |
+| 18          | 400                            | Invalid value type for the property.                                  |
 +-------------+--------------------------------+-----------------------------------------------------------------------+
-| 18          | 400                            | Property does not exist in the type definition.                       |
+| 19          | 400                            | Property does not exist in the type definition.                       |
 +-------------+--------------------------------+-----------------------------------------------------------------------+
-| 19          | 400                            | Value is not part of enumeration.                                     |
+| 20          | 400                            | Value is not part of enumeration.                                     |
 +-------------+--------------------------------+-----------------------------------------------------------------------+
-| 20          | 400                            | Not implemented.                                                      |
+| 21          | 400                            | Not implemented.                                                      |
 +-------------+--------------------------------+-----------------------------------------------------------------------+
 
 
