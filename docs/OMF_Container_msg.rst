@@ -33,3 +33,8 @@ all of them will reuse the same declarations cached in PI Connector Relay, locat
 
   %ProgramData%\OSIsoft\Tau\Relay.ConnectorHost
 
+When creating a container, if you specify the version property with a value other than the default value of 1.0.0.0, 
+you must specify the same type version to the ``typeversion`` property of the container. Otherwise, the default 
+default ``typeversion`` of 1.0.0.0 is assumed.
+
+
