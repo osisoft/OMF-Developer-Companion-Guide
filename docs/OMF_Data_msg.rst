@@ -29,7 +29,13 @@ In a PI System, an asset is interpreted as an AF Element. The properties in the 
 +----------------+-------------+---------------+------------------------------------------------------------+  
   
 Note that in the values array, properties of each asset designated with the ``isindex`` keyword must be unique. 
-The scope of uniqueness is the OMF application.   
+The scope of uniqueness is the OMF application. 
+
+When creating an asset type definition, if you specify the version property with a value other than the default value of 
+1.0.0.0, you must specify the same type version in the typeversion property of the container. Otherwise, the default 
+default typeversion of 1.0.0.0 is assumed.
+
+
 
 Creating Links 
 --------------
@@ -94,6 +100,11 @@ the source and target properties have the following keywords:
 Notes:
   Only asset objects of type static can be used in the target property. 
   Static type ID specified in the target typeid must be put into the source typeid. 
+  
+When linking an asset, if you specify the version property of the root node with a value other than the default value of 
+1.0.0.0, you must specify the same type version in the typeversion property of the source and target properties. Otherwise, 
+the default default typeversion of 1.0.0.0 is assumed.
+
 
 Parent/Child Asset Links 
 ------------------------
@@ -131,6 +142,9 @@ properties have the following keywords:
 
 Note that only asset objects of type static can be used in both source and target properties. 
 
+When linking a source or target asset, if you specify the version property of the type definition with a value other 
+than the default value of 1.0.0.0, you must specify the same type version in the typeversion property of the source and target properties. Otherwise, the default default typeversion of 1.0.0.0 is assumed.
+
 Asset/Container Links 
 ---------------------
 
@@ -163,6 +177,12 @@ source and target properties have the following keywords:
 Note that only asset objects of static type can be used in the source property. In addition, only container 
 objects of dynamic types can be used in the target property. 
 
+When linking a source asset, if you specify the version property of the type definition with a value other 
+than the default value of 1.0.0.0, you must specify the same type version in the typeversion property of the source property. 
+Otherwise, the default default typeversion of 1.0.0.0 is assumed.
+
+It is not necessary to provide the typeversion property for the target property: containers already have the typeversion
+information from their definitions.
 
 Feeding data to PI points 
 -------------------------
