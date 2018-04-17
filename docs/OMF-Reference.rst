@@ -94,14 +94,11 @@ The following status codes are returned by PI Connector Relay accepting OMF mess
 +-------------+--------------------------------+-----------------------------------------------------------------------+
 | Error code  | HTTP Status Code               | Description                                                           |
 +=============+================================+=======================================================================+
-| 1           | 401                            | Access token invalid. The OMF application is not authorized to access |
-|             |                                | The PI Connector Relay OMF ingress endpoint.                          |
+| 1           | 401                            | Access token invalid.                                                 |
 +-------------+--------------------------------+-----------------------------------------------------------------------+
-| 2           | 403                            | Access token expired. The OMF application's authorization to          |
-|             |                                | access the PI Connector relay OMF ingress endpoint has expired.       |
+| 2           | 403                            | Access token expired.                                                 |
 +-------------+--------------------------------+-----------------------------------------------------------------------+
-| 3           | 403                            | Access token revoked. The OMF application's access to the PI          |
-|             |                                | Connector Relay ingress endpoint was revoked.                         |
+| 3           | 403                            | Access token revoked.                                                 |
 +-------------+--------------------------------+-----------------------------------------------------------------------+
 | 4           | 400                            | Invalid message body.                                                 |
 +-------------+--------------------------------+-----------------------------------------------------------------------+
