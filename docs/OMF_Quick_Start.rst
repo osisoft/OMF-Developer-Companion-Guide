@@ -21,7 +21,7 @@ Before you begin, the following products should be installed and configured:
   access to create a PI Server, PI Connector Relay, and OMF application nodes. You must also be able to establish 
   connections between them, and retrieve the necessary registration 
   information, which you will use in your OMF application for authentication and authorization. For 
-  more information, see *PI Data Collection Manager* user manual. 
+  more information, see the *PI Connector Administration Guide*. 
 
 
 * PI Connector Relay
