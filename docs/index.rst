@@ -3,7 +3,7 @@ OMF Developer Companion Guide
 
 The information in these topics describes how to create an application that uses the OSIsoft Message Format (OMF) 
 to send data to the OSIsoft PI Data Archive and PI Asset Framework Server using the PI Data Collection Manager (DCM). 
-See the *PI Connector Administration Guide* for information about the PI Data Collection Manager.
+See the `PI Connector Administration Guide <https://techsupport.osisoft.com/Downloads/File/40489fc5-e515-4669-b185-8866a9f9f616>`_ for information about the PI Data Collection Manager.
 
 The OSIsoft Message Format (OMF) defines a set of message headers and message bodies that are used to generate 
 compliant messages for inputting data into either an on-premises PI Server, OSIsoft Cloud Services, or another 
