@@ -27,7 +27,7 @@ from the following list:
   *'?;{}[]|`"\ 
 
 Note that it is not possible to specify the maximum length of several names or identities at once (similar to the PI 
-Server back-end which are presented as concatenations of each other). For example, if a PI AF Element Template name 
+Server back-end which are presented as concatenations of each other). For example, if an Asset Framework Element Template name 
 consists of the following parts: 
 
 OMF.{*OMF application type*} 
