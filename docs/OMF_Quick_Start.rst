@@ -34,11 +34,11 @@ Before you begin, the following products should be installed and configured:
 
 * PI System
 
-  You must have administrative access to the PI AF Server and PI Data Archive. One way to create such a development 
+  You must have administrative access to the Asset Framework Server and PI Data Archive. One way to create such a development 
   environment is by creating a PI Developers Club subscription at `PI Square <https://pisquare.osisoft.com/>`_
   
   While developing 
-  your OMF application, it will be necessary to delete intermediate AF templates, elements, and PI points. For 
+  your OMF application, it will be necessary to delete intermediate Asset Framework templates, elements, and PI points. For 
   more information, see the *PI System Explorer* user manual and the *PI System Management Tools* user manual. 
   
 To speed the development process, it is recommended that all of the above products be 
