@@ -5,8 +5,9 @@ Development of OMF applications generally adheres to the following sequence:
 
 `Understand your data`_
   You must understand how the data you intend to send to PI System will be organized. 
-  Your OMF messages must be written so that appropriate AF templates, enumerations, and element trees (with all required attributes 
-  and associated PI points) are created in PI AF and PI Data Servers, and updated with your time series data. 
+  Your OMF messages must be written so that appropriate Asset Framework templates, enumerations, and element 
+  trees (with all required attributes 
+  and associated PI points) are created in Asset Framework and PI Data Servers, and updated with your time series data. 
 
 `Write the OMF application`_ 
   Write OMF messages to create your reference model and start feeding data into PI System 
@@ -46,7 +47,7 @@ Understand your data
       engine RPM values.
 
 
-* Identify the reference model for your data in AF Server 
+* Identify the reference model for your data in Asset Framework 
    *  A reference model can be thought of as a logical representation of your physical real-world data. The reference model 
       should be understandable from a technical perspective; it is not necessary for your entire organization to understand 
       it. Be aware of the tools provided with your PI System, such as AF Transformer, which allows 
@@ -101,7 +102,7 @@ should this metadata be re-sent to the PI Connector Relay. To recover from error
 HTTP 400 responses, or send metadata information every time your 
 application restarts, making sure that no changes were made to the definitions and instantiations. 
  
-As a developer, you will have to deal with changes in the types and structures of your assets in AF and elsewhere. 
+As a developer, you will have to deal with changes in the types and structures of your assets in Asset Framework and elsewhere. 
 To manage such changes, you must understand how to properly clean up your development 
 environment, and when cleanup is required. 
  
@@ -129,7 +130,8 @@ As a rule of thumb, you should perform a cleanup:
    ``%ProgramData%\OSIsoft\Tau\Relay.ConnectorHost``. Delete this folder. 
    Deleting this folder removes all cache entires for all producers. 
    
-2. The AF Database that you use to create your AF asset structure. Using PI System Explorer, perform the following:
+2. The Asset Framework Database that you use to create your Asset Framework asset structure. Using PI System Explorer, 
+   perform the following:
 
    a.  In the Navigator pane, open Library, expand Templates/Element Templates, and delete all templates with names starting with "OMF". 
    b.  In the Navigator pane, open Library, expand Templates/Enumeration Sets, and delete all enumerations with names starting with "OMF". 
