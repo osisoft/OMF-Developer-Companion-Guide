@@ -5,14 +5,14 @@ Data Message
 In the PI System, a data message serves three different purposes: 
 
 1. Creating concrete assets from a static type definition, 
-2. Linking assets and containers together and forming AF Element/Attribute structure
+2. Linking assets and containers together and forming Asset Framework Element/Attribute structure
 3. Feeding container data values into PI Data Archive PI points. 
 
 
 Creating Assets 
 ---------------
 
-In a PI System, an asset is interpreted as an AF Element. The properties in the asset objects are interpreted as follows: 
+In a PI System, an asset is interpreted as an Asset Framework Element. The properties in the asset objects are interpreted as follows: 
   
 
 +----------------+-------------+---------------+------------------------------------------------------------+
@@ -64,17 +64,18 @@ Each link object has the following properties:
 
 Three types of link objects are supported by PI System: 
 
-1. Root asset links, which create top level AF elements
+1. Root asset links, which create top level Asset Framework elements
 
-2. Parent/child asset links, which create parent/child tree structure between AF elements, 
+2. Parent/child asset links, which create parent/child tree structure between Asset Framework elements, 
 
-3. Asset/container links, which attach all container properties as PI point referenced AF attributes to the AF element. 
+3. Asset/container links, which attach all container properties as PI point referenced Asset Framework 
+   attributes to the Asset Framework element. 
 
 Root Asset Links 
 ----------------
 
-Root asset is presented in PI System as a top-level AF element in the AF structure tree, which is a child 
-of a parent AF Element created for your OMF application. For this type of the link, 
+Root asset is presented in PI System as a top-level Asset Framework element in the Asset Framework structure tree, which is a child 
+of a parent Asset Framework Element created for your OMF application. For this type of the link, 
 the source and target properties have the following keywords: 
 
 
@@ -109,8 +110,8 @@ the default default typeversion of 1.0.0.0 is assumed.
 Parent/Child Asset Links 
 ------------------------
 
-Parent/Child relationship between assets presented in PI System as child AF element attached to a 
-top level or any other sub-tree AF element parent. For this type of the link, source and target 
+Parent/Child relationship between assets presented in PI System as child Asset Framework element attached to a 
+top level or any other sub-tree Asset Framework element parent. For this type of the link, source and target 
 properties have the following keywords: 
 
 
@@ -149,7 +150,7 @@ Asset/Container Links
 ---------------------
 
 Asset/Container relationship between assets and container properties presented in PI System as children 
-AF Attributes configured with PI point references under the asset AF Element parent. For this type of link, 
+Asset Framework Attributes configured with PI point references under the asset Asset Framework Element parent. For this type of link, 
 source and target properties have the following keywords: 
 
 
