@@ -1,7 +1,7 @@
 Type Message 
 ============
 
-In PI AF Server and PI Data Archive, types are interpreted as either asset types or container types depending on type classification. 
+In Asset Framework and PI Data Archive, types are interpreted either as asset types or container types depending on type classification. 
 The keywords in the type definition are interpreted as follows: 
 
 +--------------------+-------------+---------------+------------------------------------------------------------+
@@ -48,13 +48,13 @@ and link definitions.
 Types with classification Static 
 --------------------------------
 
-A type with classification ``static`` represents metadata describing an asset type as AF Element Template 
-in PI AF Server. 
+A type with classification ``static`` represents metadata describing an asset type as Asset Framework Element Template 
+in Asset Framework Server. 
 
-The ``Id`` property of the static type is used to create and link concrete assets, to create AF Elements and 
+The ``Id`` property of the static type is used to create and link concrete assets, to create Asset Framework Elements and 
 their structure. 
   
-If the optional name property is omitted from the definition, the ``Id`` value is used to name the AF Element 
+If the optional name property is omitted from the definition, the ``Id`` value is used to name the Asset Framework Element 
 Template; otherwise the name value is used. The template name is assembled from the following parts: 
   
 ::
@@ -62,15 +62,15 @@ Template; otherwise the name value is used. The template name is assembled from 
   OMF.{name of OMF application that you registered with DCM} Connector.{id|name} 
   
 Each property of the type, except those that are marked with keywords ``isindex`` or ``isname``, represent 
-Configuration AF Attributes (not referencing any data) in the AF Template. 
+Configuration Asset Framework Attributes (not referencing any data) in the Asset Framework Template. 
  
 Types with classification Dynamic 
 ---------------------------------
 
 A type with classification dynamic represents a data stream type (that is, a set of observed or calculated values) 
-presented in the PI AF Server as PI points. 
+presented in Asset Framework as PI points. 
 Each property of this type, except the property with the keyword ``isindex``, represents a PI point referenced 
-AF Attribute in the AF Template, after you link this type to a static type. 
+Asset Framework Attribute in the Asset Framework Template, after you link this type to a static type. 
  
 Property Types and Formats 
 --------------------------
@@ -120,7 +120,9 @@ OMF supports setting the format keyword to specify how a particular JSON type sh
 
 
 +----------------+-------------+---------------+-------------------+
-| Type           | Format      | PI AF Type    | PI DA Type        |
+| Type           | Format      | Asset         | PI DA Type        |
+|                |             | Framework     |                   |
+|                |             | Type          |                   |
 +================+=============+===============+===================+
 | array          |             | Array         |                   |
 +----------------+-------------+---------------+-------------------+
@@ -152,7 +154,7 @@ OMF supports setting the format keyword to specify how a particular JSON type sh
 +----------------+-------------+---------------+-------------------+
 
 Notes:
-  The property type object, and the array of item type object are not supported by PI AF Server. 
+  The property type object, and the array of item type object are not supported by Asset Framework. 
   Properties with ``isindex`` keyword must be of type String. 
   Poperties of a dynamic type with the ``isindex`` keyword must also include a format that has been set to date-time. 
   Properties with the ``isname`` keyword must be of type String. 
