@@ -38,8 +38,8 @@ OMF type version considerations
 -------------------------------
 
 The OMF type version allows you to modify OMF type definitions in a limited way. Note that using versioning of an existing 
-OMF static type does not create additional AF Element Templates, and only shows newly added type properties as template 
-Attributes. In the AF Element structure, removed attributes have a value of Excluded. Note that as with all other OMF 
+OMF static type does not create additional Asset Framework Element Templates, and only shows newly added type properties as template 
+Attributes. In the Asset Framework Element structure, removed attributes have a value of Excluded. Note that as with all other OMF 
 definitions, currently OMF supports only create actions, which means that you can create new versions, but you cannot 
 change or delete existing ones.
 
@@ -70,9 +70,9 @@ The following rules apply when using the ``typeversion`` keyword with container,
 OMF link definition considerations
 ----------------------------------
 
-OMF link definition creates AF Templates, Enumeration Sets, Attribute Templates, and finally instantiates AF Elements and 
-Attributes from the templates, and builds AF tree structure. In other words, link definitions creates everything related 
-to AF and metadata storage. It does not participate in PI Server modifications – PI point creation happens when OMF 
+OMF link definition creates Asset Framework Templates, Enumeration Sets, Attribute Templates, and finally instantiates Asset Framework Elements and 
+Attributes from the templates, and builds Asset Framework tree structure. In other words, link definitions creates everything related 
+to Asset Framework and metadata storage. It does not participate in PI Server modifications – PI point creation happens when OMF 
 application sends events to the defined containers.
 
 Links between root, assets and containers are not currently immutable, so special care should be taken to not redefine 
