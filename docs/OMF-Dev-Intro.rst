@@ -1,12 +1,12 @@
 PI System data ingress using OMF 
 ================================
 
-You use OSIsoft Message Format (OMF) to achieve high-throughput asynchronous data ingress into your PI System. See the OMF specification located `here <http://omf-docs.osisoft.com/en/v1.0/>`_.
+You use OSIsoft Message Format (OMF) to achieve high-throughput asynchronous data ingress into on-premise PI System. See the OMF specification located `here <http://omf-docs.osisoft.com/en/v1.0/>`_.
 
 The following terms and references might be useful for understanding the information in this and subsequent topics: 
 
-* A producer of OMF messages intended for the PI System is called an *OMF application*. 
-* Every OMF application must be registered with the PI System to be able to ingress OMF data. For details 
+* A producer of OMF messages intended for the on-premise PI System is called an *OMF application*. 
+* Every OMF application must be registered with the on-premise PI System to be able to ingress OMF data. For details 
   about the registration process, see the *PI Connector Administration Guide*. 
 * Upon registration, the OMF application is given a unique instance name. The name serves as a root Asset Framework Element node 
   name, and also as a prefix for all PI points created by the OMF application. 
