@@ -20,7 +20,7 @@ Development of OMF applications generally adheres to the following sequence:
   by deleting tests and older versions. There are also some items that require manual cleanup. Note that OMF 
   ingress supports only 
   the creation of data in the PI System and does not support deleting of objects from the PI System. Also, it is a 
-  good practice to create a seperate test or quality assurance system and database before testing or
+  good practice to create a separate test or quality assurance system and database before testing or
   attempting to write code on a production system. Having a test or QA system makes it easier to remove old 
   code and data and to recover from errors. 
 
@@ -76,7 +76,7 @@ c. Create OMF assets from static type definitions, which will represent instance
 d. Create links between: 
 
    i.   Root node and OMF assets created from static type definitions. 
-   ii.  OMF assets created frorm statici type definitions (parent/child). 
+   ii.  OMF assets created from static type definitions (parent/child). 
    iii. OMF assets created from static OMF type definitions and OMF containers created from dynamic type definitions. 
    
 e. Send time-series values to the containers. These will be sent to the PI Connector Relay ingress 

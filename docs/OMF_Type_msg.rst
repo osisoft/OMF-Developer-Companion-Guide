@@ -38,7 +38,7 @@ same definition that is cached in the PI Connector Relay, in the following folde
   %ProgramData%\OSIsoft\Tau\Relay.ConnectorHost 
   
 
-The default version for all OMF types is 1.0.0.0. If the default version ia acceptable, it is not necessary to specify 
+The default version for all OMF types is 1.0.0.0. If the default version is acceptable, it is not necessary to specify 
 the version in the type definition or in the subsequent container, asset, or link definitions.
 
 If you choose to provide version information for the type, you must provide the same version with all container, asset, 
@@ -84,7 +84,7 @@ The following keywords are used to define a Type Property:
 | ``type``       | String      | Required      | Required type of the Type Property which must match one of        |
 |                |             |               | those listed in the table below.                                  |
 +----------------+-------------+---------------+-------------------------------------------------------------------+
-| ``format``     | String      | Optional      | Optional format of the Type Propety type that, if                 |
+| ``format``     | String      | Optional      | Optional format of the Type Property type that, if                |
 |                |             |               | specified, must be from the table below.                          |
 +----------------+-------------+---------------+-------------------------------------------------------------------+
 | ``isindex``    | Boolean     | Required      | One Property must be designated as the index by supplying         |
@@ -142,9 +142,9 @@ OMF supports setting the format keyword to specify how a particular JSON type sh
 +----------------+-------------+---------------+-------------------+
 | number         | float64     | Double        | Float64           |
 +----------------+-------------+---------------+-------------------+
-|umber           | float32     | Single        | Float32           |
+| number         | float32     | Single        | Float32           |
 +----------------+-------------+---------------+-------------------+
-| number         | float16     | Single        |Float16            |
+| number         | float16     | Single        | Float16           |
 +----------------+-------------+---------------+-------------------+
 | object         | dictionary  |               |                   |
 +----------------+-------------+---------------+-------------------+
