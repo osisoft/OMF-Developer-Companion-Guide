@@ -1,7 +1,7 @@
 Type Message
 ============
 
-In the on-premise PI System, types are interpreted either as asset types or container types depending on type classification.
+In an on-premises PI System, types are interpreted either as asset types or container types depending on the type classification.
 The keywords in the type definition are interpreted as follows:
 
 +--------------------+-------------+---------------+------------------------------------------------------------+
@@ -115,7 +115,7 @@ sets, specifying a set of two values. For example:
 
 The PI point data type for enumeration sets is ``digital``.
 
-OMF supports setting the format keyword to specify how a particular JSON type should be interpreted in the on-premise PI System.
+OMF supports setting the format keyword to specify how a particular JSON type should be interpreted in an on-premises PI System.
 
 
 +----------------+-------------+---------------+-------------------+
@@ -153,7 +153,7 @@ OMF supports setting the format keyword to specify how a particular JSON type sh
 +----------------+-------------+---------------+-------------------+
 
 Notes:
-  On-premise PI System does not support properties of type ``object``, and arrays of items of type ``object``.
+  The on-premises PI System does not support properties of type ``object``, and arrays of items of type ``object``.
   Properties with ``isindex`` keyword must be of type String.
   Properties of a dynamic type with the ``isindex`` keyword must also include ``format`` keyword that is set to the value ``date-time``.
   Properties with the ``isname`` keyword must be of type String. 
