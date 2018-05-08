@@ -1,7 +1,7 @@
-On-premise PI System data ingress using OMF
-================================
+On-premises PI System data ingress using OMF
+============================================
 
-You use OSIsoft Message Format (OMF) to achieve high-throughput asynchronous data ingress into the on-premise PI System.
+You use OSIsoft Message Format (OMF) to achieve high-throughput asynchronous data ingress into an on-premises PI System.
 See the OMF specification located `here <http://omf-docs.osisoft.com/en/v1.0/>`_.
 
 The following terms and references might be useful for understanding the information in this and subsequent topics:
