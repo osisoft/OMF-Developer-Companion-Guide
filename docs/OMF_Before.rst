@@ -17,12 +17,12 @@ Development of OMF applications generally adheres to the following sequence:
 
 `Clean up the development environment`_
   After making development changes to your OMF types, instances, and links, you should clean up your environment
-  by deleting tests and older versions. There are also some items that require manual cleanup. Note that OMF
-  ingress supports only
-  the creation of data in the on-premise PI System and does not support deletions. Also, it is a
+  by deleting tests and older versions. There are also some items that require manual cleanup. Note that OMF 
+  ingress supports only 
+  the creation of data in the PI System and does not support deleting of objects from the PI System. Also, it is a 
   good practice to create a separate test or quality assurance system and database before testing or
-  attempting to write code on a production system. Having a test or QA system makes it easier to remove old
-  code and data and to recover from errors.
+  attempting to write code on a production system. Having a test or QA system makes it easier to remove old 
+  code and data and to recover from errors. 
 
 The sections below describe each of these points.
 
@@ -73,11 +73,10 @@ c. Create OMF assets from static type definitions, which will represent instance
 
 d. Create links, which will represent the structure of your reference model.
    These will be sent to the PI Connector Relay ingress endpoint in OMF Data messages and stored in PI Data Server.
-
-   i.   Root node and OMF assets created from static type definitions.
-   ii.  OMF assets created from static type definitions (parent/child).
-   iii. OMF assets created from static OMF type definitions and OMF containers created from dynamic type definitions.
-
+   i.   Root node and OMF assets created from static type definitions. 
+   ii.  OMF assets created from static type definitions (parent/child). 
+   iii. OMF assets created from static OMF type definitions and OMF containers created from dynamic type definitions. 
+   
 e. Send time-series values to the containers. These will be sent to the PI Connector Relay ingress endpoint
    in OMF Data messages and stored in PI Data Server.
 
