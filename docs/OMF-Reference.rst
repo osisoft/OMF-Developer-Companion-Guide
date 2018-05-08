@@ -55,8 +55,9 @@ The PI point data type for enumeration sets is ``digital``.
 Message Headers
 ---------------
 
-A description of each of the headers can be found in the *OMF specification*. When sending messages to the on-premise PI System, the value
-of the ``producertoken`` header must be set to a Producer Token that is obtained from the PI Data Collection Manager.
+A description of each of the headers can be found in the *OMF specification*. When sending messages to the on-premises 
+PI System, the value of the ``producertoken`` header must be set to a Producer Token that is obtained from the PI 
+Data Collection Manager.
 
 The Producer Token is used to authenticate the sender and to authorize the sender to feed data to PI Connector
 Relay ingress endpoint.
