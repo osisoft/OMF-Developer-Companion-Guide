@@ -1,16 +1,16 @@
-Type Message 
+Type Message
 ============
 
-In Asset Framework and PI Data Archive, types are interpreted either as asset types or container types depending on type classification. 
-The keywords in the type definition are interpreted as follows: 
+In the on-premise PI System, types are interpreted either as asset types or container types depending on type classification.
+The keywords in the type definition are interpreted as follows:
 
 +--------------------+-------------+---------------+------------------------------------------------------------+
 | Property           | Type        | Optionality   | Details                                                    |
 +====================+=============+===============+============================================================+
 | ``Id``             | String      | Required      | Unique identifier of the type. See below for details.      |
 +--------------------+-------------+---------------+------------------------------------------------------------+
-| ``classification`` | String      | Required      | Specifies whether the type is static or dynamic. See       |
-|                    |             |               | below sections for details.                                |
+| ``classification`` | String      | Required      | Specifies whether the type is ``static`` or ``dynamic``.   |
+|                    |             |               | See below sections for details.                            |
 +--------------------+-------------+---------------+------------------------------------------------------------+
 | ``type``           | String      | Required      | Inherited from JSON Schema. Must be set to object.         |
 +--------------------+-------------+---------------+------------------------------------------------------------+
@@ -28,54 +28,53 @@ The keywords in the type definition are interpreted as follows:
 +--------------------+-------------+---------------+------------------------------------------------------------+
 
 
-The ``Id`` value must be unique for all OMF application instances of a given type, which you specify 
-during application registration. This means that in advanced scenarios, you may send type definitions only once 
-for all registered applications of the specified OMF application type; all of the applications will reuse the 
+The ``Id`` value must be unique for all OMF application of a given OMF application type, which you specify
+during application registration. This means that in advanced scenarios, you may send type definitions only once
+for all registered applications of the specified OMF application type; all of the applications will reuse the
 same definition that is cached in the PI Connector Relay, in the following folder:
 
 ::
 
-  %ProgramData%\OSIsoft\Tau\Relay.ConnectorHost 
-  
+  %ProgramData%\OSIsoft\Tau\Relay.ConnectorHost
 
-The default version for all OMF types is 1.0.0.0. If the default version is acceptable, it is not necessary to specify 
-the version in the type definition or in the subsequent container, asset, or link definitions.
+The default version for all OMF types is 1.0.0.0. If the default version is acceptable, it is not necessary to specify
+the version in the type definition or in the subsequent container, asset, or link definitions, the default will be assumed.
 
-If you choose to provide version information for the type, you must provide the same version with all container, asset, 
+If you choose to provide version information for the type, you must provide the same version with all container, asset,
 and link definitions.
-  
- 
-Types with classification Static 
+
+
+Types with classification Static
 --------------------------------
 
-A type with classification ``static`` represents metadata describing an asset type as Asset Framework Element Template 
-in Asset Framework Server. 
+A type with classification ``static`` represents metadata describing an asset type as Asset Framework Element Template
+in Asset Framework Server.
 
-The ``Id`` property of the static type is used to create and link concrete assets, to create Asset Framework Elements and 
-their structure. 
-  
-If the optional name property is omitted from the definition, the ``Id`` value is used to name the Asset Framework Element 
-Template; otherwise the name value is used. The template name is assembled from the following parts: 
-  
+The ``Id`` property of the static type is used to create and link concrete assets, to create Asset Framework Elements and
+their structure.
+
+If the optional name property is omitted from the definition, the ``Id`` value is used to name the Asset Framework Element
+Template; otherwise the name value is used. The template name is assembled from the following parts:
+
 ::
 
-  OMF.{name of OMF application that you registered with DCM} Connector.{id|name} 
-  
-Each property of the type, except those that are marked with keywords ``isindex`` or ``isname``, represent 
-Configuration Asset Framework Attributes (not referencing any data) in the Asset Framework Template. 
- 
-Types with classification Dynamic 
+  OMF.{name of OMF application that you registered with DCM} Connector.{id|name}
+
+Each property of the type, except those that are marked with keywords ``isindex`` or ``isname``, represent
+Configuration Asset Framework Attributes (not referencing any data) in the Asset Framework Template.
+
+Types with classification Dynamic
 ---------------------------------
 
-A type with classification dynamic represents a data stream type (that is, a set of observed or calculated values) 
-presented in Asset Framework as PI points. 
-Each property of this type, except the property with the keyword ``isindex``, represents a PI point referenced 
-Asset Framework Attribute in the Asset Framework Template, after you link this type to a static type. 
- 
-Property Types and Formats 
+A type with classification ``dynamic`` represents a data stream type (that is, a set of observed or calculated values)
+presented in Data Archive as PI points.
+Each property of this type, except the property with the keyword ``isindex``, represents a PI point referenced
+Asset Framework Attribute in the Asset Framework Template, after you link this type to a static type.
+
+Property Types and Formats
 --------------------------
 
-The following keywords are used to define a Type Property: 
+The following keywords are used to define a Type Property:
 
 
 +----------------+-------------+---------------+-------------------------------------------------------------------+
@@ -94,8 +93,8 @@ The following keywords are used to define a Type Property:
 |                |             |               | their initial creation.                                           |
 +----------------+-------------+---------------+-------------------------------------------------------------------+
 | ``isname``     | Boolean     | Optional      | One Property may be optionally designated as the name by          |
-|                |             |               | supplying the isname keyword with a value of ``true``. Because    |
-|                |             |               | the index must be unique across all Data objects, the             |
+|                |             |               | supplying the ``isname`` keyword with a value of ``true``.        |
+|                |             |               | Because the index must be unique across all Data objects, the     |
 |                |             |               | ``isname`` keyword allows for multiple distinct Data objects      |
 |                |             |               | to share a common name.                                           |
 +----------------+-------------+---------------+-------------------------------------------------------------------+
@@ -109,14 +108,14 @@ The following keywords are used to define a Type Property:
 | ``description``| String      | Optional      | Optional description for the Property.                            |
 +----------------+-------------+---------------+-------------------------------------------------------------------+
 
-Note: PI Data Archive does not support ``Boolean`` data types. To overcome this limitation, you can use enumeration 
-sets, specifying a set of two values. For example: 
+Note: PI Data Archive does not support ``Boolean`` data types. To overcome this limitation, you can use enumeration
+sets, specifying a set of two values. For example:
 
 ``“type”: “string”, “enum”: [“False”, “True”].``
 
 The PI point data type for enumeration sets is ``digital``.
 
-OMF supports setting the format keyword to specify how a particular JSON type should be interpreted in PI System. 
+OMF supports setting the format keyword to specify how a particular JSON type should be interpreted in the on-premise PI System.
 
 
 +----------------+-------------+---------------+-------------------+
@@ -154,9 +153,7 @@ OMF supports setting the format keyword to specify how a particular JSON type sh
 +----------------+-------------+---------------+-------------------+
 
 Notes:
-  The property type object, and the array of item type object are not supported by Asset Framework. 
-  Properties with ``isindex`` keyword must be of type String. 
-  Poperties of a dynamic type with the ``isindex`` keyword must also include a format that has been set to date-time. 
+  On-premise PI System does not support properties of type ``object``, and arrays of items of type ``object``.
+  Properties with ``isindex`` keyword must be of type String.
+  Properties of a dynamic type with the ``isindex`` keyword must also include ``format`` keyword that is set to the value ``date-time``.
   Properties with the ``isname`` keyword must be of type String. 
-  
-  
