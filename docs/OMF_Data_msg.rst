@@ -90,7 +90,7 @@ the source and target properties have the following keywords:
 |                |             |             |               | asset.                                       |
 +----------------+-------------+-------------+---------------+----------------------------------------------+
 | target         | index       | String      | Required      | Asset name value as provided during its      |
-|                |             |             |               | creation to ``isindex`` property.                |
+|                |             |             |               | creation to ``isindex`` property.            |
 +----------------+-------------+-------------+---------------+----------------------------------------------+
 | target         | typeversion | String      | Optional      | Optional version of the type to be linked to |
 |                |             |             |               | or from. If omitted version 1.0.0.0 is       |
@@ -121,10 +121,10 @@ properties have the following keywords:
 |                |             |             |               | target asset.                                |
 +----------------+-------------+-------------+---------------+----------------------------------------------+
 | source         | index       | String      | Required      | Asset name value as provided during its      |
-|                |             |             |               | creation to ``isindex`` property.                |
+|                |             |             |               | creation to ``isindex`` property.            |
 +----------------+-------------+-------------+---------------+----------------------------------------------+
 | source         | typeversion | String      | Optional      | Optional version of the type to be linked to |
-|                |             |             |               | or from. If omitted version 1.0.0.0 is       |
+|                |             |             |               | or from. If omitted, version 1.0.0.0 is      |
 |                |             |             |               | assumed.                                     |
 +----------------+-------------+-------------+---------------+----------------------------------------------+
 | target         | typeid      | String      | Required      | ID of the static type definition used by the |
@@ -132,10 +132,10 @@ properties have the following keywords:
 |                |             |             |               | source asset.                                |
 +----------------+-------------+-------------+---------------+----------------------------------------------+
 | target         | index       | String      | Required      | Asset name value as provided during its      |
-|                |             |             |               | creation to ``isindex`` property.                |
+|                |             |             |               | creation to ``isindex`` property.            |
 +----------------+-------------+-------------+---------------+----------------------------------------------+
 | target         | typeversion | String      | Optional      | Optional version of the type to be linked to |
-|                |             |             |               | or from. If omitted version 1.0.0.0 is       |
+|                |             |             |               | or from. If omitted, version 1.0.0.0 is      |
 |                |             |             |               | assumed.                                     |
 +----------------+-------------+-------------+---------------+----------------------------------------------+
 
