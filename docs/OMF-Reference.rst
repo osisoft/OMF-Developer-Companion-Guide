@@ -89,6 +89,9 @@ The following status codes are returned by PI Connector Relay accepting OMF mess
 | 500 Internal Server | The server encountered an unexpected condition. Errors can be found in the Windows Event Viewer on the |
 | error               | machine running PI Connector Relay.                                                                    |
 +---------------------+--------------------------------------------------------------------------------------------------------+
+| 503 Service         | The server is currently unavailable, retry later. Indicates either that PI Connector Relay service is  |
+| Unavailable         | not running, or your OMF application uses wrong Ingress URL.                                           |
++---------------------+--------------------------------------------------------------------------------------------------------+
 
 **Error codes**
 

@@ -30,7 +30,8 @@ Before you begin, the following products should be installed and configured:
   You should install and configure your own development instance of the PI Connector Relay. During the
   development process, it will be necessary to stop and re-start the PI Connector Relay process, manually
   delete cache files, and perform other actions which may prevent other data sources from sending data to the
-  PI System. For more information, see *PI Connector Relay* user manual.
+  PI System. For more information, see the
+  `PI Connector Administration Guide <https://techsupport.osisoft.com/Downloads/File/40489fc5-e515-4669-b185-8866a9f9f616>`_.
 
 * PI Server
 
@@ -50,8 +51,10 @@ of configuring and securing the entire solution you build using OSIsoft PI Syste
 Programming language and run platform
 -------------------------------------
 
-The OMF 1.0 specification is written to be language and platform-agnostic. To start sending data to an on-premises PI
-System, all you need is an HTTP client and JSON libraries. For your convenience, OSIsoft provides several
+
+The `OMF 1.0 specification <http://omf-docs.osisoft.com/en/v1.0/>`_ is written to be language and platform-agnostic. To start sending data to the on-premise PI
+System, all that you need is an HTTP client and JSON libraries. For your convenience, OSIsoft provides several
+
 code samples written in Python 3.X, NodeJS, and Microsoft C#. Note, that you may use the samples only as
 reference material; the samples are not intended to be used in production systems.
 
@@ -63,8 +66,8 @@ Creating a minimal OMF application
 This section illustrates a very simple OMF application that feeds data into the PI Data Archive without
 sending any data to the Asset Framework.
 
-Before you begin, you must register your application with the DCM,
-obtain a Producer Token and Relay Ingress URL. See the *DCM* user manual for more information.
+Before you begin, you must register your application with the PI Data Collection Manager,
+obtain a Producer Token and Relay Ingress URL. See the `PI Connector Administration Guide <https://techsupport.osisoft.com/Downloads/File/40489fc5-e515-4669-b185-8866a9f9f616>`_ for more information.
 
 Step 1 – OMF message headers
 ----------------------------

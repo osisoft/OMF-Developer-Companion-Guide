@@ -17,12 +17,12 @@ Development of OMF applications generally adheres to the following sequence:
 
 `Clean up the development environment`_
   After making development changes to your OMF types, instances, and links, you should clean up your environment
-  by deleting tests and older versions. There are also some items that require manual cleanup. Note that OMF 
-  ingress supports only 
-  the creation of data in the PI System and does not support deleting of objects from the PI System. Also, it is a 
+  by deleting tests and older versions. There are also some items that require manual cleanup. Note that OMF
+  ingress supports only
+  the creation of data in the PI System and does not support deleting of objects from the PI System. Also, it is a
   good practice to create a separate test or quality assurance system and database before testing or
-  attempting to write code on a production system. Having a test or QA system makes it easier to remove old 
-  code and data and to recover from errors. 
+  attempting to write code on a production system. Having a test or QA system makes it easier to remove old
+  code and data and to recover from errors.
 
 The sections below describe each of these points.
 
@@ -63,22 +63,22 @@ a. Create OMF type definitions, which will represent your physical and logical r
    These type definitions will be sent to the PI Connector Relay ingress endpoint in OMF Type messages.
 
    i.  Physical assets will be presented by OMF types with ``classification: static``.
-   ii. Logical assets will be presented by OMF types with ``classification: dynamic``.
+   ii. Data stream measurements will be presented by OMF types with ``classification: dynamic``.
 
-b. Create OMF containers from dynamic type definitions, which will represent instances of your logical real-world assets,
+b. Create OMF containers from dynamic type definitions, which will represent instances of your data stream measurements.
    These will be sent to the PI Connector Relay ingress endpoint in OMF Container messages.
 
 c. Create OMF assets from static type definitions, which will represent instances of your physical real-world assets.
    These will be sent to the PI Connector Relay ingress endpoint in OMF Data messages.
 
 d. Create links, which will represent the structure of your reference model.
-   These will be sent to the PI Connector Relay ingress endpoint in OMF Data messages and stored in PI Data Server.
-   i.   Root node and OMF assets created from static type definitions. 
-   ii.  OMF assets created from static type definitions (parent/child). 
-   iii. OMF assets created from static OMF type definitions and OMF containers created from dynamic type definitions. 
-   
+   These will be sent to the PI Connector Relay ingress endpoint in OMF Data messages and stored in Asset Framework.
+   i.   Root node and OMF assets created from static type definitions.
+   ii.  OMF assets created from static type definitions (parent/child).
+   iii. OMF assets created from static OMF type definitions and OMF containers created from dynamic type definitions.
+
 e. Send time-series values to the containers. These will be sent to the PI Connector Relay ingress endpoint
-   in OMF Data messages and stored in PI Data Server.
+   in OMF Data messages and stored in Data Archive.
 
 For more information see `OMF 1.0 specification <http://omf-docs.osisoft.com/en/v1.0/>`_.
 
@@ -109,12 +109,12 @@ As a rule of thumb, you should perform a cleanup:
 
 * When changes were made to a container
 
-  * You redefined container typeid to another dynamic type definition
+  * You redefined container ``typeid`` to another dynamic type definition
 
 * When changes were made to a data (except that of data values that you send to containerids):
 
-  * You redefined asset typeid to another static type definition
-  * You changed anything that you previously sent in the "__LINK" object
+  * You redefined asset ``typeid`` to another static type definition
+  * You changed anything that you previously sent in the ``__LINK`` object
 
 **What to clean up**
 
@@ -137,7 +137,7 @@ As a rule of thumb, you should perform a cleanup:
    In the PI System Management Tool, open Points/Point Builder. Search for and delete all PI tags that have names starting with
    your OMF application registration name.
 
- **When to clean up**
+**When to clean up**
 
 * Operation #1 is always required.
 * Operation #2 is required if your application defines assets and links from OMF static type definitions.
