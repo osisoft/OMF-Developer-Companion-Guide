@@ -4,7 +4,7 @@ OMF Quick Start
 ===============
 
 This section provides a brief introduction to the steps necessary to begin the development of an OMF application to send
-data to the on-premise PI System. Using the OMF 1.0
+data to an on-premises PI System. Using the OMF 1.0
 specification and the steps in this section, you can create a minimal data ingress OMF application. More
 advanced example applications can be found in the `OMF samples
 <https://github.com/osisoft/OMF-Samples>`_.
@@ -51,8 +51,10 @@ of configuring and securing the entire solution you build using OSIsoft PI Syste
 Programming language and run platform
 -------------------------------------
 
+
 The `OMF 1.0 specification <http://omf-docs.osisoft.com/en/v1.0/>`_ is written to be language and platform-agnostic. To start sending data to the on-premise PI
 System, all that you need is an HTTP client and JSON libraries. For your convenience, OSIsoft provides several
+
 code samples written in Python 3.X, NodeJS, and Microsoft C#. Note, that you may use the samples only as
 reference material; the samples are not intended to be used in production systems.
 
@@ -200,7 +202,7 @@ to be sent to the ingress endpoint in one message.
 Step 5 – validate your data
 ---------------------------
 
-You should validate that the data was created successfully in the on-premise PI System.
+You should validate that the data was created successfully in the on-premises PI System.
 This simple example creates one PI point and stores three value in it.
 
 To validate, open PI System Management Tools, navigate to Points/Point Builder, and search for your PI point.

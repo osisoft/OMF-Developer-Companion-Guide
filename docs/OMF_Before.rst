@@ -4,15 +4,15 @@ Introduction
 Development of OMF applications generally adheres to the following sequence:
 
 `Understand your data`_
-  You must understand how the data you intend to send to the on-premise PI System will be organized.
+  You must understand how the data you intend to send to an on-premises PI System will be organized.
   Your OMF messages must be written so that appropriate Asset Framework templates, enumerations, and element
   trees (with all required attributes
   and associated PI points) are created in Asset Framework and Data Servers, and updated with your time series data.
 
 `Write the OMF application`_
-  Write OMF messages to create your reference model and start feeding data into the on-premise PI System.
+  Write OMF messages to create your reference model and start feeding data into the on-premises PI System.
   After creating your development environment, you should register your OMF application
-  with the  PI Data Collection Manager to obtain appropriate authorization to feed data into the on-premise PI System,
+  with the  PI Data Collection Manager to obtain appropriate authorization to feed data into the on-premises PI System,
   and write and send OMF messages to the PI Connector Relay Ingress HTTPS REST endpoint.
 
 `Clean up the development environment`_
@@ -48,7 +48,7 @@ Understand your data
 * Identify the reference model for your data in Asset Framework
    *  A reference model can be thought of as a logical representation of your physical real-world data. The reference model
       should be understandable from a technical perspective; it is not necessary for your entire organization to understand
-      it. Be aware of the tools provided with your on-premise PI System, such as AF Transformer, which allows
+      it. Be aware of the tools provided with your on-premises PI System, such as AF Transformer, which allows
       you to build different representations of your reference model for different business units. For more information about
       AF Transformer, see this PI Developers Club article: `AF Transformer
       <https://pisquare.osisoft.com/community/developers-club/blog/2018/02/15/welcome-to-our-newest-utility-af-transformer>`_.
@@ -86,7 +86,8 @@ For more information see `OMF 1.0 specification <http://omf-docs.osisoft.com/en/
 Clean up the development environment
 ------------------------------------
 
-In OMF applications, type and container definitions and their representations in on-premise PI System are immutable; that is, you cannot
+In OMF applications, type and container definitions and their representations in on-premises PI System 
+are immutable; that is, you cannot
 change the properties of a type after it has been sent to the PI Connector Relay ingress endpoint.
 The same is true for instances of these types (assets and containers), and linkage between them. After you
 create instances of these types and link them together by sending container and data messages to

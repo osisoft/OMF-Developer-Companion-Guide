@@ -2,7 +2,7 @@ Data Message
 ============
 
 
-In the on-premise PI System, a data message serves three different purposes:
+In an on-premises PI System, a data message serves three different purposes:
 
 1. Creating concrete assets from a static type definition,
 2. Linking assets and containers together and forming Asset Framework Element/Attribute structure
@@ -12,7 +12,7 @@ In the on-premise PI System, a data message serves three different purposes:
 Creating Assets
 ---------------
 
-In the on-premise PI System, an asset is interpreted as an Asset Framework Element. The properties in the asset objects are interpreted as follows:
+In an on-premises PI System, an asset is interpreted as an Asset Framework Element. The properties in the asset objects are interpreted as follows:
 
 
 +----------------+-------------+---------------+------------------------------------------------------------+
@@ -73,7 +73,7 @@ Three types of link objects are supported by PI System:
 Root Asset Links
 ----------------
 
-Root asset is presented in the on-premise PI System as a top-level Asset Framework element in the Asset Framework structure tree,
+The Root asset is presented in an on-premises PI System as a top-level Asset Framework element in the Asset Framework structure tree,
 which is a child of a parent Asset Framework Element created for your OMF application. For this type of the link,
 the source and target properties have the following keywords:
 
@@ -90,7 +90,7 @@ the source and target properties have the following keywords:
 |                |             |             |               | asset.                                       |
 +----------------+-------------+-------------+---------------+----------------------------------------------+
 | target         | index       | String      | Required      | Asset name value as provided during its      |
-|                |             |             |               | creation to ``isindex`` property.                |
+|                |             |             |               | creation to ``isindex`` property.            |
 +----------------+-------------+-------------+---------------+----------------------------------------------+
 | target         | typeversion | String      | Optional      | Optional version of the type to be linked to |
 |                |             |             |               | or from. If omitted version 1.0.0.0 is       |
@@ -121,10 +121,10 @@ properties have the following keywords:
 |                |             |             |               | target asset.                                |
 +----------------+-------------+-------------+---------------+----------------------------------------------+
 | source         | index       | String      | Required      | Asset name value as provided during its      |
-|                |             |             |               | creation to ``isindex`` property.                |
+|                |             |             |               | creation to ``isindex`` property.            |
 +----------------+-------------+-------------+---------------+----------------------------------------------+
 | source         | typeversion | String      | Optional      | Optional version of the type to be linked to |
-|                |             |             |               | or from. If omitted version 1.0.0.0 is       |
+|                |             |             |               | or from. If omitted, version 1.0.0.0 is      |
 |                |             |             |               | assumed.                                     |
 +----------------+-------------+-------------+---------------+----------------------------------------------+
 | target         | typeid      | String      | Required      | ID of the static type definition used by the |
@@ -132,10 +132,10 @@ properties have the following keywords:
 |                |             |             |               | source asset.                                |
 +----------------+-------------+-------------+---------------+----------------------------------------------+
 | target         | index       | String      | Required      | Asset name value as provided during its      |
-|                |             |             |               | creation to ``isindex`` property.                |
+|                |             |             |               | creation to ``isindex`` property.            |
 +----------------+-------------+-------------+---------------+----------------------------------------------+
 | target         | typeversion | String      | Optional      | Optional version of the type to be linked to |
-|                |             |             |               | or from. If omitted version 1.0.0.0 is       |
+|                |             |             |               | or from. If omitted, version 1.0.0.0 is      |
 |                |             |             |               | assumed.                                     |
 +----------------+-------------+-------------+---------------+----------------------------------------------+
 
@@ -148,7 +148,7 @@ Otherwise, the default ``typeversion`` of 1.0.0.0 is assumed.
 Asset/Container Links
 ---------------------
 
-Asset/Container relationship between assets and container properties presented in the on-premise PI System as children
+Asset/Container relationship between assets and container properties presented in an on-premises PI System as children
 Asset Framework Attributes configured with PI point references under the Asset Framework Element parent. For this type of link, 
 source and target properties have the following keywords:
 
@@ -187,7 +187,7 @@ information from their definitions.
 Feeding data to PI points
 -------------------------
 
-In the on-premise PI System, container values are presented as timeseries event values sent to Data Archive PI points. The properties
+In an on-premises PI System, container values are presented as timeseries event values sent to Data Archive PI points. The properties
 in the container objects are interpreted as follows:
 
 +----------------+-------------+---------------+------------------------------------------------------------+
@@ -210,7 +210,7 @@ Notes:
   information in its cache to successfully receive only container data values.
 
   Dynamic type of the container may have more than one property (except ``isindex``, which serves as a timestamp).
-  Remember that each property is presented as a PI point in the on-premise PI System. Values for every property of the container
+  Remember that each property is presented as a PI point in an on-premises PI System. Values for every property of the container
   (specified in its type definition, must be provided to the container values. All of the values are sent
   to PI Data Archive with the same timestamp. Omitting one of the values results in the default being stored
   in the Archive. For example, if you omit a value to a number property, PI point will receive a value of zero,

@@ -7,11 +7,11 @@ OMF application type considerations
 -----------------------------------
 
 You specify the OMF application type when the OMF application is registered with PI Data Collection Manager.
-The application type serves to classify a set of OMF applications that send the same metadata and time-series data to the on-premise PI System.
+The application type serves to classify a set of OMF applications that send the same metadata and time-series data to the on-premises PI System.
 
 For example, you might have multiple OMF applications running on equipment with the same make, model, and I/O configuration.
 All of these OMF applications generate the same reference models for each device, and send events of the same set of device
-measurements to the on-premise PI System. In this case, the type and container definitions for each of the OMF applications are identical.
+measurements to the on-premises PI System. In this case, the type and container definitions for each of the OMF applications are identical.
 Note the following:
 
 * You create a single OMF type definition with a unique Id that is used by each OMF application of the same type. All other instances should
