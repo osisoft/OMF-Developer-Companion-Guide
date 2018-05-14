@@ -136,7 +136,7 @@ As a rule of thumb, you should perform a cleanup:
    In the PI System Management Tool, open Points/Point Builder. Search for and delete all PI tags that have names starting with
    your OMF application registration name.
 
- **When to clean up**
+**When to clean up**
 
 * Operation #1 is always required.
 * Operation #2 is required if your application defines assets and links from OMF static type definitions.
