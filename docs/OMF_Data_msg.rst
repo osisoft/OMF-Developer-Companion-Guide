@@ -84,7 +84,7 @@ the source and target properties have the following keywords:
 | source         | typeid      | String      | Required      | ID of the static type definition used by the |
 |                |             |             |               | asset.                                       |
 +----------------+-------------+-------------+---------------+----------------------------------------------+
-| source         | index       | String      | Required      | Value must be set to __ROOT.                 |
+| source         | index       | String      | Required      | Value must be set to _ROOT.                  |
 +----------------+-------------+-------------+---------------+----------------------------------------------+
 | target         | typeid      | String      | Required      | ID of the static type definition used by the |
 |                |             |             |               | asset.                                       |
