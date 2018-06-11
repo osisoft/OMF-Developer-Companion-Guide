@@ -3,8 +3,8 @@ Additional development considerations
 
 This sections contains additional information you should be aware of when developing OMF applications.
 
-OMF application type considerations
------------------------------------
+OMF version 1.0 application type considerations
+-----------------------------------------------
 
 You specify the OMF application type when the OMF application is registered with PI Data Collection Manager.
 The application type serves to classify a set of OMF applications that send the same metadata and time-series data to the on-premises PI System.
@@ -34,8 +34,8 @@ Note the following:
   * The OMF link definition is not currently immutable. After the OMF link definition is created, it can be redefined;
     however, care must be taken. For more information see `OMF link definition considerations`_.
 
-OMF type version considerations
--------------------------------
+OMF version 1.0 type version considerations
+-------------------------------------------
 
 The OMF type version allows you to modify OMF type definitions in a limited way. Note that using versioning of an existing
 OMF static type does not create additional Asset Framework Element Templates, and only shows newly added type properties as template
@@ -67,8 +67,8 @@ The following rules apply when using the ``typeversion`` keyword with container,
   they have this information since definition.
 
 
-OMF link definition considerations
-----------------------------------
+OMF version 1.0 link definition considerations
+----------------------------------------------
 
 OMF link definition creates Asset Framework Templates, Enumeration Sets, Attribute Templates, and finally instantiates Asset Framework Elements and
 Attributes from the templates, and builds Asset Framework reference model structure. In other words, link definitions creates everything related
