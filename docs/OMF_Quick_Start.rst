@@ -1,7 +1,7 @@
 .. _OMF_Quick_Start_topic:
 
-OMF Quick Start
-===============
+OMF version 1.0 Quick Start
+===========================
 
 This section provides a brief introduction to the steps necessary to begin the development of an OMF application to send
 data to an on-premises PI System. Using the OMF 1.0
