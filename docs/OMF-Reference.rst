@@ -1,6 +1,6 @@
 
-OMF restrictions, limits, and error codes
-=========================================
+OMF version 1.0 restrictions, limits, and error codes
+=====================================================
 
 The OMF specification (located `here <http://omf-docs.osisoft.com/en/v1.0/>`_) is generic in that it does not specify a particular back-end system.
 
