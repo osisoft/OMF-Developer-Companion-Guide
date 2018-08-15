@@ -12,7 +12,7 @@ In an on-premises PI System, a data message serves three different purposes:
 Creating Assets
 ---------------
 
-In an on-premises PI System, an asset is interpreted as an Asset Framework Element. The properties in the asset objects are interpreted as follows:
+In an on-premises LOREM IPSUM PI System, an asset is interpreted as an Asset Framework Element. The properties in the asset objects are interpreted as follows:
 
 
 +----------------+-------------+---------------+------------------------------------------------------------+
